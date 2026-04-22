@@ -1,0 +1,122 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Debug Eureka",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/eureka",
+      "mainClass": "cl.duoc.eureka.TorneosEurekaApplication",
+      "projectName": "cl-duoc-eureka",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Debug ms-usuarios",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ms-usuarios",
+      "mainClass": "cl.duoc.usuarios.TorneosUsuariosApplication",
+      "projectName": "cl-duoc-usuarios",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Debug ms-autenticaciones",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ms-autenticaciones",
+      "mainClass": "cl.duoc.autenticaciones.TorneosAutenticacionesApplication",
+      "projectName": "cl-duoc-autenticaciones",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Debug ms-juegos",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ms-juegos",
+      "mainClass": "cl.duoc.juegos.TorneosJuegosApplication",
+      "projectName": "cl-duoc-juegos",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Debug ms-torneos",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ms-torneos",
+      "mainClass": "cl.duoc.torneos.TorneosTorneosApplication",
+      "projectName": "cl-duoc-torneos",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Debug ms-equipos",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ms-equipos",
+      "mainClass": "cl.duoc.equipos.TorneosEquiposApplication",
+      "projectName": "cl-duoc-equipos",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Debug ms-partidas",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ms-partidas",
+      "mainClass": "cl.duoc.partidas.TorneosPartidasApplication",
+      "projectName": "cl-duoc-partidas",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Debug ms-inscripciones",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ms-inscripciones",
+      "mainClass": "cl.duoc.inscripciones.TorneosInscripcionesApplication",
+      "projectName": "cl-duoc-inscripciones",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Debug ms-ranking",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ms-ranking",
+      "mainClass": "cl.duoc.ranking.TorneosRankingApplication",
+      "projectName": "cl-duoc-ranking",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Debug ms-notificaciones",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ms-notificaciones",
+      "mainClass": "cl.duoc.notificaciones.TorneosNotificacionesApplication",
+      "projectName": "cl-duoc-notificaciones",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Debug ms-estadisticas",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ms-estadisticas",
+      "mainClass": "cl.duoc.estadisticas.TorneosEstadisticasApplication",
+      "projectName": "cl-duoc-estadisticas",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug All Services",
+      "configurations": [
+        "Debug Eureka",
+        "Debug ms-usuarios",
+        "Debug ms-autenticaciones",
+        "Debug ms-juegos",
+        "Debug ms-torneos",
+        "Debug ms-equipos",
+        "Debug ms-partidas",
+        "Debug ms-inscripciones",
+        "Debug ms-ranking",
+        "Debug ms-notificaciones",
+        "Debug ms-estadisticas"
+      ]
+    }
+  ]
+}
