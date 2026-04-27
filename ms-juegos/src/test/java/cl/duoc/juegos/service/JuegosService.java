@@ -13,6 +13,7 @@ import cl.duoc.juegos.model.Juegos;
 import cl.duoc.juegos.repository.JuegosRepository;
 import lombok.RequiredArgsConstructor;
 
+
 @Service
 @RequiredArgsConstructor
 public class JuegosService {
@@ -30,12 +31,18 @@ public class JuegosService {
         return juegosMapper.toResponse(juegos);
     }
 
+    public JuegosResponse findByGenero(String genero){
+        Juegos juegos = juegosRepository.findByGenero(genero)
+            .orElseThrow(()-> new JuegoNotFoundException(genero));
+        return juegosMapper.toResponse(juegos);
+    }
+
     public JuegosResponse create(JuegosRequest request){
-        if (juegosRepository.existsByGenero(request.getGenero())){
-            String catalogoExistente = juegosRepository.findByGenero(request.getGenero())
-            .map(Juegos::getCatalogo)
+        if (juegosRepository.existsByGenero(request.getNombre())){
+            String nombreExistente = juegosRepository.findByGenero(request.getGenero())
+            .map(Juegos::getNombre)
             .orElse("Desconocido");
-            throw new GeneroDuplicadoException(request.getGenero(), catalogoExistente);
+            throw new GeneroDuplicadoException(request.getGenero(), nombreExistente);
         }
 
         Juegos juegos = juegosMapper.toModel(request);
@@ -48,5 +55,28 @@ public class JuegosService {
         return juegosMapper.toResponse(guardado);
     }
 
-    
+    public JuegosResponse update(int id, JuegosRequest request){
+        Juegos existente = juegosRepository.findById(id)
+        .orElseThrow(()-> new JuegoNotFoundException(id));
+        
+        if (!existente.getGenero().equalsIgnoreCase(request.getGenero())){
+            if (juegosRepository.existsByGenero(request.getGenero())) {
+                juegosRepository.findByGenero(request.getGenero()).ifPresent(juegos ->{
+                    throw new GeneroDuplicadoException(request.getGenero(), juegos.getNombre());
+                });
+            }
+        }
+
+        existente.setNombre(request.getNombre());
+        existente.setGenero(request.getGenero());
+        existente.setDescripcion(request.getDescripcion());
+
+        Juegos guardado = juegosRepository.save(existente);
+        return juegosMapper.toResponse(guardado);
+    }
+
+    public void deleteById(int id){
+        juegosRepository.findById(id).orElseThrow(()-> new JuegoNotFoundException(id));
+        juegosRepository.deleteById(id);
+    }
 }

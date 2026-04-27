@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Juegos {
     private Integer id;
-    private String catalogo;
+    private String nombre;
     private String genero;
-    private String plataforma;
+    private String descripcion;
 }

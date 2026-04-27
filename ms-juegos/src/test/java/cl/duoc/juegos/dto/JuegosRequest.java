@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class JuegosRequest {
     @NotBlank(message = "El nombre del juego no puede estar vacio")
-    private String catalogo;
+    private String nombre;
     private String genero;
-    private String plataforma;
+    private String descripcion;
 }

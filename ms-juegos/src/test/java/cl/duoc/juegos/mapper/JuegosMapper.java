@@ -12,9 +12,9 @@ import cl.duoc.juegos.model.Juegos;
 @Mapper(componentModel = "spring")
 public interface JuegosMapper {
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "catalogo", ignore = true)
+    @Mapping(target = "nombre", ignore = true)
     @Mapping(target = "genero", ignore = true)
-    @Mapping(target = "plataforma", ignore = true)
+    @Mapping(target = "descripcion", ignore = true)
     
     Juegos toModel(JuegosRequest request);
     JuegosResponse toResponse(Juegos juegos);
