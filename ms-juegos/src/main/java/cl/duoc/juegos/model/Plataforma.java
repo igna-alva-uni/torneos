@@ -6,12 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Juegos {
+public class Plataforma {
     private Integer id;
-    private String nombre;
-    private String genero;
-    private String descripcion;
+    private String nom_plataforma;
 }
