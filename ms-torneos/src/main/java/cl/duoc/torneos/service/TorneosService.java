@@ -31,7 +31,7 @@ public class TorneosService {
 
     public TorneosResponse create(TorneosRequest request){
         if (torneosRepository.existsByJuego(request.getVideojuego())){
-            String torneoExiste = torneosRepository.findByJuego(request.getVideojuego())
+            torneosRepository.findByJuego(request.getVideojuego())
                     .map(Torneos::getNombre)
                     .orElseThrow(()-> new TorneoNotFoundException(request.getVideojuego()));
             throw new IllegalArgumentException("El torneo ya existe");

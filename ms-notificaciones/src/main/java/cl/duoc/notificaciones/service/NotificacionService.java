@@ -10,6 +10,7 @@ import cl.duoc.notificaciones.model.Notificacion;
 import cl.duoc.notificaciones.repository.NotificacionRepository;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class NotificacionService {
@@ -26,7 +27,7 @@ public class NotificacionService {
             throw new NotificacionException("Datos incompletos");
         }
 
-        Notificacion n = mapper.toEntity(dto);
+        Notificacion n = Objects.requireNonNull(mapper.toEntity(dto), "La nnotificci+om no puede ser nula");
         repo.save(n);
 
         return "Notificación guardada correctamente";

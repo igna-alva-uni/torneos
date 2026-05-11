@@ -2,10 +2,8 @@ package cl.duoc.torneos.controller;
 
 import cl.duoc.torneos.dto.TorneosRequest;
 import cl.duoc.torneos.dto.TorneosResponse;
-import cl.duoc.torneos.model.Torneos;
 import cl.duoc.torneos.service.TorneosService;
 import jakarta.validation.Valid;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,12 +34,12 @@ public class TorneosController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TorneosResponse> update(@PathVariable @NonNull int id, @Valid @RequestBody TorneosRequest request) {
+    public ResponseEntity<TorneosResponse> update(@PathVariable @Valid int id, @Valid @RequestBody TorneosRequest request) {
         return ResponseEntity.ok(torneosService.update(id,request));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable @NonNull int id) {
+    public ResponseEntity<Void> delete(@PathVariable @Valid int id) {
         torneosService.delete(id);
         return ResponseEntity.noContent().build();
     }
