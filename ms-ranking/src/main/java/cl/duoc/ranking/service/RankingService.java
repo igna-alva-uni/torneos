@@ -36,8 +36,8 @@ public class RankingService {
             .orElseThrow(()-> new RankingNotFoundException(tipoRanking));
         return rankingMapper.toResponse(ranking);
     }
-     
-     public RankingResponse create(RankingRequest request){
+    
+    public RankingResponse create(RankingRequest request){
         if (rankingRepository.existsByTipo(request.getTipoRanking())){
             String tipoExistente = rankingRepository.findByTipo(request.getTipoRanking())
             .map(Ranking::getTipoRanking)
