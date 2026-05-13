@@ -19,10 +19,9 @@ public class Notificacion {
     private Integer idNotificacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_tipo_notificacion", nullable = false)
+    @JoinColumn(name = "id_tipo_notificacion", referencedColumnName = "id_tipo_notificacion", nullable = false)
     private TipoNotificacion tipoNotificacion;
 
-    @Lob
     @Column(name = "mensaje", nullable = false)
     private String mensaje;
 

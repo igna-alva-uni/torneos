@@ -1,18 +1,13 @@
 package cl.duoc.notificaciones.model;
 
-public class NotificacionUsuario {
-    package cl.duoc.notificaciones.model;
-
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "notificaciones_usuario")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Table(name = "notificaciones_usuario")
 public class NotificacionUsuario {
 
     @Id
@@ -28,8 +23,5 @@ public class NotificacionUsuario {
     private Notificacion notificacion;
 
     @Column(name = "leida")
-    @Builder.Default
-    private Boolean leida = false;
-}
-
+    private Boolean leida;
 }

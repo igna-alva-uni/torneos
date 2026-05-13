@@ -1,21 +1,15 @@
 package cl.duoc.notificaciones.model;
 
-public class TipoNotificacion {
-    package cl.duoc.notificaciones.model;
-
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "tipos_notificacion", uniqueConstraints = {
-    @UniqueConstraint(columnNames = "nombre_tipo_notificacion")
-})
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Table(name = "tipos_notificacion", uniqueConstraints = {@UniqueConstraint(columnNames = "nombre_tipo_notificacion")})
 public class TipoNotificacion {
 
     @Id
@@ -30,4 +24,4 @@ public class TipoNotificacion {
     private List<Notificacion> notificaciones;
 }
 
-}
+
