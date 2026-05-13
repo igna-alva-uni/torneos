@@ -1,13 +1,14 @@
 package cl.duoc.usuarios.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import cl.duoc.usuarios.dtos.user.UserRequest;
 import cl.duoc.usuarios.dtos.user.UserResponse;
 import cl.duoc.usuarios.mapper.UserMapper;
-import cl.duoc.usuarios.model.UserModel;
+import cl.duoc.usuarios.model.User;
 import cl.duoc.usuarios.repository.UserRepository;
 import lombok.AllArgsConstructor;
 
@@ -17,31 +18,61 @@ public class UserService {
     private final UserMapper mapper;
     private final UserRepository userRepo;
 
-    public void addUser(UserRequest request) {
-        UserModel newUser = mapper.toModel(request);
-        int id = userRepo.getAllUsers().size() + 1;
-        while (userRepo.getUserById(id) != null) {
-            id++;
+    public UserResponse addUser(UserRequest request) {
+        if (userRepo.findByEmail(request.getEmail()).isPresent()) {
+            throw new IllegalArgumentException("Email ya registrado");
         }
-        newUser.setId(id);
-        userRepo.addUser(newUser);
+
+        if (userRepo.findByUsername(request.getUsername()).isPresent()) {
+            throw new IllegalArgumentException("Username ya registrado");
+        }
+
+        User user = mapper.toModel(request);
+
+        User saved = userRepo.save(user);
+        return mapper.toResponse(saved);
     }
 
-    public UserResponse getUserById(int id) {
-        return mapper.toResponse(userRepo.getUserById(id));
+    public UserResponse getUserById(Long id) {
+        User user = userRepo.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
+        return mapper.toResponse(user);
     }
 
     public List<UserResponse> getAllUsers() {
-        return mapper.toResponseList(userRepo.getAllUsers());
+        return mapper.toResponseList(userRepo.findAll());
     }
 
-    public void updateUser(int id, UserRequest request) {
-        UserModel updatedUser = mapper.toModel(request);
-        userRepo.updateUser(id, updatedUser);
+    public UserResponse updateUser(Long id, UserRequest request) {
+        if (!userRepo.findById(id).isPresent()){
+            throw new IllegalArgumentException("no existe ningun ususario con ese id")
+        }
+
+        userRepo.findByEmail(request.getEmail())
+            .filter(u -> !u.getId().equals(id))
+            .ifPresent(u -> {throw new RuntimeException("EMAIL_YA_REGISTRADO");});
+
+        userRepo.findByUsername(request.getUsername())
+            .filter(u -> !u.getId().equals(id))
+            .ifPresent(u -> {throw new RuntimeException("USERNAME_YA_EXISTE");});
+        
+
+        User user = userRepo.findById(id);
+
+        user.setUsername(request.getUsername());
+        user.setEmail(request.getEmail());
+
+        User updated = userRepo.save(user);
+
+        return mapper.toResponse(updated);
+
     }
 
-    public void deleteUser(int id) {
-        userRepo.deleteUserById(id);
+    public void deleteUser(Long id) {
+        if (!userRepo.existsById(id)) {
+            throw new RuntimeException("USUARIO_NO_ENCONTRADO");
+        }
+        userRepo.deleteById(id);
     }
 
 }

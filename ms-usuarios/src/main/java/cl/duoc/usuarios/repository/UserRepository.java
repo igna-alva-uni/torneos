@@ -1,55 +1,16 @@
 package cl.duoc.usuarios.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import cl.duoc.usuarios.model.UserModel;
-import lombok.AllArgsConstructor;
+import cl.duoc.usuarios.model.User;
 
 
-@AllArgsConstructor
 @Repository
-public class UserRepository{
-    private List<UserModel> userList = new ArrayList<>();
+public interface UserRepository  extends JpaRepository<User, Long> {
+    
+    Optional<User> findByUsername(String username);
 
-    public void addUser(UserModel user) {
-        userList.add(user);
-    }
-
-    public UserModel getUserById(int id) {
-        for (UserModel user : userList) {
-            if (user.getId() == id) {
-                return user;
-            }
-        }
-        return null;
-    }
-
-    public List<UserModel> getAllUsers() {
-        return List.copyOf(userList);
-    }
-
-    public boolean deleteUserById(int id) {
-        for (UserModel user : userList) {
-            if (user.getId() == id) {
-                userList.remove(user);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean updateUser(int id, UserModel updatedUser) {
-        for (UserModel user : userList) {
-            if (user.getId() == id) {
-                user.setUsername(updatedUser.getUsername());
-                user.setEmail(updatedUser.getEmail());
-                return true;
-            }
-        }
-        return false;
-    }
+    Optional<User> findByEmail(String email);
 
 }
