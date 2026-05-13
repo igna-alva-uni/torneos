@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 
 public class RankingResponse {
     private Integer id;
-    private String regitroRanking;
+    private String registroRanking;
     private String tipoRanking;
     private String rankings;
 

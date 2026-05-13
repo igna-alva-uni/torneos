@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class RankingRequest {
     @NotBlank(message = "El nombre del Ranking no puede estar vacio")
-    private String regitroRanking;
+    private String registroRanking;
     private String tipoRanking;
     private String rankings;
 

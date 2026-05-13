@@ -2,7 +2,6 @@ package cl.duoc.ranking.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.List;
 
 @Entity
 @Table(name = "registros_ranking", uniqueConstraints = {
