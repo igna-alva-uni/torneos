@@ -1,36 +1,33 @@
 package cl.duoc.notificaciones.model;
 
 import jakarta.persistence.*;
+import lombok.*;
+import java.util.List;
 
 @Entity
+@Table(name = "notificaciones")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Notificacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_notificacion", nullable = false)
+    private Integer idNotificacion;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tipo_notificacion", nullable = false)
+    private TipoNotificacion tipoNotificacion;
+
+    @Lob
+    @Column(name = "mensaje", nullable = false)
     private String mensaje;
-    private String usuario;
 
-    public Notificacion() {}
+    @OneToMany(mappedBy = "notificacion", cascade = CascadeType.ALL)
+    private List<NotificacionUsuario> notificacionesUsuarios;
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getMensaje() {
-        return mensaje;
-    }
-
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 }
+   
