@@ -69,7 +69,7 @@ public class EquipoController {
         return rolService.getById(id);
     }
 
-    @PutMapping("roles/{id}")
+    @PutMapping("/roles/{id}")
     public RolEquipoResponse putRol(@PathVariable Long id, @RequestBody RolEquipoRequest request) {
         return rolService.updateRol(id, request);
     }
