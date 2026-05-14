@@ -17,11 +17,11 @@ public class PaisService {
     private final PaisMapper mapper;
 
     public PaisResponse addPais(PaisRequest request) {
-        if (paisRepo.findByCodigo(request.getCodigoPais()) .isPresent()) {
+        if (paisRepo.findByCodigoPais(request.getCodigoPais()) .isPresent()) {
             throw new IllegalArgumentException("un pais ya usa ese codigo");
         }
         
-        if (paisRepo.findByNombre(request.getNombrePais()) .isPresent()) {
+        if (paisRepo.findByNombrePais(request.getNombrePais()) .isPresent()) {
             throw new IllegalArgumentException("un pais ya usa ese nombre");
         }
         
@@ -42,13 +42,13 @@ public class PaisService {
     }
 
     public PaisResponse getPaisByNombre(String nombre) {
-        Pais pais = paisRepo.findByNombre(nombre)
+        Pais pais = paisRepo.findByNombrePais(nombre)
             .orElseThrow(() -> new IllegalArgumentException("no hay ningún pais con ese nombre"));
         return mapper.toResponse(pais);
     }
 
     public PaisResponse getPaisByCodigo(String codigo) {
-        Pais pais = paisRepo.findByCodigo(codigo)
+        Pais pais = paisRepo.findByCodigoPais(codigo)
             .orElseThrow(() -> new IllegalArgumentException("no hay ningún pais con ese codigo"));
         return mapper.toResponse(pais);
     }
@@ -57,11 +57,11 @@ public class PaisService {
         Pais pais = paisRepo.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("no hay ningún pais con ese id"));
     
-        paisRepo.findByCodigo(request.getCodigoPais())
+        paisRepo.findByCodigoPais(request.getCodigoPais())
             .filter(u -> !u.getId().equals(id))
             .ifPresent(u -> { throw new RuntimeException("un pais ya usa ese codigo"); });
 
-        paisRepo.findByNombre(request.getNombrePais())
+        paisRepo.findByNombrePais(request.getNombrePais())
             .filter(u -> !u.getId().equals(id))
             .ifPresent(u -> { throw new RuntimeException("un pais ya usa ese nombre"); });
 

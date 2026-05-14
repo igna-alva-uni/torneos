@@ -1,7 +1,7 @@
 package cl.duoc.usuarios.dtos.perfil;
 
-import jakarta.annotation.Nonnull;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PerfilRequest {
-    @Nonnull
+    
+    @NotNull
     private Long idUsuario;
 
     @Size(min = 6, max = 24)
@@ -22,6 +23,6 @@ public class PerfilRequest {
     @NotBlank
     private String urlAvatar;
 
-    @Nonnull
+    @NotNull
     private Long idPais;
 }

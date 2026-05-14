@@ -24,16 +24,16 @@ public class PerfilService {
 
     public PerfilResponse addPerfil(PerfilRequest request) {
 
-        if (!userRepo.findById(request.getIdUsuario()).isPresent()){
-            throw new IllegalArgumentException("no hay ningún usuario con ese id");
-        }
-        
-        if (request.getIdPais() == null || !paisRepo.findById(request.getIdPais()).isPresent()) {
-                throw new IllegalArgumentException("no hay ningún pais con ese id");
-        }
+        User user = userRepo.findById(request.getIdUsuario())
+        .orElseThrow(() -> new IllegalArgumentException("no hay ningún usuario con ese id"));
+    
+        Pais pais = paisRepo.findById(request.getIdPais())
+        .orElseThrow(() -> new IllegalArgumentException("no hay ningún pais con ese id"));
         
         Perfil perfil = mapper.toModel(request);
-        
+        perfil.setUsuario(user);
+        perfil.setPais(pais);
+
         Perfil saved = perfilRepo.save(perfil);
         return mapper.toResponse(saved);
     }
@@ -49,7 +49,7 @@ public class PerfilService {
     }
 
     public PerfilResponse getPerfilByUserId(Long id) {
-        Perfil perfil = perfilRepo.findByIdUsuario(id)
+        Perfil perfil = perfilRepo.findByUsuarioId(id)
         .orElseThrow(() -> new IllegalArgumentException("no hay ningún perfil con ese id de usuario"));
         return mapper.toResponse(perfil);
     }

@@ -16,6 +16,7 @@ public interface PerfilMapper {
     Perfil toModel(PerfilRequest request);
 
     @Mapping(source = "usuario.id", target = "idUsuario")
+    @Mapping(source = "pais.nombrePais", target = "pais")
     PerfilResponse toResponse(Perfil perfil);
 
     List<PerfilResponse> toResponseList(List<Perfil> perfiles);

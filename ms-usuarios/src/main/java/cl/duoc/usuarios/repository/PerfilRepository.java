@@ -7,5 +7,5 @@ import cl.duoc.usuarios.model.Perfil;
 
 @Repository
 public interface PerfilRepository extends JpaRepository<Perfil, Long> {
-    Optional<Perfil> findByIdUsuario(Long idUsuario);
+    Optional<Perfil> findByUsuarioId(Long idUsuario);
 }
