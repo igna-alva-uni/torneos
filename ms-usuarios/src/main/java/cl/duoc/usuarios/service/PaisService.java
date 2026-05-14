@@ -37,33 +37,33 @@ public class PaisService {
     
     public PaisResponse getPaisById(Long id) {
         Pais pais = paisRepo.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
+            .orElseThrow(() -> new IllegalArgumentException("no hay ningún pais con ese id"));
         return mapper.toResponse(pais);
     }
 
     public PaisResponse getPaisByNombre(String nombre) {
         Pais pais = paisRepo.findByNombre(nombre)
-            .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
+            .orElseThrow(() -> new IllegalArgumentException("no hay ningún pais con ese nombre"));
         return mapper.toResponse(pais);
     }
 
     public PaisResponse getPaisByCodigo(String codigo) {
         Pais pais = paisRepo.findByCodigo(codigo)
-            .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
+            .orElseThrow(() -> new IllegalArgumentException("no hay ningún pais con ese codigo"));
         return mapper.toResponse(pais);
     }
 
     public PaisResponse updatePais(Long id, PaisRequest request) {
         Pais pais = paisRepo.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("No existe ningún usuario con ese id"));
+            .orElseThrow(() -> new IllegalArgumentException("no hay ningún pais con ese id"));
     
         paisRepo.findByCodigo(request.getCodigoPais())
             .filter(u -> !u.getId().equals(id))
-            .ifPresent(u -> { throw new RuntimeException("EMAIL_YA_REGISTRADO"); });
+            .ifPresent(u -> { throw new RuntimeException("un pais ya usa ese codigo"); });
 
         paisRepo.findByNombre(request.getNombrePais())
             .filter(u -> !u.getId().equals(id))
-            .ifPresent(u -> { throw new RuntimeException("EMAIL_YA_REGISTRADO"); });
+            .ifPresent(u -> { throw new RuntimeException("un pais ya usa ese nombre"); });
 
         pais.setNombrePais(request.getNombrePais());
         pais.setCodigoPais(request.getCodigoPais());
@@ -74,7 +74,7 @@ public class PaisService {
 
     public void deletePais(Long id) {
         if (!paisRepo.existsById(id)) {
-            throw new RuntimeException("USUARIO_NO_ENCONTRADO");
+            throw new RuntimeException("no hay ningún pais con ese id");
         }
         paisRepo.deleteById(id);
     }

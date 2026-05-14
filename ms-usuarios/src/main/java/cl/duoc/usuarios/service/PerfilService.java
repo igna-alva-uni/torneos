@@ -17,7 +17,6 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class PerfilService {
-    private final PerfilRepository perfilRepository;
     private final PerfilRepository perfilRepo;
     private final UserRepository userRepo;
     private final PaisRepository paisRepo;
@@ -26,11 +25,11 @@ public class PerfilService {
     public PerfilResponse addPerfil(PerfilRequest request) {
 
         if (!userRepo.findById(request.getIdUsuario()).isPresent()){
-            throw new IllegalArgumentException("Usuario no encontrado");
+            throw new IllegalArgumentException("no hay ningún usuario con ese id");
         }
         
         if (request.getIdPais() == null || !paisRepo.findById(request.getIdPais()).isPresent()) {
-                throw new IllegalArgumentException("País no encontrado");
+                throw new IllegalArgumentException("no hay ningún pais con ese id");
         }
         
         Perfil perfil = mapper.toModel(request);
@@ -45,25 +44,25 @@ public class PerfilService {
     
     public PerfilResponse getPerfilById(Long id) {
         Perfil perfil = perfilRepo.findById(id)
-        .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
+        .orElseThrow(() -> new IllegalArgumentException("no hay ningún perfil con ese id"));
         return mapper.toResponse(perfil);
     }
 
     public PerfilResponse getPerfilByUserId(Long id) {
         Perfil perfil = perfilRepo.findByIdUsuario(id)
-        .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
+        .orElseThrow(() -> new IllegalArgumentException("no hay ningún perfil con ese id de usuario"));
         return mapper.toResponse(perfil);
     }
 
     public PerfilResponse updatePerfil(Long id, PerfilRequest request) {
         Perfil perfil = perfilRepo.findById(id)
-        .orElseThrow(() -> new IllegalArgumentException("No existe ningún usuario con ese id"));
+        .orElseThrow(() -> new IllegalArgumentException("no hay ningún perfil con ese id"));
 
         User user = userRepo.findById(request.getIdUsuario())
-        .orElseThrow(() -> new IllegalArgumentException("No existe ningún usuario con ese id"));
+        .orElseThrow(() -> new IllegalArgumentException("no hay ningún usuario con ese id"));
         
         Pais pais = paisRepo.findById(request.getIdPais())
-        .orElseThrow(() -> new IllegalArgumentException("País no encontrado"));
+        .orElseThrow(() -> new IllegalArgumentException("no hay ningún pais con ese id"));
 
         perfil.setUsuario(user);
         perfil.setPais(pais);
@@ -76,7 +75,7 @@ public class PerfilService {
 
     public void deletePerfil(Long id) {
         if (!perfilRepo.existsById(id)) {
-            throw new RuntimeException("USUARIO_NO_ENCONTRADO");
+            throw new RuntimeException("no hay ningún perfil con ese id");
         }
         perfilRepo.deleteById(id);
     }

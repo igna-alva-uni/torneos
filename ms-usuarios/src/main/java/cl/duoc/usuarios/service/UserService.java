@@ -20,11 +20,11 @@ public class UserService {
 
     public UserResponse addUser(UserRequest request) {
         if (userRepo.findByEmail(request.getEmail()).isPresent()) {
-            throw new IllegalArgumentException("Email ya registrado");
+            throw new IllegalArgumentException("ese email ya esta en uso");
         }
 
         if (userRepo.findByUsername(request.getUsername()).isPresent()) {
-            throw new IllegalArgumentException("Username ya registrado");
+            throw new IllegalArgumentException("ese username ya esta en uso");
         }
 
         User user = mapper.toModel(request);
@@ -35,7 +35,7 @@ public class UserService {
 
     public UserResponse getUserById(Long id) {
         User user = userRepo.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
+            .orElseThrow(() -> new IllegalArgumentException("no hay ningún usuario con ese id"));
         return mapper.toResponse(user);
     }
 
@@ -45,15 +45,15 @@ public class UserService {
 
     public UserResponse updateUser(Long id, UserRequest request) {
         User user = userRepo.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("No existe ningún usuario con ese id"));
+            .orElseThrow(() -> new IllegalArgumentException("no hay ningún usuario con ese id"));
 
         userRepo.findByEmail(request.getEmail())
             .filter(u -> !u.getId().equals(id))
-            .ifPresent(u -> { throw new RuntimeException("EMAIL_YA_REGISTRADO"); });
+            .ifPresent(u -> { throw new RuntimeException("ese email ya esta en uso"); });
 
         userRepo.findByUsername(request.getUsername())
             .filter(u -> !u.getId().equals(id))
-            .ifPresent(u -> { throw new RuntimeException("USERNAME_YA_EXISTE"); });
+            .ifPresent(u -> { throw new RuntimeException("ese username ya esta en uso"); });
 
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
@@ -64,7 +64,7 @@ public class UserService {
 
     public void deleteUser(Long id) {
         if (!userRepo.existsById(id)) {
-            throw new RuntimeException("USUARIO_NO_ENCONTRADO");
+            throw new RuntimeException("no hay ningún usuario con ese id");
         }
         userRepo.deleteById(id);
     }
