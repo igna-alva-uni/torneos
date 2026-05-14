@@ -44,28 +44,22 @@ public class UserService {
     }
 
     public UserResponse updateUser(Long id, UserRequest request) {
-        if (!userRepo.findById(id).isPresent()){
-            throw new IllegalArgumentException("no existe ningun ususario con ese id")
-        }
+        User user = userRepo.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("No existe ningún usuario con ese id"));
 
         userRepo.findByEmail(request.getEmail())
             .filter(u -> !u.getId().equals(id))
-            .ifPresent(u -> {throw new RuntimeException("EMAIL_YA_REGISTRADO");});
+            .ifPresent(u -> { throw new RuntimeException("EMAIL_YA_REGISTRADO"); });
 
         userRepo.findByUsername(request.getUsername())
             .filter(u -> !u.getId().equals(id))
-            .ifPresent(u -> {throw new RuntimeException("USERNAME_YA_EXISTE");});
-        
-
-        User user = userRepo.findById(id);
+            .ifPresent(u -> { throw new RuntimeException("USERNAME_YA_EXISTE"); });
 
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
 
         User updated = userRepo.save(user);
-
         return mapper.toResponse(updated);
-
     }
 
     public void deleteUser(Long id) {
