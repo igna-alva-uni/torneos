@@ -4,10 +4,13 @@ import cl.duoc.torneos.model.Formato;
 import cl.duoc.torneos.model.Premio;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 public class TorneosRequest {
     private String nombre;
-    private String videojuego;
-    private Formato formato;
-    private Premio premio;
+    private Integer idJuego;
+    private Integer idFormato;
+    private LocalDate fechaInicio;
+    private LocalDate fechaTermino;
 }

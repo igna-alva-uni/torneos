@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +17,9 @@ import lombok.NoArgsConstructor;
 public class TorneosResponse {
     private Integer id;
     private String nombre;
-    private String videojuego;
-    private Formato formato;
-    private Premio premio;
+    private Integer idJuego;
+    private Integer idFormato;
+    private LocalDate fechaInicio;
+    private LocalDate fechaTermino;
+    private List<PremioResponse> premios;
 }
