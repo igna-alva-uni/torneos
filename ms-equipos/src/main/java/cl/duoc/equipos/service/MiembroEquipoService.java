@@ -2,6 +2,8 @@ package cl.duoc.equipos.service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
+import jakarta.validation.constraints.NotNull;
 import cl.duoc.equipos.dtos.miembro.MiembroEquipoRequest;
 import cl.duoc.equipos.dtos.miembro.MiembroEquipoResponse;
 import cl.duoc.equipos.mapper.MiembroEquipoMapper;
@@ -14,6 +16,7 @@ import cl.duoc.equipos.repository.RolEquipoRepository;
 import lombok.AllArgsConstructor;
 
 @Service
+@Validated
 @AllArgsConstructor
 public class MiembroEquipoService {
 
@@ -48,13 +51,13 @@ public class MiembroEquipoService {
         return mapper.toResponseList(miembroRepo.findByEquipoId(idEquipo));
     }
 
-    public MiembroEquipoResponse getMiembroById(Long id) {
+    public MiembroEquipoResponse getMiembroById(@NotNull Long id) {
         MiembroEquipo miembro = miembroRepo.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("no hay ningun miembro con ese id"));
         return mapper.toResponse(miembro);
     }
 
-    public MiembroEquipoResponse updateMiembro(Long id, MiembroEquipoRequest request) {
+    public MiembroEquipoResponse updateMiembro(@NotNull Long id, MiembroEquipoRequest request) {
         MiembroEquipo miembro = miembroRepo.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("no hay ningun miembro con ese id"));
 
@@ -76,7 +79,7 @@ public class MiembroEquipoService {
         return mapper.toResponse(miembroRepo.save(miembro));
     }
 
-    public void deleteMiembro(Long id) {
+    public void deleteMiembro(@NotNull Long id) {
         if (!miembroRepo.existsById(id)) {
             throw new RuntimeException("no hay ningun miembro con ese id");
         }

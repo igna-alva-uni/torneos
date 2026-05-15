@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/v1/autenticaciones") // [cite: 13]
+@RequestMapping("/api/v1/autenticaciones")
 public class AuthController {
 
     private final AuthService authService;
@@ -23,14 +23,19 @@ public class AuthController {
         return authService.register(request);
     }
 
-    @GetMapping("/usuarios")
-    public List<AuthResponse> getAllAuth() {
-        return authService.getAll();
-    }
-
     @GetMapping("/usuarios/{id}")
     public AuthResponse getAuthInfo(@PathVariable Long id) {
         return authService.getById(id);
+    }
+
+    @PutMapping("/usuarios/{id}")
+    public AuthResponse updateAuth(@PathVariable Long id, @RequestBody AuthRequest request) {
+        return authService.updateAuth(id, request);
+    }
+
+    @DeleteMapping("/usuarios/{id}")
+    public void deleteAuth(@PathVariable Long id) {
+        authService.deleteAuth(id);
     }
 
     // ==========================================
@@ -44,5 +49,20 @@ public class AuthController {
     @GetMapping("/roles")
     public List<RoleResponse> getAllRoles() {
         return roleService.getAll();
+    }
+
+    @GetMapping("/roles/{id}")
+    public RoleResponse getRolById(@PathVariable Long id) {
+        return roleService.getById(id);
+    }
+
+    @PutMapping("/roles/{id}")
+    public RoleResponse updateRol(@PathVariable Long id, @RequestBody RoleRequest request) {
+        return roleService.updateRol(id, request);
+    }
+
+    @DeleteMapping("/roles/{id}")
+    public void deleteRol(@PathVariable Long id) {
+        roleService.delete(id);
     }
 }

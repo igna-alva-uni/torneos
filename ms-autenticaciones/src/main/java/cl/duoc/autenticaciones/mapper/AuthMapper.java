@@ -16,6 +16,11 @@ public interface AuthMapper {
     @Mapping(source = "id", target = "idUsuario")
     @Mapping(target = "roles", expression = "java(mapRoles(user.getRoles()))")
     AuthResponse toResponse(AuthUser user);
+    
+    @Mapping(source = "idUsuario", target = "id")
+    @Mapping(source = "password", target = "hashContrasenia")
+    @Mapping(target = "bloqueada", constant = "false")
+    @Mapping(target = "roles", ignore = true)
     AuthUser toModel(AuthRequest request);
     
 

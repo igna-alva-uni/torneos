@@ -1,9 +1,10 @@
 package cl.duoc.autenticaciones.service;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
+import jakarta.validation.constraints.NotNull;
 import cl.duoc.autenticaciones.dtos.auth.*;
 import cl.duoc.autenticaciones.mapper.AuthMapper;
 import cl.duoc.autenticaciones.model.*;
@@ -11,6 +12,7 @@ import cl.duoc.autenticaciones.repository.*;
 import lombok.AllArgsConstructor;
 
 @Service
+@Validated
 @AllArgsConstructor
 public class AuthService {
     private final AuthUserRepository authRepo;
@@ -18,11 +20,11 @@ public class AuthService {
     private final AuthMapper mapper;
 
     public AuthResponse register(AuthRequest request) {
-        if (authRepo.existsById(request.getIdUsuario())) {
+        if (request.getIdUsuario() != null && authRepo.existsById(request.getIdUsuario())) {
             throw new IllegalArgumentException("El usuario ya está registrado");
         }
         if (authRepo.findByEmail(request.getEmail()).isPresent()) {
-            throw new IllegalArgumentException("ese email ya esta en uso");
+            throw new IllegalArgumentException("Ese email ya esta en uso");
         }
 
         AuthUser user = new AuthUser();
@@ -32,75 +34,58 @@ public class AuthService {
         user.setHashContrasenia("HASH_" + request.getPassword()); 
         
         Set<Role> roles = new HashSet<>();
-        for (String nombre : request.getNombresRoles()) {
-            Role role = roleRepo.findByNombreRol(nombre)
-                .orElseThrow(() -> new IllegalArgumentException("Rol no encontrado: " + nombre));
-            roles.add(role);
+        if (request.getNombresRoles() != null) {
+            for (String nombre : request.getNombresRoles()) {
+                Role role = roleRepo.findByNombreRol(nombre)
+                    .orElseThrow(() -> new IllegalArgumentException("Rol no encontrado: " + nombre));
+                roles.add(role);
+            }
         }
         user.setRoles(roles);
 
         return mapper.toResponse(authRepo.save(user));
     }
 
-   public AuthResponse addUser(AuthRequest request) {
-        if (authRepo.findById(request.getIdUsuario()).isPresent()) {
-            throw new IllegalArgumentException("ese email ya esta en uso");
-        }
-
-        if (authRepo.findByEmail(request.getEmail()).isPresent()) {
-            throw new IllegalArgumentException("ese email ya esta en uso");
-        }
-        
-        AuthUser user = mapper.toModel(request);
-        
-        user.setHashContrasenia("HASH_" + request.getPassword());
-        
-        Set<Role> roles = new HashSet<>();
-        for (String nombre : request.getNombresRoles()) {
-            Role role = roleRepo.findByNombreRol(nombre)
-                .orElseThrow(() -> new IllegalArgumentException("Rol no encontrado: " + nombre));
-            roles.add(role);
-        }
-        user.setRoles(roles);
-        
-
-        AuthUser saved = authRepo.save(user);
-        return mapper.toResponse(saved);
-    }
-
-    public UserResponse getUserById(Long id) {
-        User user = userRepo.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("no hay ningún usuario con ese id"));
+    public AuthResponse getById(@NotNull Long id) {
+        AuthUser user = authRepo.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("No hay ninguna credencial con ese id de usuario"));
         return mapper.toResponse(user);
     }
 
-    public List<UserResponse> getAllUsers() {
-        return mapper.toResponseList(userRepo.findAll());
-    }
+    public AuthResponse updateAuth(@NotNull Long id, AuthRequest request) {
+        AuthUser user = authRepo.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("No hay ninguna credencial con ese id de usuario"));
 
-    public UserResponse updateUser(Long id, UserRequest request) {
-        User user = userRepo.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("no hay ningún usuario con ese id"));
-
-        userRepo.findByEmail(request.getEmail())
+        authRepo.findByEmail(request.getEmail())
             .filter(u -> !u.getId().equals(id))
-            .ifPresent(u -> { throw new RuntimeException("ese email ya esta en uso"); });
+            .ifPresent(u -> { throw new RuntimeException("Ese email ya esta en uso"); });
 
-        userRepo.findByUsername(request.getUsername())
-            .filter(u -> !u.getId().equals(id))
-            .ifPresent(u -> { throw new RuntimeException("ese username ya esta en uso"); });
-
-        user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
+        
+        // Solo actualizamos la contraseña si se envía una nueva
+        if (request.getPassword() != null && !request.getPassword().isBlank()) {
+            user.setHashContrasenia("HASH_" + request.getPassword());
+        }
 
-        User updated = userRepo.save(user);
+        // Actualizamos roles si vienen en el request
+        if (request.getNombresRoles() != null) {
+            Set<Role> roles = new HashSet<>();
+            for (String nombre : request.getNombresRoles()) {
+                Role role = roleRepo.findByNombreRol(nombre)
+                    .orElseThrow(() -> new IllegalArgumentException("Rol no encontrado: " + nombre));
+                roles.add(role);
+            }
+            user.setRoles(roles);
+        }
+
+        AuthUser updated = authRepo.save(user);
         return mapper.toResponse(updated);
     }
 
-    public void deleteUser(Long id) {
-        if (!userRepo.existsById(id)) {
-            throw new RuntimeException("no hay ningún usuario con ese id");
+    public void deleteAuth(@NotNull Long id) {
+        if (!authRepo.existsById(id)) {
+            throw new RuntimeException("No hay ninguna credencial con ese id de usuario");
         }
-        userRepo.deleteById(id);
+        authRepo.deleteById(id);
     }
 }

@@ -2,6 +2,8 @@ package cl.duoc.equipos.service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
+import jakarta.validation.constraints.NotNull;
 import cl.duoc.equipos.dtos.rol.*;
 import cl.duoc.equipos.mapper.RolEquipoMapper;
 import cl.duoc.equipos.model.RolEquipo;
@@ -9,6 +11,7 @@ import cl.duoc.equipos.repository.RolEquipoRepository;
 import lombok.AllArgsConstructor;
 
 @Service
+@Validated
 @AllArgsConstructor
 public class RolEquipoService {
     private final RolEquipoRepository rolRepo;
@@ -26,13 +29,13 @@ public class RolEquipoService {
         return mapper.toResponseList(rolRepo.findAll());
     }
 
-    public RolEquipoResponse getById(Long id) {
+    public RolEquipoResponse getById(@NotNull Long id) {
         RolEquipo rol = rolRepo.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("no hay ningun rol con ese id"));
         return mapper.toResponse(rol);
     }
 
-    public RolEquipoResponse updateRol(Long id, RolEquipoRequest request) {
+    public RolEquipoResponse updateRol(@NotNull Long id, RolEquipoRequest request) {
         if (!rolRepo.existsById(id)){
             throw new RuntimeException("no hay ningun rol con ese id");
         }
@@ -45,7 +48,7 @@ public class RolEquipoService {
         return mapper.toResponse(rolRepo.save(rol));
     }    
 
-    public void delete(Long id) {
+    public void delete(@NotNull Long id) {
         if (!rolRepo.existsById(id)) throw new RuntimeException("no hay ningun rol con ese id");
         rolRepo.deleteById(id);
     }
