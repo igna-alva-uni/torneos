@@ -1,7 +1,7 @@
 package cl.duoc.torneos.service;
 
-import cl.duoc.torneos.dto.TorneosRequest;
-import cl.duoc.torneos.dto.TorneosResponse;
+import cl.duoc.torneos.dto.TorneoRequest;
+import cl.duoc.torneos.dto.TorneoResponse;
 import cl.duoc.torneos.exception.TorneoDuplicadoException;
 import cl.duoc.torneos.exception.TorneoNotFoundException;
 import cl.duoc.torneos.mapper.TorneosMapper;
@@ -22,7 +22,7 @@ public class TorneosService {
     private final FormatoRepository formatoRepository;
     private final TorneosMapper torneosMapper;
 
-    public List<TorneosResponse> findAll(){
+    public List<TorneoResponse> findAll(){
         List<Torneos> torneos = torneosRepository.findAll();
         if (torneos.isEmpty()){
             throw new TorneoNotFoundException();
@@ -30,20 +30,20 @@ public class TorneosService {
         return torneosMapper.toResponseList(torneosRepository.findAll());
     }
 
-    public TorneosResponse findById(int id){
+    public TorneoResponse findById(int id){
         Torneos torneos = torneosRepository.findById(id)
                 .orElseThrow(()-> new TorneoNotFoundException(id));
         return torneosMapper.toResponse(torneos);
     }
 
-    public List<TorneosResponse> findByJuego(Integer idJuego){
+    public List<TorneoResponse> findByJuego(Integer idJuego){
         List<Torneos> torneos = torneosRepository.findByIdJuego(idJuego);
         if (torneos.isEmpty()){
             throw new TorneoNotFoundException(idJuego);
         }
         return torneosMapper.toResponseList(torneos);
     }
-    public TorneosResponse create(TorneosRequest request){
+    public TorneoResponse create(TorneoRequest request){
         if (torneosRepository.existsByNombreAndIdJuego(
                 request.getNombre(),
                 request.getIdJuego())){
@@ -61,7 +61,7 @@ public class TorneosService {
         return torneosMapper.toResponse(guardado);
     }
 
-    public TorneosResponse update(int id, TorneosRequest request){
+    public TorneoResponse update(int id, TorneoRequest request){
         Torneos existente = torneosRepository.findById(id)
                 .orElseThrow(()-> new TorneoNotFoundException(id));
 

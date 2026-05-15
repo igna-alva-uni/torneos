@@ -1,7 +1,5 @@
 package cl.duoc.torneos.dto;
 
-import cl.duoc.torneos.model.Formato;
-import cl.duoc.torneos.model.Premio;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NonNull;
@@ -9,7 +7,7 @@ import lombok.NonNull;
 import java.time.LocalDate;
 
 @Data
-public class TorneosRequest {
+public class TorneoRequest {
     @NotBlank
     private String nombre;
     @NonNull

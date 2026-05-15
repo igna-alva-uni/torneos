@@ -1,7 +1,5 @@
 package cl.duoc.torneos.dto;
 
-import cl.duoc.torneos.model.Formato;
-import cl.duoc.torneos.model.Premio;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,11 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TorneosResponse {
+public class TorneoResponse {
     private Integer id;
     private String nombre;
     private Integer idJuego;
-    private Integer idFormato;
+    private String formato;
     private LocalDate fechaInicio;
     private LocalDate fechaTermino;
     private List<PremioResponse> premios;

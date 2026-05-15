@@ -1,7 +1,7 @@
 package cl.duoc.torneos.mapper;
 
-import cl.duoc.torneos.dto.TorneosRequest;
-import cl.duoc.torneos.dto.TorneosResponse;
+import cl.duoc.torneos.dto.TorneoRequest;
+import cl.duoc.torneos.dto.TorneoResponse;
 import cl.duoc.torneos.model.Torneos;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -13,10 +13,10 @@ public interface TorneosMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "formato", ignore = true)
     @Mapping(target = "premios", ignore = true)
-    Torneos toModel(TorneosRequest request);
+    Torneos toModel(TorneoRequest request);
 
     @Mapping(source = "formato.nombre", target = "formato")
-    TorneosResponse toResponse(Torneos response);
+    TorneoResponse toResponse(Torneos response);
 
-    List<TorneosResponse> toResponseList(List<Torneos> torneos);
+    List<TorneoResponse> toResponseList(List<Torneos> torneos);
 }
