@@ -7,13 +7,13 @@ import lombok.*;
 @Table(name = "estadisticas_equipos", uniqueConstraints = {
     @UniqueConstraint(columnNames = "id_equipo")
 })
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class EstadisticaEquipo {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_estadistica_equipo")
