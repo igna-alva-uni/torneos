@@ -1,5 +1,9 @@
 -- 1. Conectarse a la base de datos específica para este microservicio
 -- \c team_service
+CREATE SCHEMA IF NOT EXISTS team;
+
+SET search_path TO team;
+
 
 -- 2. Eliminación de las tablas en orden jerárquico inverso
 DROP TABLE IF EXISTS miembros_equipos CASCADE;

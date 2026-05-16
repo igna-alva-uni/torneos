@@ -1,5 +1,8 @@
 -- 1. Conectarse a la base de datos específica para este microservicio
 -- \c auth_service
+CREATE SCHEMA IF NOT EXISTS auth;
+
+SET search_path TO auth;
 
 -- 2. Eliminación de las tablas en orden jerárquico inverso
 DROP TABLE IF EXISTS roles_usuarios CASCADE;
