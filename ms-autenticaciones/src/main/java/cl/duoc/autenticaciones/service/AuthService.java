@@ -9,6 +9,8 @@ import cl.duoc.autenticaciones.dtos.auth.*;
 import cl.duoc.autenticaciones.mapper.AuthMapper;
 import cl.duoc.autenticaciones.model.*;
 import cl.duoc.autenticaciones.repository.*;
+import feign.FeignException;
+import cl.duoc.autenticaciones.client.*;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -18,11 +20,21 @@ public class AuthService {
     private final AuthUserRepository authRepo;
     private final RoleRepository roleRepo;
     private final AuthMapper mapper;
+    private final UsuarioClient usuarioClient;
 
     public AuthResponse register(AuthRequest request) {
         if (request.getIdUsuario() != null && authRepo.existsById(request.getIdUsuario())) {
             throw new IllegalArgumentException("El usuario ya está registrado");
         }
+
+        try {
+            // Llamamos a ms-usuarios a través de Feign
+            usuarioClient.getUsuarioById(request.getIdUsuario());
+        } catch (FeignException.NotFound e) {
+            // Si ms-usuarios responde un 404, lanzamos error aquí
+            throw new IllegalArgumentException("el usuario indicado no existe en el sistema");
+        }
+
         if (authRepo.findByEmail(request.getEmail()).isPresent()) {
             throw new IllegalArgumentException("Ese email ya esta en uso");
         }
@@ -30,7 +42,6 @@ public class AuthService {
         AuthUser user = new AuthUser();
         user.setId(request.getIdUsuario());
         user.setEmail(request.getEmail());
-        // Simulación de hash (En integración usaremos BCrypt)
         user.setHashContrasenia("HASH_" + request.getPassword()); 
         
         Set<Role> roles = new HashSet<>();

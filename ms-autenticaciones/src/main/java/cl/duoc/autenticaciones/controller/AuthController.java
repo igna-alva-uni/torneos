@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import cl.duoc.autenticaciones.dtos.auth.*;
 import cl.duoc.autenticaciones.dtos.role.*;
 import cl.duoc.autenticaciones.service.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -19,7 +20,7 @@ public class AuthController {
     // RECURSO: CREDENCIALES (USUARIOS)
     // ==========================================
     @PostMapping("/usuarios")
-    public AuthResponse register(@RequestBody AuthRequest request) {
+    public AuthResponse register(@Valid @RequestBody AuthRequest request) {
         return authService.register(request);
     }
 
@@ -29,7 +30,7 @@ public class AuthController {
     }
 
     @PutMapping("/usuarios/{id}")
-    public AuthResponse updateAuth(@PathVariable Long id, @RequestBody AuthRequest request) {
+    public AuthResponse updateAuth(@PathVariable Long id, @Valid @RequestBody AuthRequest request) {
         return authService.updateAuth(id, request);
     }
 
@@ -42,7 +43,7 @@ public class AuthController {
     // RECURSO: ROLES
     // ==========================================
     @PostMapping("/roles")
-    public RoleResponse createRol(@RequestBody RoleRequest request) {
+    public RoleResponse createRol(@Valid @RequestBody RoleRequest request) {
         return roleService.addRol(request);
     }
 
@@ -57,7 +58,7 @@ public class AuthController {
     }
 
     @PutMapping("/roles/{id}")
-    public RoleResponse updateRol(@PathVariable Long id, @RequestBody RoleRequest request) {
+    public RoleResponse updateRol(@PathVariable Long id, @Valid @RequestBody RoleRequest request) {
         return roleService.updateRol(id, request);
     }
 
