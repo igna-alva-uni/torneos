@@ -97,7 +97,7 @@ mapa:
 
 ```text
 torneo (db)
-│   (esqemas:)
+│   (esquemas:)
 ├── auth
 ├── team
 ├── stats
