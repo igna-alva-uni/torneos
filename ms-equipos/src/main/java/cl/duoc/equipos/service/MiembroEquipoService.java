@@ -13,6 +13,8 @@ import cl.duoc.equipos.model.RolEquipo;
 import cl.duoc.equipos.repository.EquipoRepository;
 import cl.duoc.equipos.repository.MiembroEquipoRepository;
 import cl.duoc.equipos.repository.RolEquipoRepository;
+import cl.duoc.equipos.client.UsuarioClient;
+import feign.FeignException;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -24,10 +26,19 @@ public class MiembroEquipoService {
     private final EquipoRepository equipoRepo;
     private final RolEquipoRepository rolRepo;
     private final MiembroEquipoMapper mapper;
+    private final UsuarioClient usuarioClient;
 
     public MiembroEquipoResponse addMiembro(MiembroEquipoRequest request) {
         if (miembroRepo.findByIdUsuario(request.getIdUsuario()).isPresent()) {
             throw new IllegalArgumentException("ese usuario ya pertenece a un equipo");
+        }
+
+        try {
+            // Llamamos a ms-usuarios a través de Feign
+            usuarioClient.getUsuarioById(request.getIdUsuario());
+        } catch (FeignException.NotFound e) {
+            // Si ms-usuarios responde un 404, lanzamos error aquí
+            throw new IllegalArgumentException("el usuario indicado no existe en el sistema");
         }
 
         Equipo equipo = equipoRepo.findById(request.getIdEquipo())

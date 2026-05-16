@@ -12,7 +12,7 @@ import cl.duoc.equipos.service.RolEquipoService;
 import cl.duoc.equipos.service.MiembroEquipoService;
 
 import lombok.AllArgsConstructor;
-
+import jakarta.validation.Valid;
 
 @AllArgsConstructor
 @RestController
@@ -27,7 +27,7 @@ public class EquipoController {
     // RECURSO: EQUIPOS
     // ==========================================
     @PostMapping("/equipos")
-    public EquipoResponse createEquipo(@RequestBody EquipoRequest request) {
+    public EquipoResponse createEquipo(@Valid @RequestBody EquipoRequest request) {
         return equipoService.addEquipo(request);
     }
 
@@ -42,7 +42,7 @@ public class EquipoController {
     }
 
     @PutMapping("/equipos/{id}")
-    public EquipoResponse updateEquipo(@PathVariable Long id, @RequestBody EquipoRequest request) {
+    public EquipoResponse updateEquipo(@PathVariable Long id, @Valid @RequestBody EquipoRequest request) {
         return equipoService.update(id, request);
     }
 
@@ -55,7 +55,7 @@ public class EquipoController {
     // RECURSO: ROLES
     // ==========================================
     @PostMapping("/roles")
-    public RolEquipoResponse createRol(@RequestBody RolEquipoRequest request) {
+    public RolEquipoResponse createRol(@Valid @RequestBody RolEquipoRequest request) {
         return rolService.addRol(request);
     }
 
@@ -70,7 +70,7 @@ public class EquipoController {
     }
 
     @PutMapping("/roles/{id}")
-    public RolEquipoResponse putRol(@PathVariable Long id, @RequestBody RolEquipoRequest request) {
+    public RolEquipoResponse putRol(@PathVariable Long id, @Valid @RequestBody RolEquipoRequest request) {
         return rolService.updateRol(id, request);
     }
 
@@ -83,7 +83,7 @@ public class EquipoController {
     // RECURSO: MIEMBROS
     // ==========================================
     @PostMapping("/miembros")
-    public MiembroEquipoResponse addMiembro(@RequestBody MiembroEquipoRequest request) {
+    public MiembroEquipoResponse addMiembro(@Valid @RequestBody MiembroEquipoRequest request) {
         return miembroService.addMiembro(request);
     }
 
@@ -98,7 +98,7 @@ public class EquipoController {
     }
 
     @PutMapping("/miembros/{id}")
-    public MiembroEquipoResponse updateMiembro(@PathVariable Long id, @RequestBody MiembroEquipoRequest request) {
+    public MiembroEquipoResponse updateMiembro(@PathVariable Long id, @Valid @RequestBody MiembroEquipoRequest request) {
         return miembroService.updateMiembro(id, request);
     }
 

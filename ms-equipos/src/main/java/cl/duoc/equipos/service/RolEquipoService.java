@@ -36,15 +36,17 @@ public class RolEquipoService {
     }
 
     public RolEquipoResponse updateRol(@NotNull Long id, RolEquipoRequest request) {
-        if (!rolRepo.existsById(id)){
-            throw new RuntimeException("no hay ningun rol con ese id");
-        }
-        if (rolRepo.findByNombreRolEquipo(request.getNombreRolEquipo()).isPresent()) {
-            throw new IllegalArgumentException("ese nombre ya pertenece a un rol");
+        RolEquipo rolExistente = rolRepo.findById(id)
+            .orElseThrow(() -> new RuntimeException("no hay ningun rol con ese id"));
+        
+        if (rolRepo.findByNombreRolEquipo(request.getNombreRolEquipo())
+            .filter(r -> !r.getId().equals(id))
+            .isPresent()) {
+            throw new IllegalArgumentException("ese nombre ya pertenece a otro rol");
         }
 
         RolEquipo rol = mapper.toModel(request);
-        rol.setNombreRolEquipo(request.getNombreRolEquipo());
+        rol.setId(id);
         return mapper.toResponse(rolRepo.save(rol));
     }    
 
