@@ -11,6 +11,7 @@ import cl.duoc.usuarios.dtos.perfil.PerfilRequest;
 import cl.duoc.usuarios.dtos.perfil.PerfilResponse;
 
 import cl.duoc.usuarios.service.UserService;
+import jakarta.validation.Valid;
 import cl.duoc.usuarios.service.PaisService;
 import cl.duoc.usuarios.service.PerfilService;
 
@@ -30,7 +31,7 @@ public class UserController {
     // ==========================================
     
     @PostMapping("/usuarios")
-    public UserResponse createUser(@RequestBody UserRequest request) {
+    public UserResponse createUser(@Valid @RequestBody UserRequest request) {
         return userService.addUser(request);
     }
 
@@ -45,7 +46,7 @@ public class UserController {
     }
 
     @PutMapping("/usuarios/{id}")
-    public UserResponse updateUser(@PathVariable Long id, @RequestBody UserRequest request) {
+    public UserResponse updateUser(@PathVariable Long id, @Valid @RequestBody UserRequest request) {
         return userService.updateUser(id, request);
     }
 
@@ -59,7 +60,7 @@ public class UserController {
     // ==========================================
     
     @PostMapping("/perfiles")
-    public PerfilResponse createPerfil(@RequestBody PerfilRequest request) {
+    public PerfilResponse createPerfil(@Valid @RequestBody PerfilRequest request) {
         return perfilService.addPerfil(request);
     }
 
@@ -79,7 +80,7 @@ public class UserController {
     }
 
     @PutMapping("/perfiles/{id}")
-    public PerfilResponse updatePerfil(@PathVariable Long id, @RequestBody PerfilRequest request) {
+    public PerfilResponse updatePerfil(@PathVariable Long id, @Valid @RequestBody PerfilRequest request) {
         return perfilService.updatePerfil(id, request);
     }
 
@@ -93,7 +94,7 @@ public class UserController {
     // ==========================================
     
     @PostMapping("/paises")
-    public PaisResponse createPais(@RequestBody PaisRequest request) {
+    public PaisResponse createPais(@Valid @RequestBody PaisRequest request) {
         return paisService.addPais(request);
     }
 
@@ -118,7 +119,7 @@ public class UserController {
     }
 
     @PutMapping("/paises/{id}")
-    public PaisResponse updatePais(@PathVariable Long id, @RequestBody PaisRequest request) {
+    public PaisResponse updatePais(@PathVariable Long id, @Valid @RequestBody PaisRequest request) {
         return paisService.updatePais(id, request);
     }
 
