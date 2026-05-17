@@ -352,7 +352,7 @@ En la raíz del proyecto se incluyen:
 Para facilitar la revisión del proyecto según la rúbrica, aquí se encuentran los documentos clave:
 
 * 📄 **Documento de Arquitectura y Modelo C4:** [`DOCUMENTO DE ARQUITECTURA Y CONTRATO DE MICROSERVICIOS.docx`](./DOCUMENTO%20DE%20ARQUITECTURA%20Y%20CONTRATO%20DE%20MICROSERVICIOS.docx)
-* 🧪 **Colección de Postman:** [`Torneos_Postman_Collection.json`](./Torneos_Postman_Collection.json) *(Importar directamente en Postman para probar los endpoints)*.
+* 🧪 **Colección de Postman:** [`Torneos_Postman_Collection.json`](./torneos.postman_collection.json) *(Importar directamente en Postman para probar los endpoints)*.
 * 🗺️ **Roadmap del Proyecto:** [`RODEMAP TORNEOS.docx`](./RODEMAP%20TORNEOS.docx)
 
 ---
