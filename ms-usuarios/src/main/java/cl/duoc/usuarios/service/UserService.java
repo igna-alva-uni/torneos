@@ -1,0 +1,71 @@
+package cl.duoc.usuarios.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import cl.duoc.usuarios.dtos.user.UserRequest;
+import cl.duoc.usuarios.dtos.user.UserResponse;
+import cl.duoc.usuarios.mapper.UserMapper;
+import cl.duoc.usuarios.model.User;
+import cl.duoc.usuarios.repository.UserRepository;
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class UserService {
+    private final UserMapper mapper;
+    private final UserRepository userRepo;
+
+    public UserResponse addUser(UserRequest request) {
+        if (userRepo.findByEmail(request.getEmail()).isPresent()) {
+            throw new IllegalArgumentException("ese email ya esta en uso");
+        }
+
+        if (userRepo.findByUsername(request.getUsername()).isPresent()) {
+            throw new IllegalArgumentException("ese username ya esta en uso");
+        }
+
+        User user = mapper.toModel(request);
+
+        User saved = userRepo.save(user);
+        return mapper.toResponse(saved);
+    }
+
+    public UserResponse getUserById(Long id) {
+        User user = userRepo.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("no hay ningún usuario con ese id"));
+        return mapper.toResponse(user);
+    }
+
+    public List<UserResponse> getAllUsers() {
+        return mapper.toResponseList(userRepo.findAll());
+    }
+
+    public UserResponse updateUser(Long id, UserRequest request) {
+        User user = userRepo.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("no hay ningún usuario con ese id"));
+
+        userRepo.findByEmail(request.getEmail())
+            .filter(u -> !u.getId().equals(id))
+            .ifPresent(u -> { throw new RuntimeException("ese email ya esta en uso"); });
+
+        userRepo.findByUsername(request.getUsername())
+            .filter(u -> !u.getId().equals(id))
+            .ifPresent(u -> { throw new RuntimeException("ese username ya esta en uso"); });
+
+        user.setUsername(request.getUsername());
+        user.setEmail(request.getEmail());
+
+        User updated = userRepo.save(user);
+        return mapper.toResponse(updated);
+    }
+
+    public void deleteUser(Long id) {
+        if (!userRepo.existsById(id)) {
+            throw new RuntimeException("no hay ningún usuario con ese id");
+        }
+        userRepo.deleteById(id);
+    }
+
+}
