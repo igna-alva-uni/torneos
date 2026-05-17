@@ -1,11 +1,13 @@
 package cl.duoc.torneos.service;
 
-import cl.duoc.torneos.dto.TorneosRequest;
-import cl.duoc.torneos.dto.TorneosResponse;
-import cl.duoc.torneos.exception.JuegoDuplicadoException;
+import cl.duoc.torneos.dto.TorneoRequest;
+import cl.duoc.torneos.dto.TorneoResponse;
+import cl.duoc.torneos.exception.TorneoDuplicadoException;
 import cl.duoc.torneos.exception.TorneoNotFoundException;
 import cl.duoc.torneos.mapper.TorneosMapper;
+import cl.duoc.torneos.model.Formato;
 import cl.duoc.torneos.model.Torneos;
+import cl.duoc.torneos.repository.FormatoRepository;
 import cl.duoc.torneos.repository.TorneosRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,60 +19,69 @@ import java.util.List;
 public class TorneosService {
 
     private final TorneosRepository torneosRepository;
+    private final FormatoRepository formatoRepository;
     private final TorneosMapper torneosMapper;
 
-    public List<TorneosResponse> findAll(){
+    public List<TorneoResponse> findAll(){
+        List<Torneos> torneos = torneosRepository.findAll();
+        if (torneos.isEmpty()){
+            throw new TorneoNotFoundException();
+        }
         return torneosMapper.toResponseList(torneosRepository.findAll());
     }
 
-    public TorneosResponse findById(int id){
+    public TorneoResponse findById(int id){
         Torneos torneos = torneosRepository.findById(id)
                 .orElseThrow(()-> new TorneoNotFoundException(id));
         return torneosMapper.toResponse(torneos);
     }
 
-    public TorneosResponse create(TorneosRequest request){
-        if (torneosRepository.existsByJuego(request.getVideojuego())){
-            torneosRepository.findByJuego(request.getVideojuego())
-                    .map(Torneos::getNombre)
-                    .orElseThrow(()-> new TorneoNotFoundException(request.getVideojuego()));
-            throw new IllegalArgumentException("El torneo ya existe");
+    public List<TorneoResponse> findByJuego(Integer idJuego){
+        List<Torneos> torneos = torneosRepository.findByIdJuego(idJuego);
+        if (torneos.isEmpty()){
+            throw new TorneoNotFoundException(idJuego);
         }
-
+        return torneosMapper.toResponseList(torneos);
+    }
+    public TorneoResponse create(TorneoRequest request){
+        if (torneosRepository.existsByNombreAndIdJuego(
+                request.getNombre(),
+                request.getIdJuego())){
+            throw  new TorneoDuplicadoException(
+                    request.getNombre(),
+                    request.getIdJuego()
+            );
+        }
+        Formato formato = formatoRepository.findById(request.getIdFormato())
+                .orElseThrow(()-> new RuntimeException("Formato no encontrado"));
         Torneos torneos = torneosMapper.toModel(request);
+        torneos.setFormato(formato);
 
-        if (torneos == null){
-            throw new IllegalArgumentException("No se puedo procesar el torneo");
-        }
-
-        Torneos guardado = torneosRepository.save(torneos);
+        Torneos guardado= torneosRepository.save(torneos);
         return torneosMapper.toResponse(guardado);
     }
 
-    public TorneosResponse update(int id, TorneosRequest request){
+    public TorneoResponse update(int id, TorneoRequest request){
         Torneos existente = torneosRepository.findById(id)
                 .orElseThrow(()-> new TorneoNotFoundException(id));
 
-        if (!existente.getNombre().equalsIgnoreCase(request.getNombre())){
-            if (torneosRepository.existsByJuego(request.getVideojuego())){
-                torneosRepository.findByJuego(request.getVideojuego()).ifPresent(torneos->{
-                    throw new JuegoDuplicadoException(request.getVideojuego(), torneos.getNombre());
-                });
-            }
-        }
+        Formato formato = formatoRepository.findById(request.getIdFormato())
+                        .orElseThrow(()-> new RuntimeException("Formato no encontrado"));
 
         existente.setNombre(request.getNombre());
-        existente.setVideojuego(request.getVideojuego());
-        existente.setFormato(request.getFormato());
-        existente.setPremio(request.getPremio());
+        existente.setIdJuego(request.getIdJuego());
+        existente.setFormato(formato);
+        existente.setFecha_inicio(request.getFechaInicio());
+        existente.setFecha_final(request.getFechaTermino());
 
         Torneos guardado = torneosRepository.save(existente);
         return torneosMapper.toResponse(guardado);
     }
 
-    public TorneosResponse delete(int id){
-        torneosRepository.findById(id).orElseThrow(()-> new TorneoNotFoundException(id));
-        torneosRepository.deleteById(id);
-        return torneosMapper.toResponse(torneosRepository.findById(id).get());
+    public void delete(Integer id) {
+        Torneos torneo = torneosRepository.findById(id)
+                .orElseThrow(() -> new TorneoNotFoundException(id));
+
+        torneosRepository.delete(torneo);
     }
 }
