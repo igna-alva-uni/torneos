@@ -61,7 +61,9 @@ INSERT INTO usuarios (username, email, creado_el) VALUES
 ('lleyo', 'testeo@gmail.com', CURRENT_TIMESTAMP - INTERVAL '15 days'), -- [cite: 25]
 ('faker_wannabe', 'midlane@mid.com', CURRENT_TIMESTAMP - INTERVAL '5 days'),
 ('noobmaster69', 'thor_hater@asgard.com', CURRENT_TIMESTAMP),
-('pro_sniper', 'headshot@fps.com', CURRENT_TIMESTAMP);
+('pro_sniper', 'headshot@fps.com', CURRENT_TIMESTAMP),
+('mythos', 'mythos@yahoo.com', CURRENT_TIMESTAMP -  INTERVAL '150 days'),
+('si_key', 'sikey@gmail.com', CURRENT_TIMESTAMP -  INTERVAL '250 days');
 
 -- Insertar Perfiles (Cubriendo casos con y sin avatar, con y sin país asignado)
 INSERT INTO perfiles (id_usuario, nickname, url_avatar, id_pais) VALUES 
