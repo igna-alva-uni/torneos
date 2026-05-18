@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TorneoResponse {
+public class TorneosResponse {
     private Integer id;
     private String nombre;
     private Integer idJuego;
