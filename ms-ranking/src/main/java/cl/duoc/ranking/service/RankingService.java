@@ -1,86 +1,84 @@
 package cl.duoc.ranking.service;
 
-import cl.duoc.ranking.dto.RankingRequest;
-import cl.duoc.ranking.dto.RankingResponse;
-import cl.duoc.ranking.exception.RankingNotFoundException;
-import cl.duoc.ranking.exception.TipoDuplicadoException;
+import cl.duoc.ranking.dto.ranking.RankingRequest;
+import cl.duoc.ranking.dto.ranking.RankingResponse;
+import cl.duoc.ranking.mapper.RankingMapper;
+import cl.duoc.ranking.mapper.RegistroRankingMapper;
 import cl.duoc.ranking.model.Ranking;
+import cl.duoc.ranking.model.RegistroRanking;
 import cl.duoc.ranking.model.TipoRanking;
 import cl.duoc.ranking.repository.RankingRepository;
-import cl.duoc.ranking.repository.TipoRankingRepository;
-import cl.duoc.ranking.repository.RegistroRankingRepository;
-import cl.duoc.ranking.mapper.RankingMapper;
 import lombok.RequiredArgsConstructor;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-
 public class RankingService {
 
-    private final TipoRankingRepository tipoRankingRepository;
-    private final RankingRepository rankingRepository;
-    private final RankingMapper rankingMapper;
+    private final RankingRepository repository;
+    private final RankingMapper mapper;
+    private final RegistroRankingMapper registroMapper;
+    private final TipoRankingService tipoRankingService;
 
+    @Transactional(readOnly = true)
     public List<RankingResponse> findAll() {
-        return rankingMapper.toResponseList(rankingRepository.findAll());
+        return repository.findAll().stream()
+                .map(mapper::toResponse)
+                .collect(Collectors.toList());
     }
 
-    public RankingResponse findById(int id) {
-        Ranking ranking = rankingRepository.findById(id)
-                .orElseThrow(() -> new RankingNotFoundException(id));
-        return rankingMapper.toResponse(ranking);
-    }
-
-    public RankingResponse findByIdTipoRanking(Integer idTipoRanking) {
-        TipoRanking tipoRanking = tipoRankingRepository.findByIdTipoRanking(idTipoRanking)
-                .orElseThrow(() -> new RankingNotFoundException(idTipoRanking));
-        return rankingMapper.toResponse(tipoRanking);
+    @Transactional(readOnly = true)
+    public RankingResponse findById(Integer id) {
+        Ranking ranking = repository.findByIdRanking(id)
+                .orElseThrow(() -> new RuntimeException("Ranking no encontrado con ID: " + id));
+        return mapper.toResponse(ranking);
     }
 
     @Transactional
     public RankingResponse create(RankingRequest request) {
-        if (tipoRankingRepository.existsByTipo(request.getTipoRanking())) {
-            String nombreExistente = tipoRankingRepository.findByNombreTipoRanking(request.getTipoRanking())
-            .map(r -> r.getNombreTipoRanking()) 
-            .orElse("Desconocido");
-        }
+        TipoRanking tipoRanking = tipoRankingService.findEntityById(request.getIdTipoRanking());
 
-        Ranking ranking = rankingMapper.toModel(request);
-        
-        if (ranking == null) {
-            throw new IllegalArgumentException("La solicitud del ranking no pudo ser procesada.");
-        }
+        Ranking ranking = mapper.toEntity(request);
+        ranking.setTipoRanking(tipoRanking);
 
-        Ranking guardado = rankingRepository.save(ranking);
-        return rankingMapper.toResponse(guardado);
+        Ranking savedRanking = repository.save(ranking);
+        return mapper.toResponse(savedRanking);
     }
 
     @Transactional
-    public RankingResponse update(int id, RankingRequest request) {
-        Ranking existente = rankingRepository.findById(id)
-                .orElseThrow(() -> new RankingNotFoundException(id));
+    public RankingResponse update(Integer id, RankingRequest request) {
+        Ranking existingRanking = repository.findByIdRanking(id)
+                .orElseThrow(() -> new RuntimeException("Ranking no encontrado con ID: " + id));
         
-        if (!existente.getTipoRanking().getNombreTipoRanking().equalsIgnoreCase(request.getTipoRanking())) {
-            if (tipoRankingRepository.existsByTipo(request.getTipoRanking())) {
-                throw new TipoDuplicadoException(request.getTipoRanking(), request.getTipoRanking());
-            }
+        if (!existingRanking.getTipoRanking().getIdTipoRanking().equals(request.getIdTipoRanking())) {
+            TipoRanking nuevoTipo = tipoRankingService.findEntityById(request.getIdTipoRanking());
+            existingRanking.setTipoRanking(nuevoTipo);
         }
         
+        existingRanking.setIdJuego(request.getIdJuego());
         
-        rankingMapper.updateModelFromDto(request, existente);
-
-        Ranking guardado = rankingRepository.save(existente);
-        return rankingMapper.toResponse(guardado);
+        existingRanking.getRegistros().clear();
+        if (request.getRegistros() != null) {
+            List<RegistroRanking> nuevosRegistros = request.getRegistros().stream()
+                    .map(registroMapper::toEntity)
+                    .collect(Collectors.toList());
+            
+            nuevosRegistros.forEach(registro -> registro.setRanking(existingRanking));
+            existingRanking.getRegistros().addAll(nuevosRegistros);
+        }
+        
+        Ranking updatedRanking = repository.save(existingRanking);
+        return mapper.toResponse(updatedRanking);
     }
 
     @Transactional
-    public void delete(int id) {
-        if (!rankingRepository.existsById(id)) {
-            throw new RankingNotFoundException(id);
-        }
-        rankingRepository.deleteById(id);
+    public void delete(Integer id) {
+        Ranking ranking = repository.findByIdRanking(id)
+                .orElseThrow(() -> new RuntimeException("No se puede eliminar: El Ranking no existe."));
+        repository.delete(ranking);
     }
 }
