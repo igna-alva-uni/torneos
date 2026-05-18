@@ -8,7 +8,7 @@ spring:
     name: ms-estadisticas
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/estadisticas
+    url: jdbc:postgresql://localhost:5433/torneos
     username: postgres
     password: 123
   jpa:

@@ -362,7 +362,7 @@ Para facilitar la revisión del proyecto según la rúbrica, aquí se encuentran
 Este ecosistema fue desarrollado en conjunto. Mis responsabilidades específicas en la implementación de esta entrega fueron los siguientes microservicios:
 
 * **[ ignacio alvarez ]** - `ms-usuarios`, `ms-autenticaciones`, `ms-equipos`.
-* **[ Nombre Compañero 1 ]** - `[Microservicios a su cargo]`
+* **[ fabian cornejo ]** - `ms-ranking`, `ms-estadistica`
 * **[ Nombre Compañero 2 ]** - `[Microservicios a su cargo]`
 * **[ Nombre Compañero 3 ]** - `[Microservicios a su cargo]`
 
