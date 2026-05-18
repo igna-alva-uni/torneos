@@ -6,16 +6,21 @@ server:
 spring:
   application:
     name: ms-usuarios
+
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/usuarios
+    url: jdbc:postgresql://localhost:5433/torneos
     username: postgres
     password: 123
+
   jpa:
     hibernate:
       ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        default_schema: users
 
 eureka:
   client:

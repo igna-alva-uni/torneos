@@ -1,4 +1,10 @@
-docker exec -i postgres-db psql -U postgres -d postgres < 01-init.sql
-docker exec -i postgres-db psql -U postgres -d postgres < 02-create_usuarios.sql
-docker exec -i postgres-db psql -U postgres -d postgres < 03-create_catalogo.sql
-docker exec -i postgres-db psql -U postgres -d postgres < 04-create_recursos.sql
+docker exec -i postgres-db psql -U postgres -d torneos < 01-auth.sql
+docker exec -i postgres-db psql -U postgres -d torneos < 02-team.sql
+docker exec -i postgres-db psql -U postgres -d torneos < 03-stats.sql
+docker exec -i postgres-db psql -U postgres -d torneos < 04-registration.sql
+docker exec -i postgres-db psql -U postgres -d torneos < 05-game.sql
+docker exec -i postgres-db psql -U postgres -d torneos < 06-notification.sql
+docker exec -i postgres-db psql -U postgres -d torneos < 07-match.sql
+docker exec -i postgres-db psql -U postgres -d torneos < 08-ranking.sql
+docker exec -i postgres-db psql -U postgres -d torneos < 09-tournament.sql
+docker exec -i postgres-db psql -U postgres -d torneos < 10-user.sql

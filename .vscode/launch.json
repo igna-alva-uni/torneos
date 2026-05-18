@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "TorneosUsuariosApplication",
+      "request": "launch",
+      "mainClass": "cl.duoc.usuarios.TorneosUsuariosApplication",
+      "projectName": "cl.duoc-usuarios"
+    },
+    {
+      "type": "java",
+      "name": "ProyectoEurekaApplication",
+      "request": "launch",
+      "mainClass": "cl.duoc.eureka.ProyectoEurekaApplication",
+      "projectName": "cl.duoc-eureka"
+    },
+    {
+      "type": "java",
       "name": "Debug Eureka",
       "request": "launch",
       "cwd": "${workspaceFolder}/eureka",
