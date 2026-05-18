@@ -1,5 +1,7 @@
 -- 1. Conectarse a la base de datos específica para este microservicio
 -- \c stats_service
+CREATE SCHEMA IF NOT EXISTS estadistica;
+SET search_path TO estadistica;
 
 -- 2. Eliminación de las tablas en orden jerárquico inverso
 DROP TABLE IF EXISTS estadisticas_partidas CASCADE;

@@ -1,5 +1,7 @@
 -- 1. Conectarse a la base de datos específica para este microservicio
 -- \c ranking_service
+CREATE SCHEMA IF NOT EXISTS ranking;
+SET search_path TO ranking;
 
 -- 2. Eliminación de las tablas en orden jerárquico inverso
 DROP TABLE IF EXISTS registros_ranking CASCADE;

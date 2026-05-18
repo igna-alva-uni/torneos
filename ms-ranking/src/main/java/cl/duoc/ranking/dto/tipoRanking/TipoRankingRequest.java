@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class TipoRankingRequest {
 
     @NotBlank(message = "El tipo de ranking es obligatorio")
-    @Size(max = 50, message = "El tipo de ranking no puede superar los 50 caracteres") // Lo bajé a 50 porque en tu JPA dice length = 50
+    @Size(max = 50, message = "El tipo de ranking no puede superar los 50 caracteres") 
     private String nombreTipoRanking;
 
 }

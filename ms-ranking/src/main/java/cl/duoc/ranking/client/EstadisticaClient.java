@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "ms-estadisticas", url = "http://localhost:8081")
 public interface EstadisticaClient {
 
-    // Este es el nuevo teléfono para preguntar por Equipos
     @GetMapping("/api/v1/statistics/teams/{idEquipo}")
     EstadisticaEquipoResponse getTeamStatsById(@PathVariable("idEquipo") Integer idEquipo);
 }

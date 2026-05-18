@@ -16,7 +16,9 @@ spring:
       ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-
+    properties:
+      hibernate:
+        defaultSchema: estadistica
 eureka:
   client:
     register-with-eureka: true

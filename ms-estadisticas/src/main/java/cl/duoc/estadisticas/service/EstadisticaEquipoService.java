@@ -35,7 +35,6 @@ public class EstadisticaEquipoService {
 
     @Transactional
     public EstadisticaEquipoResponse create(EstadisticaEquipoRequest request) {
-        // Validamos con el método del repositorio que no se repita el equipo
         if (repository.existsByIdEquipo(request.getIdEquipo())) {
             throw new RuntimeException("Ya existen estadísticas registradas para el equipo con ID: " + request.getIdEquipo());
         }
@@ -49,7 +48,6 @@ public class EstadisticaEquipoService {
         EstadisticaEquipo existing = repository.findByIdEstadisticaEquipo(id)
                 .orElseThrow(() -> new RuntimeException("No se puede actualizar: Registro no encontrado con ID: " + id));
         
-        // Si intenta cambiar a un idEquipo diferente, validamos que no esté duplicado
         if (!existing.getIdEquipo().equals(request.getIdEquipo()) && repository.existsByIdEquipo(request.getIdEquipo())) {
             throw new RuntimeException("Ya existen estadísticas para el nuevo equipo con ID: " + request.getIdEquipo());
         }

@@ -15,10 +15,6 @@ import lombok.NoArgsConstructor;
 public class RankingResponse {
     private Integer idRanking;
     private Integer idJuego;
-    
-    // Relación limpia con el DTO correspondiente
     private TipoRankingResponse tipoRanking;
-    
-    // Lista de respuestas limpias sin la entidad JPA circular
     private List<RegistroRankingResponse> registros;
 }

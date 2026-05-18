@@ -12,10 +12,14 @@ spring:
     username: postgres
     password: 123   
   jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
         defaultSchema: ranking
-
+  
 eureka:
   client:
     register-with-eureka: true
