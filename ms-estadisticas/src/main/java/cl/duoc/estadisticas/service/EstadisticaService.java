@@ -20,69 +20,29 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class EstadisticaService {
 
-    private final EstadisticaJugadorRepository jugadorRepo;
-    private final EstadisticaEquipoRepository equipoRepo;
-    private final EstadisticaPartidaRepository partidaRepo;
-    private final EstadisticaMapper mapper;
-
-    // CREAR O ACTUALIZAR
-    public EstadisticaResponse guardar(EstadisticaRequest request, String tipo) {
-        String t = tipo.toUpperCase();
-
-        if ("JUGADOR".equals(t)) {
-            EstadisticaJugador modelo = mapper.toJugadorModel(request); 
-            return mapper.toResponse(jugadorRepo.save(modelo)); 
-        } 
-        
-        if ("EQUIPO".equals(t)) {
-            EstadisticaEquipo modelo = mapper.toEquipoModel(request); 
-            return mapper.toResponse(equipoRepo.save(modelo)); 
-        }
-
-        if ("PARTIDA".equals(t)) {
-            EstadisticaPartida modelo = mapper.toPartidaModel(request); 
-            return mapper.toResponse(partidaRepo.save(modelo)); 
-        }
-
-        throw new RuntimeException("Tipo de estadística no soportado: " + tipo);
+    private final EstadisticaJugadorRepository estadisticaJugadorRepository;
+    private final EstadisticaEquipoRepository estadisticaEquipoRepository;
+    private final EstadisticaPartidaRepository estadisticaPartidaRepository;
+    private final EstadisticaMapper estadisticaMapper;
+    
+    
+    public List<EstadisticaResponse> findAll() {
+        return estadisticaMapper.toResponseList(estadisticaJugadorRepository.findAll());
     }
 
-    // LISTAR TODO (Combinado)
-    public List<EstadisticaResponse> obtenerTodas() {
-        List<EstadisticaResponse> lista = jugadorRepo.findAll().stream()
-                .map(mapper::toResponse).collect(Collectors.toList());
-        
-        lista.addAll(equipoRepo.findAll().stream()
-                .map(mapper::toResponse).collect(Collectors.toList()));
-        
-        lista.addAll(partidaRepo.findAll().stream()
-                .map(mapper::toResponse).collect(Collectors.toList()));
-        
-        return lista;
-    }
 
-    // BUSCAR POR ID ESPECÍFICO
-    public EstadisticaResponse obtenerPorIdReferencia(Integer id, String tipo) {
-        String t = tipo.toUpperCase();
 
-        if ("JUGADOR".equals(t)) {
-            return jugadorRepo.findByIdUsuario(id) 
-                    .map(mapper::toResponse)
-                    .orElseThrow(() -> new RuntimeException("No hay estadísticas para el jugador: " + id));
-        }
 
-        if ("EQUIPO".equals(t)) {
-            return equipoRepo.findByIdEquipo(id) 
-                    .map(mapper::toResponse)
-                    .orElseThrow(() -> new RuntimeException("No hay estadísticas para el equipo: " + id));
-        }
 
-        if ("PARTIDA".equals(t)) {
-            return partidaRepo.findByIdPartida(id) 
-                    .map(mapper::toResponse)
-                    .orElseThrow(() -> new RuntimeException("No hay estadísticas para la partida: " + id));
-        }
 
-        throw new RuntimeException("Tipo inválido");
-    }
+
+
+
+
+
+
+
+
+
+
 }

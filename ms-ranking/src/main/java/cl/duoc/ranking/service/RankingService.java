@@ -5,7 +5,10 @@ import cl.duoc.ranking.dto.RankingResponse;
 import cl.duoc.ranking.exception.RankingNotFoundException;
 import cl.duoc.ranking.exception.TipoDuplicadoException;
 import cl.duoc.ranking.model.Ranking;
+import cl.duoc.ranking.model.TipoRanking;
 import cl.duoc.ranking.repository.RankingRepository;
+import cl.duoc.ranking.repository.TipoRankingRepository;
+import cl.duoc.ranking.repository.RegistroRankingRepository;
 import cl.duoc.ranking.mapper.RankingMapper;
 import lombok.RequiredArgsConstructor;
 import jakarta.transaction.Transactional;
@@ -14,8 +17,10 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+
 public class RankingService {
 
+    private final TipoRankingRepository tipoRankingRepository;
     private final RankingRepository rankingRepository;
     private final RankingMapper rankingMapper;
 
@@ -29,13 +34,18 @@ public class RankingService {
         return rankingMapper.toResponse(ranking);
     }
 
+    public RankingResponse findByIdTipoRanking(Integer idTipoRanking) {
+        TipoRanking tipoRanking = tipoRankingRepository.findByIdTipoRanking(idTipoRanking)
+                .orElseThrow(() -> new RankingNotFoundException(idTipoRanking));
+        return rankingMapper.toResponse(tipoRanking);
+    }
+
     @Transactional
     public RankingResponse create(RankingRequest request) {
-        if (rankingRepository.existsByTipo(request.getTipoRanking())) {
-            String nombreExistente = rankingRepository.findByTipo(request.getTipoRanking())
-                .map(r -> r.getTipoRanking().getNombreTipoRanking())
-                .orElse("Desconocido");
-            throw new TipoDuplicadoException(request.getTipoRanking(), nombreExistente);
+        if (tipoRankingRepository.existsByTipo(request.getTipoRanking())) {
+            String nombreExistente = tipoRankingRepository.findByNombreTipoRanking(request.getTipoRanking())
+            .map(r -> r.getNombreTipoRanking()) 
+            .orElse("Desconocido");
         }
 
         Ranking ranking = rankingMapper.toModel(request);
@@ -54,7 +64,7 @@ public class RankingService {
                 .orElseThrow(() -> new RankingNotFoundException(id));
         
         if (!existente.getTipoRanking().getNombreTipoRanking().equalsIgnoreCase(request.getTipoRanking())) {
-            if (rankingRepository.existsByTipo(request.getTipoRanking())) {
+            if (tipoRankingRepository.existsByTipo(request.getTipoRanking())) {
                 throw new TipoDuplicadoException(request.getTipoRanking(), request.getTipoRanking());
             }
         }

@@ -19,6 +19,7 @@ public interface RankingMapper {
     @Mapping(target = "registroRanking", ignore = true) 
     @Mapping(target = "rankings", ignore = true)        
     RankingResponse toResponse(Ranking ranking);
+    
 
     List<RankingResponse> toResponseList(List<Ranking> rankings);
 
@@ -28,13 +29,19 @@ public interface RankingMapper {
     @Mapping(target = "tipoRanking", source = "tipoRanking", qualifiedByName = "stringToTipoRanking")
     Ranking toModel(RankingRequest request);
 
+    @Mapping(target = "rankings", ignore = true)
+    @Mapping(target = "registroRanking", ignore = true)
+    @Mapping(source = "idTipoRanking", target = "id")
+    @Mapping(source = "nombreTipoRanking", target = "tipoRanking") 
+    RankingResponse toResponse(TipoRanking tipoRanking);
+
+
     @Mapping(target = "idRanking", ignore = true)
     @Mapping(target = "tipoRanking", ignore = true)
     @Mapping(target = "registros", ignore = true)
     @Mapping(target = "idJuego", ignore = true)
     Ranking updateModelFromDto(RankingRequest request, @MappingTarget Ranking entity);
 
-    // ESTE ES EL MÉTODO QUE SOLUCIONA EL ERROR
     @Named("stringToTipoRanking")
     default TipoRanking map(String value) {
         if (value == null) return null;

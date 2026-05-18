@@ -10,12 +10,11 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5433/ranking
     username: postgres
-    password: 123
+    password: 123   
   jpa:
-    hibernate:
-      ddl-auto: update
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        defaultSchema: ranking
 
 eureka:
   client:
