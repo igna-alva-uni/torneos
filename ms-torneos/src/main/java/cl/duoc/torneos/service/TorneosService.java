@@ -1,9 +1,10 @@
 package cl.duoc.torneos.service;
 
-import cl.duoc.torneos.dto.TorneoRequest;
-import cl.duoc.torneos.dto.TorneoResponse;
-import cl.duoc.torneos.exception.TorneoDuplicadoException;
-import cl.duoc.torneos.exception.TorneoNotFoundException;
+import cl.duoc.torneos.client.JuegosClient;
+import cl.duoc.torneos.dto.TorneosRequest;
+import cl.duoc.torneos.dto.TorneosResponse;
+import cl.duoc.torneos.exception.TorneosDuplicadoException;
+import cl.duoc.torneos.exception.TorneosNotFoundException;
 import cl.duoc.torneos.mapper.TorneosMapper;
 import cl.duoc.torneos.model.Formato;
 import cl.duoc.torneos.model.Torneos;
@@ -11,7 +12,6 @@ import cl.duoc.torneos.repository.FormatoRepository;
 import cl.duoc.torneos.repository.TorneosRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -21,33 +21,40 @@ public class TorneosService {
     private final TorneosRepository torneosRepository;
     private final FormatoRepository formatoRepository;
     private final TorneosMapper torneosMapper;
+    private final JuegosClient  juegosClient;
 
-    public List<TorneoResponse> findAll(){
+    public List<TorneosResponse> findAll(){
         List<Torneos> torneos = torneosRepository.findAll();
         if (torneos.isEmpty()){
-            throw new TorneoNotFoundException();
+            throw new TorneosNotFoundException();
         }
         return torneosMapper.toResponseList(torneosRepository.findAll());
     }
 
-    public TorneoResponse findById(int id){
+    public TorneosResponse findById(int id){
         Torneos torneos = torneosRepository.findById(id)
-                .orElseThrow(()-> new TorneoNotFoundException(id));
+                .orElseThrow(()-> new TorneosNotFoundException(id));
         return torneosMapper.toResponse(torneos);
     }
 
-    public List<TorneoResponse> findByJuego(Integer idJuego){
+    public List<TorneosResponse> findByJuego(Integer idJuego){
         List<Torneos> torneos = torneosRepository.findByIdJuego(idJuego);
         if (torneos.isEmpty()){
-            throw new TorneoNotFoundException(idJuego);
+            throw new TorneosNotFoundException(idJuego);
         }
         return torneosMapper.toResponseList(torneos);
     }
-    public TorneoResponse create(TorneoRequest request){
+    public TorneosResponse create(TorneosRequest request){
+        try {
+            juegosClient.getJuego(request.getIdJuego());
+        } catch (Exception e) {
+            throw new RuntimeException("El juego no existe");
+        }
+
         if (torneosRepository.existsByNombreAndIdJuego(
                 request.getNombre(),
                 request.getIdJuego())){
-            throw  new TorneoDuplicadoException(
+            throw  new TorneosDuplicadoException(
                     request.getNombre(),
                     request.getIdJuego()
             );
@@ -61,9 +68,9 @@ public class TorneosService {
         return torneosMapper.toResponse(guardado);
     }
 
-    public TorneoResponse update(int id, TorneoRequest request){
+    public TorneosResponse update(int id, TorneosRequest request){
         Torneos existente = torneosRepository.findById(id)
-                .orElseThrow(()-> new TorneoNotFoundException(id));
+                .orElseThrow(()-> new TorneosNotFoundException(id));
 
         Formato formato = formatoRepository.findById(request.getIdFormato())
                         .orElseThrow(()-> new RuntimeException("Formato no encontrado"));
@@ -80,7 +87,7 @@ public class TorneosService {
 
     public void delete(Integer id) {
         Torneos torneo = torneosRepository.findById(id)
-                .orElseThrow(() -> new TorneoNotFoundException(id));
+                .orElseThrow(() -> new TorneosNotFoundException(id));
 
         torneosRepository.delete(torneo);
     }

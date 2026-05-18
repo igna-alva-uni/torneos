@@ -7,7 +7,7 @@ import lombok.NonNull;
 import java.time.LocalDate;
 
 @Data
-public class TorneoRequest {
+public class TorneosRequest {
     @NotBlank
     private String nombre;
     @NonNull
