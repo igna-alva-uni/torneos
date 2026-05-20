@@ -119,6 +119,12 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- Spring Kafka: cliente Kafka para publicación y suscripción de eventos -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
     </dependencies>
 
     <!-- Empaquetado ejecutable con Spring Boot -->

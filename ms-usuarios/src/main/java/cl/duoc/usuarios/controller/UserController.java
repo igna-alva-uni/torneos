@@ -85,7 +85,7 @@ public class UserController {
     }
 
     @DeleteMapping("/perfiles/{id}")
-    public void deletePerfil(@PathVariable Long id) {
+    public void eliminar(@PathVariable Long id) {
         perfilService.deletePerfil(id);
     }
 

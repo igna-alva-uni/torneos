@@ -1,6 +1,5 @@
 package cl.duoc.usuarios.dtos.user;
 
-import java.time.LocalDate;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,8 +16,5 @@ public class UserRequest {
     @NotBlank
     @Size(max = 150)
     private String email;
-    
-    @PastOrPresent
-    private LocalDate creadoEl;
 
 }
