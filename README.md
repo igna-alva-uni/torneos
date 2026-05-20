@@ -118,10 +118,10 @@ Cada microservicio trabaja sobre su propio esquema para mantener separación ló
 
 Antes de clonar e iniciar el proyecto, asegúrate de tener instaladas las siguientes herramientas en tu entorno Windows y configuradas en tus variables de entorno (PATH):
 
-1. **Java Development Kit (JDK) 21+** 
+1. **Java Development Kit (JDK) 21+**
    * Descarga: [Oracle JDK 21](https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe)
    * Verificación en consola: java -version
-2. **Apache Maven 3.9+** 
+2. **Apache Maven 3.9+**
    * Descarga: [Maven Download](https://maven.apache.org/download.cgi#CurrentMaven)
    * instalacion: [Maven Installation proces](https://maven.apache.org/install.html)
    * Verificación en consola: mvn -version
