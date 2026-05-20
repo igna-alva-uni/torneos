@@ -10,5 +10,5 @@ import cl.duoc.ranking.model.TipoRanking;
 public interface TipoRankingRepository extends JpaRepository<TipoRanking, Integer>{
     Optional<TipoRanking> findByIdTipoRanking(Integer idTipoRanking);
     Optional<TipoRanking> findByNombreTipoRanking(String nombreTipoRanking);
-    boolean existsByTipo(String nombreTipoRanking);
+    boolean existsByNombreTipoRanking(String nombreTipoRanking);
 }

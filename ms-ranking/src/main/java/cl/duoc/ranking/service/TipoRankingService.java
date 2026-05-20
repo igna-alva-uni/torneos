@@ -41,7 +41,7 @@ public class TipoRankingService {
 
     @Transactional
     public TipoRankingResponse create(TipoRankingRequest request) {
-        if (repository.existsByTipo(request.getNombreTipoRanking())) {
+        if (repository.existsByNombreTipoRanking(request.getNombreTipoRanking())) {
             throw new RuntimeException("El tipo de ranking '" + request.getNombreTipoRanking() + "' ya existe.");
         }
         
@@ -56,7 +56,7 @@ public class TipoRankingService {
         
   
         if (!existingEntity.getNombreTipoRanking().equals(request.getNombreTipoRanking()) 
-                && repository.existsByTipo(request.getNombreTipoRanking())) {
+                && repository.existsByNombreTipoRanking(request.getNombreTipoRanking())) {
             throw new RuntimeException("El tipo de ranking '" + request.getNombreTipoRanking() + "' ya existe.");
         }
         
