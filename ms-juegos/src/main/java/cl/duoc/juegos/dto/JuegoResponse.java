@@ -16,5 +16,5 @@ public class JuegoResponse {
     private String nombre;
     private String genero;
     private String descripcion;
-    private Set<Integer> plataformas;
+    private Set<String> plataformas;
 }

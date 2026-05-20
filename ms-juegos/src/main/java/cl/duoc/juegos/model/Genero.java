@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table( name = "generos")
+@Table( name = "genero")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -15,6 +17,6 @@ public class Genero {
     @Column(name = "id_genero")
     private Integer id;
 
-    @Column(name = "nom_genero", nullable = false, unique = true)
-    private String nom;
+    @Column(name = "nombre_genero", nullable = false, unique = true)
+    private String nombre;
 }
