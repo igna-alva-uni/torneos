@@ -37,5 +37,6 @@ public class Torneos {
     @Column(name = "fecha_termino")
     private LocalDate fecha_final;
 
+    @OneToMany(mappedBy = "torneos", cascade = CascadeType.ALL)
     private List<Premio> premios;
 }
