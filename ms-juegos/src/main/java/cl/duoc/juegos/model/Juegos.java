@@ -6,6 +6,7 @@ import lombok.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "juegos")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -18,7 +19,7 @@ public class Juegos {
     private Integer id;
 
     @Column(name = "nom_juegos", nullable = false)
-    private String nom;
+    private String nombre;
 
     @ManyToOne
     @JoinColumn(name = "id_genero", nullable = false)

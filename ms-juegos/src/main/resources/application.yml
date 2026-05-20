@@ -8,7 +8,7 @@ spring:
     name: ms-juegos
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/juegos
+    url: jdbc:postgresql://localhost:9005/juegos
     username: postgres
     password: 123
   jpa:

@@ -46,7 +46,7 @@ public class TorneosService {
     }
     public TorneosResponse create(TorneosRequest request){
         try {
-            juegosClient.getJuego(request.getIdJuego());
+            juegosClient.getJuegos(request.getIdJuego());
         } catch (Exception e) {
             throw new RuntimeException("El juego no existe");
         }

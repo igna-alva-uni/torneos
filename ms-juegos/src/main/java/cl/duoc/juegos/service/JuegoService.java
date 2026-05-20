@@ -70,7 +70,7 @@ public class JuegoService {
                 plataformaRepository.findAllById(request.getPlataformasIds())
         );
 
-        juego.setNom(request.getNombre());
+        juego.setNombre(request.getNombre());
         juego.setGenero(genero);
         juego.setDescripcion(request.getDescripcion());
         juego.setPlataformas(plataformas);

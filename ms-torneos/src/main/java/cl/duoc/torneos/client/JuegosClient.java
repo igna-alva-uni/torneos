@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "ms-juegos")
-public interface JuegosClient<JuegosDTO> {
+public interface JuegosClient{
 
     @GetMapping("/api/v1/juegos/{id}")
-    JuegosDTO getJuego(@PathVariable("id") Integer id);
+    JuegosDTO getJuegos(@PathVariable("id") Integer id);
 }
