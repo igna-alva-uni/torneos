@@ -86,6 +86,13 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
         </dependency>
+        
+        <!-- Spring Kafka: soporte para Kafka -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>3.1.2</version>
+        </dependency>
 
         <!-- Procesador de anotaciones de MapStruct -->
         <dependency>

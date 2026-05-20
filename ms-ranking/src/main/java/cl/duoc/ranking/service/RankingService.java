@@ -8,6 +8,8 @@ import cl.duoc.ranking.model.Ranking;
 import cl.duoc.ranking.model.RegistroRanking;
 import cl.duoc.ranking.model.TipoRanking;
 import cl.duoc.ranking.repository.RankingRepository;
+import cl.duoc.ranking.event.RankingEventProducer;
+import cl.duoc.ranking.event.RankingUpdateEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +25,7 @@ public class RankingService {
     private final RankingMapper mapper;
     private final RegistroRankingMapper registroMapper;
     private final TipoRankingService tipoRankingService;
+    private final RankingEventProducer eventProducer;
 
     @Transactional(readOnly = true)
     public List<RankingResponse> findAll() {
@@ -72,9 +75,15 @@ public class RankingService {
         }
         
         Ranking updatedRanking = repository.save(existingRanking);
+
+        eventProducer.sendRankingUpdateEvent(RankingUpdateEvent.builder()
+            .tipoRanking(existingRanking.getTipoRanking().getIdTipoRanking())
+            .idEquipo(existingRanking.getIdRanking())
+            .puntos(existingRanking.getRegistros().size())
+            .build());
+
         return mapper.toResponse(updatedRanking);
     }
-
     @Transactional
     public void delete(Integer id) {
         Ranking ranking = repository.findByIdRanking(id)
