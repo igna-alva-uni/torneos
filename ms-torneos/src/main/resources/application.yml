@@ -8,7 +8,7 @@ spring:
     name: ms-torneos
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:9009/torneos
+    url: jdbc:postgresql://localhost:5433/torneos
     username: postgres
     password: 123
   jpa:
