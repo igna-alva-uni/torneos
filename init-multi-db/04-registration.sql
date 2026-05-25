@@ -1,6 +1,8 @@
 -- 1. Conectarse a la base de datos específica para este microservicio
 -- \c registration_service
+CREATE SCHEMA IF NOT EXISTS inscripciones;
 
+SET search_path TO inscripciones;
 -- 2. Eliminación de las tablas en orden jerárquico inverso
 DROP TABLE IF EXISTS historiales_inscripcion CASCADE;
 DROP TABLE IF EXISTS inscripciones CASCADE;

@@ -1,5 +1,9 @@
 -- 1. Conectarse a la base de datos específica para este microservicio
 -- \c notification_service
+CREATE SCHEMA IF NOT EXISTS notificaciones;
+
+SET search_path TO notificaciones;
+
 
 -- 2. Eliminación de las tablas en orden jerárquico inverso
 DROP TABLE IF EXISTS notificaciones_usuario CASCADE;

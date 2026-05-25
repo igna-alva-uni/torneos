@@ -26,6 +26,11 @@ public class TorneosController {
     public ResponseEntity<TorneosResponse> findById(@PathVariable int id) {
         return ResponseEntity.ok(torneosService.findById(id));
     }
+    @GetMapping("/juego/{idJuego}")
+    public ResponseEntity<List<TorneosResponse>> findByJuego(@PathVariable int idJuego) {
+        return ResponseEntity.ok(torneosService.findByJuego(idJuego));
+    }
+
 
     @PostMapping
     public ResponseEntity<TorneosResponse> create(@Valid @RequestBody TorneosRequest request) {
