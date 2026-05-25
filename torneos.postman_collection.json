@@ -1,1184 +1,1353 @@
 {
-  "info": {
-    "_postman_id": "5964ca4e-1e96-4a46-92f8-3d8048d6b4c9",
-    "name": "torneos",
-    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "53110948",
-    "_collection_link": "https://go.postman.co/collection/53110948-5964ca4e-1e96-4a46-92f8-3d8048d6b4c9?source=collection_link"
-  },
-  "item": [
-    {
-      "name": "ms-usuarios",
-      "item": [
-        {
-          "name": "usuarios",
-          "item": [
-            {
-              "name": "get all",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/usuarios",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "usuarios"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "get by id",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/usuarios/1",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "usuarios",
-                    "1"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "crear",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"username\": \"Faker_12345\",\r\n  \"email\": \"faker12@esports.com\"\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/usuarios",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "usuarios"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "actualizar",
-              "request": {
-                "method": "PUT",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"username\": \"Faker_123\",\r\n  \"email\": \"faker@esports.com\"\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/usuarios/1",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "usuarios",
-                    "1"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "borrar",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "DELETE",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/usuarios/5",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "usuarios",
-                    "5"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        },
-        {
-          "name": "paises",
-          "item": [
-            {
-              "name": "get all",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/paises",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "paises"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "get by id",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/paises/1",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "paises",
-                    "1"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "get by codigo",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/paises/codigo/CHL",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "paises",
-                    "codigo",
-                    "CHL"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "get by name",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/paises/nombre/Chile",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "paises",
-                    "nombre",
-                    "Chile"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "crear",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"nombrePais\": \"japon\",\r\n  \"codigoPais\": \"jp\"\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/paises",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "paises"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "actualizar",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "PUT",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"nombrePais\": \"rumania\",\r\n  \"codigoPais\": \"rum\"\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/paises/2",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "paises",
-                    "2"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "eliminar",
-              "request": {
-                "method": "DELETE",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/paises/5",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "paises",
-                    "5"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        },
-        {
-          "name": "perfiles",
-          "item": [
-            {
-              "name": "get all",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/perfiles",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "perfiles"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "get by id",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/perfiles/1",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "perfiles",
-                    "1"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "crear",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"idUsuario\": 6,\r\n  \"nickname\": \"Demonlord\",\r\n  \"urlAvatar\": \"https://imgur.com/foto_avatar.png\",\r\n  \"idPais\": 3\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/perfiles",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "perfiles"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "actualizar",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "PUT",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"idUsuario\": 7,\r\n  \"nickname\": \"DemonKing\",\r\n  \"urlAvatar\": \"https://imgur.com/foto_avatar.png\",\r\n  \"idPais\": 1\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/perfiles/3",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "perfiles",
-                    "3"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "eliminar",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "DELETE",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9001/api/v1/usuarios/perfiles/4",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9001",
-                  "path": [
-                    "api",
-                    "v1",
-                    "usuarios",
-                    "perfiles",
-                    "4"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ms-equipos",
-      "item": [
-        {
-          "name": "equipo",
-          "item": [
-            {
-              "name": "get all",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/equipos",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "equipos"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "get by id",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/equipos/1",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "equipos",
-                    "1"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "crear",
-              "request": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"nombreEquipo\": \"T400 Esports\"\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/equipos",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "equipos"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "actualizar",
-              "request": {
-                "method": "PUT",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"nombreEquipo\": \"T1 Esports\"\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/equipos/2",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "equipos",
-                    "2"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "eliminar",
-              "request": {
-                "method": "DELETE",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/equipos/3",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "equipos",
-                    "3"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        },
-        {
-          "name": "miembros",
-          "item": [
-            {
-              "name": "get all",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/miembros",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "miembros"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "get by id",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/miembros/equipo/1",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "miembros",
-                    "equipo",
-                    "1"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "crear",
-              "request": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"idUsuario\": 6,\r\n  \"idEquipo\": 1,\r\n  \"idRolEquipo\": 1\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/miembros",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "miembros"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "actualizar",
-              "request": {
-                "method": "PUT",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"idUsuario\": 7,\r\n  \"idEquipo\": 1,\r\n  \"idRolEquipo\": 1\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/miembros/1",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "miembros",
-                    "1"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "eliminar",
-              "request": {
-                "method": "DELETE",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/miembros/2",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "miembros",
-                    "2"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        },
-        {
-          "name": "roles",
-          "item": [
-            {
-              "name": "get all",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/roles",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "roles"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "get by id",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/roles/1",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "roles",
-                    "1"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "crear",
-              "request": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n    \"nombreRolEquipo\": \"support\"\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/roles",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "roles"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "actualizar",
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "PUT",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n    \"nombreRolEquipo\": \"CAPITAN\"\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/roles/1",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "roles",
-                    "1"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "eliminar",
-              "request": {
-                "method": "DELETE",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9005/api/v1/equipos/roles/3",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9005",
-                  "path": [
-                    "api",
-                    "v1",
-                    "equipos",
-                    "roles",
-                    "3"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ms-autenticaciones",
-      "item": [
-        {
-          "name": "roles",
-          "item": [
-            {
-              "name": "get all",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9002/api/v1/autenticaciones/roles",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9002",
-                  "path": [
-                    "api",
-                    "v1",
-                    "autenticaciones",
-                    "roles"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "get by id",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9002/api/v1/autenticaciones/roles/1",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9002",
-                  "path": [
-                    "api",
-                    "v1",
-                    "autenticaciones",
-                    "roles",
-                    "1"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "crear",
-              "request": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"nombreRol\": \"viewer\"\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9002/api/v1/autenticaciones/roles",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9002",
-                  "path": [
-                    "api",
-                    "v1",
-                    "autenticaciones",
-                    "roles"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "actualizar",
-              "request": {
-                "method": "PUT",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"nombreRol\": \"presentador\"\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9002/api/v1/autenticaciones/roles/2",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9002",
-                  "path": [
-                    "api",
-                    "v1",
-                    "autenticaciones",
-                    "roles",
-                    "2"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "eliminar",
-              "request": {
-                "method": "DELETE",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9002/api/v1/autenticaciones/roles/3",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9002",
-                  "path": [
-                    "api",
-                    "v1",
-                    "autenticaciones",
-                    "roles",
-                    "3"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        },
-        {
-          "name": "usuarios",
-          "item": [
-            {
-              "name": "get by id",
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9002/api/v1/autenticaciones/usuarios/1",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9002",
-                  "path": [
-                    "api",
-                    "v1",
-                    "autenticaciones",
-                    "usuarios",
-                    "1"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "crear",
-              "request": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"idUsuario\": 6,\r\n  \"email\": \"mythos@yahoo.com\",\r\n  \"password\": \"PasswordSegura123\",\r\n  \"nombresRoles\": [\r\n    \"ROLE_ADMIN\"\r\n  ]\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9002/api/v1/autenticaciones/usuarios",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9002",
-                  "path": [
-                    "api",
-                    "v1",
-                    "autenticaciones",
-                    "usuarios"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "actualizar",
-              "request": {
-                "method": "PUT",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"idUsuario\": 7,\r\n  \"email\": \"sikey@gmail.com\",\r\n  \"password\": \"PasswordUltraSegura123\",\r\n  \"nombresRoles\": [\r\n    \"ROLE_ADMIN\"\r\n  ]\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9002/api/v1/autenticaciones/usuarios/6",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9002",
-                  "path": [
-                    "api",
-                    "v1",
-                    "autenticaciones",
-                    "usuarios",
-                    "6"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "eliminar",
-              "request": {
-                "method": "DELETE",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9002/api/v1/autenticaciones/usuarios/3",
-                  "protocol": "http",
-                  "host": [
-                    "localhost"
-                  ],
-                  "port": "9002",
-                  "path": [
-                    "api",
-                    "v1",
-                    "autenticaciones",
-                    "usuarios",
-                    "3"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
-        }
-      ]
-    }
-  ]
+	"info": {
+		"_postman_id": "195af21f-9246-44a7-87e0-40b0e38b9b89",
+		"name": "torneos",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "53552131",
+		"_collection_link": "https://luci-diazs-2879855.postman.co/workspace/LUCIANO-IGNACIO-DIAZ-SALAZAR's-~a0cbc89f-601e-48ec-84f1-f1d49bc17435/collection/53552131-195af21f-9246-44a7-87e0-40b0e38b9b89?action=share&source=collection_link&creator=53552131"
+	},
+	"item": [
+		{
+			"name": "ms-usuarios",
+			"item": [
+				{
+					"name": "usuarios",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/usuarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/usuarios/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"usuarios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"Faker_12345\",\r\n  \"email\": \"faker12@esports.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/usuarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actualizar",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"Faker_123\",\r\n  \"email\": \"faker@esports.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/usuarios/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"usuarios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "borrar",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/usuarios/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"usuarios",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "paises",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/paises",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"paises"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by id",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/paises/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"paises",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by codigo",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/paises/codigo/CHL",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"paises",
+										"codigo",
+										"CHL"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by name",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/paises/nombre/Chile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"paises",
+										"nombre",
+										"Chile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombrePais\": \"japon\",\r\n  \"codigoPais\": \"jp\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/paises",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"paises"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actualizar",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombrePais\": \"rumania\",\r\n  \"codigoPais\": \"rum\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/paises/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"paises",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eliminar",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/paises/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"paises",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "perfiles",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/perfiles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"perfiles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by id",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/perfiles/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"perfiles",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idUsuario\": 6,\r\n  \"nickname\": \"Demonlord\",\r\n  \"urlAvatar\": \"https://imgur.com/foto_avatar.png\",\r\n  \"idPais\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/perfiles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"perfiles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actualizar",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idUsuario\": 7,\r\n  \"nickname\": \"DemonKing\",\r\n  \"urlAvatar\": \"https://imgur.com/foto_avatar.png\",\r\n  \"idPais\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/perfiles/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"perfiles",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eliminar",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/api/v1/usuarios/perfiles/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"perfiles",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ms-equipos",
+			"item": [
+				{
+					"name": "equipo",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/equipos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"equipos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/equipos/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"equipos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombreEquipo\": \"T400 Esports\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/equipos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"equipos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actualizar",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombreEquipo\": \"T1 Esports\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/equipos/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"equipos",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eliminar",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/equipos/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"equipos",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "miembros",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/miembros",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"miembros"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/miembros/equipo/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"miembros",
+										"equipo",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idUsuario\": 6,\r\n  \"idEquipo\": 1,\r\n  \"idRolEquipo\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/miembros",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"miembros"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actualizar",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idUsuario\": 7,\r\n  \"idEquipo\": 1,\r\n  \"idRolEquipo\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/miembros/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"miembros",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eliminar",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/miembros/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"miembros",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "roles",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/roles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/roles/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"roles",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreRolEquipo\": \"support\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/roles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actualizar",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombreRolEquipo\": \"CAPITAN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/roles/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"roles",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eliminar",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/api/v1/equipos/roles/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"api",
+										"v1",
+										"equipos",
+										"roles",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ms-autenticaciones",
+			"item": [
+				{
+					"name": "roles",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9002/api/v1/autenticaciones/roles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"api",
+										"v1",
+										"autenticaciones",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9002/api/v1/autenticaciones/roles/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"api",
+										"v1",
+										"autenticaciones",
+										"roles",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombreRol\": \"viewer\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9002/api/v1/autenticaciones/roles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"api",
+										"v1",
+										"autenticaciones",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actualizar",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombreRol\": \"presentador\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9002/api/v1/autenticaciones/roles/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"api",
+										"v1",
+										"autenticaciones",
+										"roles",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eliminar",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9002/api/v1/autenticaciones/roles/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"api",
+										"v1",
+										"autenticaciones",
+										"roles",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "usuarios",
+					"item": [
+						{
+							"name": "get by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9002/api/v1/autenticaciones/usuarios/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"api",
+										"v1",
+										"autenticaciones",
+										"usuarios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idUsuario\": 6,\r\n  \"email\": \"mythos@yahoo.com\",\r\n  \"password\": \"PasswordSegura123\",\r\n  \"nombresRoles\": [\r\n    \"ROLE_ADMIN\"\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9002/api/v1/autenticaciones/usuarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"api",
+										"v1",
+										"autenticaciones",
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actualizar",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idUsuario\": 7,\r\n  \"email\": \"sikey@gmail.com\",\r\n  \"password\": \"PasswordUltraSegura123\",\r\n  \"nombresRoles\": [\r\n    \"ROLE_ADMIN\"\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9002/api/v1/autenticaciones/usuarios/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"api",
+										"v1",
+										"autenticaciones",
+										"usuarios",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eliminar",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9002/api/v1/autenticaciones/usuarios/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"api",
+										"v1",
+										"autenticaciones",
+										"usuarios",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "prueba",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9009/api/v1/notificaciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9009",
+							"path": [
+								"api",
+								"v1",
+								"notificaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tipos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9009/api/v1/notificaciones/tipos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9009",
+							"path": [
+								"api",
+								"v1",
+								"notificaciones",
+								"tipos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9009",
+							"path": [
+								"api",
+								"v1",
+								"notificaciones",
+								"usuarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usuario no leido",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9009/api/v1/notificaciones/test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9009",
+							"path": [
+								"api",
+								"v1",
+								"notificaciones",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "nombre notificacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\"nombreTipoNotificacion\": \"el pepe\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9009/api/v1/notificaciones/tipos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9009",
+							"path": [
+								"api",
+								"v1",
+								"notificaciones",
+								"tipos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
 }

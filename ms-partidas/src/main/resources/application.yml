@@ -1,5 +1,5 @@
 server:
-  port: 9007
+  port: 9006
   error:
     include-stacktrace: never
 
@@ -8,7 +8,7 @@ spring:
     name: ms-partidas
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/torneos
+    url: jdbc:postgresql://localhost:9007/partidas
     username: postgres
     password: 123
   jpa:
