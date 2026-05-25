@@ -6,6 +6,7 @@ call cd C:\torneos\ms-usuarios
 
 call mvn clean install -U -DskipTests
 
+
 call cd C:\torneos\ms-autenticaciones
 
 call mvn clean install -U -DskipTests 
