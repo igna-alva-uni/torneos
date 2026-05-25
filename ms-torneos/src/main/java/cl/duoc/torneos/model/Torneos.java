@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Table(name = "torneos", schema = "torneos")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,10 +32,10 @@ public class Torneos {
     private Formato formato;
 
     @Column(name = "fecha_inicio")
-    private LocalDate fecha_inicio;
+    private LocalDate fechaInicio;
 
     @Column(name = "fecha_termino")
-    private LocalDate fecha_final;
+    private LocalDate fechaTermino;
 
     @OneToMany(mappedBy = "torneos", cascade = CascadeType.ALL)
     private List<Premio> premios;

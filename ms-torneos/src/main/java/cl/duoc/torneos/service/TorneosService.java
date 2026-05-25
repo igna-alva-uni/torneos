@@ -78,8 +78,8 @@ public class TorneosService {
         existente.setNombre(request.getNombre());
         existente.setIdJuego(request.getIdJuego());
         existente.setFormato(formato);
-        existente.setFecha_inicio(request.getFechaInicio());
-        existente.setFecha_final(request.getFechaTermino());
+        existente.setFechaInicio(request.getFechaInicio());
+        existente.setFechaTermino(request.getFechaTermino());
 
         Torneos guardado = torneosRepository.save(existente);
         return torneosMapper.toResponse(guardado);

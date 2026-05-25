@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "premios", schema = "torneos")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,8 +22,8 @@ public class Premio {
     @JoinColumn(name = "id_torneo", nullable = false)
     private Torneos torneos;
 
-    @Column(nullable = false)
-    private Integer pocision;
+    @Column(name = "posicion", nullable = false)
+    private Integer posicion;
 
     @Column(nullable = false)
     private String recompensa;

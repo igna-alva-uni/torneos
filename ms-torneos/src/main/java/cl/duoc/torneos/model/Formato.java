@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "formatos_torneo", schema = "torneos")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
