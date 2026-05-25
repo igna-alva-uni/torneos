@@ -24,6 +24,6 @@ public class ResultadoPartida {
     @Column(name = "id_equipo_ganador")
     private Integer idEquipoGanador;
 
-    @Column(nullable = false)
+    @Column(name = "puntaje", nullable = false)
     private String puntaje;
 }

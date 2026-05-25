@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "torneos")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

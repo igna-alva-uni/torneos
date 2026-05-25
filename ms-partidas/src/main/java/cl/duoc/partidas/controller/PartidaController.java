@@ -2,6 +2,8 @@ package cl.duoc.partidas.controller;
 
 import cl.duoc.partidas.dto.PartidaRequest;
 import cl.duoc.partidas.dto.PartidaResponse;
+import cl.duoc.partidas.dto.ResultadoPartidaRequest;
+import cl.duoc.partidas.dto.ResultadoPartidaResponse;
 import cl.duoc.partidas.service.PartidaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +35,17 @@ public class PartidaController {
         return ResponseEntity.ok(
                 partidaService.findById(id)
         );
+    }
+
+    @PostMapping("/{idPartida}/resultado")
+    public ResponseEntity<ResultadoPartidaResponse> crearResultado(
+            @PathVariable Integer idPartida,
+            @RequestBody ResultadoPartidaRequest request) {
+
+        request.setIdPartida(idPartida);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(partidaService.crearResultado(request));
     }
 
     @PostMapping

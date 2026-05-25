@@ -7,7 +7,7 @@ import cl.duoc.juegos.exception.JuegoNotFoundException;
 import cl.duoc.juegos.mapper.JuegoMapper;
 import cl.duoc.juegos.model.Genero;
 import cl.duoc.juegos.model.Juegos;
-import cl.duoc.juegos.model.Plataforma;
+import cl.duoc.juegos.model.Plataformas;
 import cl.duoc.juegos.repository.GeneroRepository;
 import cl.duoc.juegos.repository.JuegoRepository;
 import cl.duoc.juegos.repository.PlataformaRepository;
@@ -28,7 +28,9 @@ public class JuegoService {
     private final JuegoMapper juegoMapper;
 
     public List<JuegoResponse> findAll() {
-        return juegoMapper.toResponseList(juegoRepository.findAll());
+        return juegoMapper.toResponseList(
+                juegoRepository.findAllWithPlataformas()
+        );
     }
 
     public JuegoResponse findById(Integer id) {
@@ -40,16 +42,15 @@ public class JuegoService {
 
     public JuegoResponse create(JuegoRequest request) {
 
-        if (juegoRepository.existsByNombre(request.getNombre())) {
-            throw new JuegoDuplicadoException(request.getNombre());
-        }
 
         Genero genero = generoRepository.findById(request.getIdGenero())
                 .orElseThrow(() -> new RuntimeException("Género no encontrado"));
 
-        Set<Plataforma> plataformas = new HashSet<>(
-                plataformaRepository.findAllById(request.getPlataformasIds())
+        Set<Plataformas> plataformas = new HashSet<>(
+                plataformaRepository.findAllById(request.getPlataformas())
         );
+        System.out.println(request.getPlataformas());
+        System.out.println(plataformas);
 
         Juegos juego = juegoMapper.toModel(request);
         juego.setGenero(genero);
@@ -66,8 +67,8 @@ public class JuegoService {
         Genero genero = generoRepository.findById(request.getIdGenero())
                 .orElseThrow(() -> new RuntimeException("Género no encontrado"));
 
-        Set<Plataforma> plataformas = new HashSet<>(
-                plataformaRepository.findAllById(request.getPlataformasIds())
+        Set<Plataformas> plataformas = new HashSet<>(
+                plataformaRepository.findAllById(request.getPlataformas())
         );
 
         juego.setNombre(request.getNombre());

@@ -1,5 +1,8 @@
 -- 1. Conectarse a la base de datos específica para este microservicio
 -- \c tournament_service
+CREATE SCHEMA IF NOT EXISTS torneos;
+
+SET search_path TO torneos;
 
 -- 2. Eliminación de las tablas en orden jerárquico inverso
 DROP TABLE IF EXISTS premios CASCADE;

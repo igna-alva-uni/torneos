@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class PartidaRequest {
-    private Integer idTorneo;
+    private Integer torneoId;
     private String ronda;
     private EstadoPartida estado;
 }

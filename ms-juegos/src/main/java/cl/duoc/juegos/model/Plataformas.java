@@ -6,19 +6,19 @@ import lombok.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "plataforma")
+@Table(name = "plataformas", schema = "juegos")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Plataforma {
+public class Plataformas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_plataforma")
     private Integer id;
 
-    @Column(name = "nom_plataforma", nullable = false, unique = true)
+    @Column(name = "nombre_plataforma", nullable = false, unique = true)
     private String nombre;
 
     @ManyToMany(mappedBy = "plataformas")

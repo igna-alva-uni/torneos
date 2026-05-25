@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface PartidaRepository extends JpaRepository<Partida,Integer> {
-    List<Partida> findByIdTorneo(Integer idTorneo);
+    List<Partida> findByTorneoId(Integer torneoId);
 }

@@ -6,7 +6,7 @@ import lombok.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "juegos")
+@Table(name = "juegos", schema = "juegos")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -18,19 +18,20 @@ public class Juegos {
     @Column(name = "id_juego")
     private Integer id;
 
-    @Column(name = "nom_juegos", nullable = false)
+    @Column(name = "nombre_juego", nullable = false)
     private String nombre;
 
     @ManyToOne
     @JoinColumn(name = "id_genero", nullable = false)
     private Genero genero;
 
+    @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "plataformas_juegos",
             joinColumns = @JoinColumn(name = "id_juego"),
-            inverseJoinColumns = @JoinColumn(name = "id_platadorma")
+            inverseJoinColumns = @JoinColumn(name = "id_plataforma")
     )
-    private Set<Plataforma> plataformas;
+    private Set<Plataformas> plataformas;
 }

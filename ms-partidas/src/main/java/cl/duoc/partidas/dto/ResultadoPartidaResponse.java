@@ -1,6 +1,5 @@
 package cl.duoc.partidas.dto;
 
-import cl.duoc.partidas.model.EstadoPartida;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,9 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PartidaResponse {
+public class ResultadoPartidaResponse {
     private Integer id;
-    private Integer torneoId;
-    private String ronda;
-    private EstadoPartida estado;
+    private Integer idPartida;
+    private Integer idEquipoGanador;
+    private String puntaje;
 }

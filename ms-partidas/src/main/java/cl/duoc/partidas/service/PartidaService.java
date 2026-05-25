@@ -3,9 +3,13 @@ package cl.duoc.partidas.service;
 import cl.duoc.partidas.client.TorneosClient;
 import cl.duoc.partidas.dto.PartidaRequest;
 import cl.duoc.partidas.dto.PartidaResponse;
+import cl.duoc.partidas.dto.ResultadoPartidaRequest;
+import cl.duoc.partidas.dto.ResultadoPartidaResponse;
 import cl.duoc.partidas.exception.PartidaNotFoundException;
 import cl.duoc.partidas.mapper.PartidaMapper;
+import cl.duoc.partidas.mapper.ResultadoPartidaMapper;
 import cl.duoc.partidas.model.Partida;
+import cl.duoc.partidas.model.ResultadoPartida;
 import cl.duoc.partidas.repository.PartidaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,6 +22,7 @@ public class PartidaService {
 
     private final PartidaRepository partidaRepository;
     private final PartidaMapper partidaMapper;
+    private final ResultadoPartidaMapper resultadoMapper;
     private final TorneosClient torneosClient;
 
     public List<PartidaResponse> findAll() {
@@ -35,9 +40,32 @@ public class PartidaService {
         return partidaMapper.toResponse(partida);
     }
 
+    public ResultadoPartidaResponse crearResultado(ResultadoPartidaRequest request) {
+
+        try {
+
+            Partida partida = partidaRepository.findById(request.getIdPartida())
+                    .orElseThrow(() -> new RuntimeException("La partida no existe"));
+
+            ResultadoPartida resultado = ResultadoPartida.builder()
+                    .partida(partida)
+                    .idEquipoGanador(request.getIdEquipoGanador())
+                    .puntaje(request.getPuntaje())
+                    .build();
+
+
+            ResultadoPartida guardado = resultado;
+
+            return resultadoMapper.toResponse(guardado);
+
+        } catch (Exception e) {
+            throw new RuntimeException("Error al crear resultado: " + e.getMessage());
+        }
+    }
+
     public PartidaResponse create(PartidaRequest request) {
 
-        validarTorneo(request.getIdTorneo());
+        validarTorneo(request.getTorneoId());
 
         Partida partida = partidaMapper.toModel(request);
 
@@ -54,9 +82,9 @@ public class PartidaService {
                 .orElseThrow(() ->
                         new PartidaNotFoundException(id));
 
-        validarTorneo(request.getIdTorneo());
+        validarTorneo(request.getTorneoId());
 
-        partida.setTorneos(request.getIdTorneo());
+        partida.setTorneoId(request.getTorneoId());
         partida.setRonda(request.getRonda());
         partida.setEstado(request.getEstado());
 
