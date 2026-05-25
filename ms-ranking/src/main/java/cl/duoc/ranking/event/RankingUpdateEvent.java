@@ -12,14 +12,10 @@ import lombok.Builder;
 @AllArgsConstructor
 @Builder
 
-public class RankingUpdateEvent implements RankingEvent {
+public class RankingUpdateEvent  {
 
     private Integer tipoRanking;
     private Integer idEquipo;
     private Integer puntos;
 
-    @Override
-    public Integer getTipoRanking() {
-        return tipoRanking;
-    }
 }
