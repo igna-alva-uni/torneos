@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "partidas")
+@Table(name = "partidas", schema = "partidas")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -17,7 +17,7 @@ public class Partida {
     @Column(name = "id_partida")
     private Integer id;
 
-    @Column(name = "id_torneos")
+    @Column(name = "id_torneo")
     private Integer torneoId;
 
     @Column(nullable = false)
