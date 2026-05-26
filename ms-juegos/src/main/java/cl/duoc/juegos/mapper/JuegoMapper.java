@@ -3,9 +3,10 @@ package cl.duoc.juegos.mapper;
 import cl.duoc.juegos.dto.JuegoRequest;
 import cl.duoc.juegos.dto.JuegoResponse;
 import cl.duoc.juegos.model.Juegos;
+import cl.duoc.juegos.model.Plataformas;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import cl.duoc.juegos.model.Plataforma;
+import org.mapstruct.Named;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -26,10 +27,12 @@ public interface JuegoMapper {
 
     List<JuegoResponse> toResponseList(List<Juegos> juegos);
 
-    default Set<String> mapPlataformas(Set<Plataforma> plataformas) {
+    default Set<String> mapPlataformas(Set<Plataformas> plataformas) {
+
+        if (plataformas == null) return Set.of();
 
         return plataformas.stream()
-                .map(Plataforma::getNombre)
+                .map(Plataformas::getNombre)
                 .collect(Collectors.toSet());
     }
 }

@@ -1,5 +1,5 @@
 server:
-  port: 9003
+  port: 9005
   error:
     include-stacktrace: never
 
@@ -8,7 +8,7 @@ spring:
     name: ms-juegos
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:9005/juegos
+    url: jdbc:postgresql://localhost:5433/torneos
     username: postgres
     password: 123
   jpa:
@@ -16,6 +16,8 @@ spring:
       ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate.default_schema: juegos
 
 eureka:
   client:

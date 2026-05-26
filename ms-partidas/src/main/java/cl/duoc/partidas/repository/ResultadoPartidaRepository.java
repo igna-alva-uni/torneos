@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface ResultadoPartidaRepository extends JpaRepository<ResultadoPartida,Integer> {
-    Optional<ResultadoPartida> findByIdTorneo(Integer idTorneo);
+    Optional<ResultadoPartida> findByPartidaId(Integer idPartida);
 }

@@ -81,6 +81,11 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
         <!-- MapStruct: generador de codigo para mapeo entre entidades y DTOs -->
         <dependency>
             <groupId>org.mapstruct</groupId>

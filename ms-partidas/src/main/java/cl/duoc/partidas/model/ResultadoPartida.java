@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "resultados_partidas")
+@Table(name = "resultados_partidas", schema = "partidas")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,6 +24,6 @@ public class ResultadoPartida {
     @Column(name = "id_equipo_ganador")
     private Integer idEquipoGanador;
 
-    @Column(nullable = false)
+    @Column(name = "puntaje", nullable = false)
     private String puntaje;
 }
