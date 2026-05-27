@@ -20,9 +20,16 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/usuarios",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "usuarios"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "usuarios"
+                  ]
                 }
               },
               "response": []
@@ -35,9 +42,17 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/usuarios/1",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "usuarios", "1"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "usuarios",
+                    "1"
+                  ]
                 }
               },
               "response": []
@@ -59,9 +74,16 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/usuarios",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "usuarios"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "usuarios"
+                  ]
                 }
               },
               "response": []
@@ -83,9 +105,17 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/usuarios/1",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "usuarios", "1"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "usuarios",
+                    "1"
+                  ]
                 }
               },
               "response": []
@@ -98,9 +128,17 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/usuarios/5",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "usuarios", "5"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "usuarios",
+                    "5"
+                  ]
                 }
               },
               "response": []
@@ -118,9 +156,16 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/paises",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "paises"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "paises"
+                  ]
                 }
               },
               "response": []
@@ -133,9 +178,17 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/paises/1",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "paises", "1"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "paises",
+                    "1"
+                  ]
                 }
               },
               "response": []
@@ -148,9 +201,18 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/paises/codigo/CHL",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "paises", "codigo", "CHL"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "paises",
+                    "codigo",
+                    "CHL"
+                  ]
                 }
               },
               "response": []
@@ -163,9 +225,18 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/paises/nombre/Chile",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "paises", "nombre", "Chile"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "paises",
+                    "nombre",
+                    "Chile"
+                  ]
                 }
               },
               "response": []
@@ -187,9 +258,16 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/paises",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "paises"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "paises"
+                  ]
                 }
               },
               "response": []
@@ -211,9 +289,17 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/paises/2",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "paises", "2"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "paises",
+                    "2"
+                  ]
                 }
               },
               "response": []
@@ -226,9 +312,17 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/paises/5",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "paises", "5"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "paises",
+                    "5"
+                  ]
                 }
               },
               "response": []
@@ -246,9 +340,16 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/perfiles",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "perfiles"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "perfiles"
+                  ]
                 }
               },
               "response": []
@@ -261,9 +362,17 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/perfiles/1",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "perfiles", "1"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "perfiles",
+                    "1"
+                  ]
                 }
               },
               "response": []
@@ -285,9 +394,16 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/perfiles",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "perfiles"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "perfiles"
+                  ]
                 }
               },
               "response": []
@@ -309,9 +425,17 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/perfiles/3",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "perfiles", "3"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "perfiles",
+                    "3"
+                  ]
                 }
               },
               "response": []
@@ -324,9 +448,17 @@
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/perfiles/4",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9001",
-                  "path": ["api", "v1", "usuarios", "perfiles", "4"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "perfiles",
+                    "4"
+                  ]
                 }
               },
               "response": []
@@ -349,9 +481,16 @@
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/roles",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9002",
-                  "path": ["api", "v1", "autenticaciones", "roles"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "autenticaciones",
+                    "roles"
+                  ]
                 }
               },
               "response": []
@@ -364,9 +503,17 @@
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/roles/1",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9002",
-                  "path": ["api", "v1", "autenticaciones", "roles", "1"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "autenticaciones",
+                    "roles",
+                    "1"
+                  ]
                 }
               },
               "response": []
@@ -388,9 +535,16 @@
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/roles",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9002",
-                  "path": ["api", "v1", "autenticaciones", "roles"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "autenticaciones",
+                    "roles"
+                  ]
                 }
               },
               "response": []
@@ -412,9 +566,17 @@
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/roles/2",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9002",
-                  "path": ["api", "v1", "autenticaciones", "roles", "2"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "autenticaciones",
+                    "roles",
+                    "2"
+                  ]
                 }
               },
               "response": []
@@ -427,9 +589,17 @@
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/roles/3",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9002",
-                  "path": ["api", "v1", "autenticaciones", "roles", "3"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "autenticaciones",
+                    "roles",
+                    "3"
+                  ]
                 }
               },
               "response": []
@@ -447,9 +617,17 @@
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/usuarios/1",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9002",
-                  "path": ["api", "v1", "autenticaciones", "usuarios", "1"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "autenticaciones",
+                    "usuarios",
+                    "1"
+                  ]
                 }
               },
               "response": []
@@ -471,9 +649,16 @@
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/usuarios",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9002",
-                  "path": ["api", "v1", "autenticaciones", "usuarios"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "autenticaciones",
+                    "usuarios"
+                  ]
                 }
               },
               "response": []
@@ -495,9 +680,17 @@
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/usuarios/6",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9002",
-                  "path": ["api", "v1", "autenticaciones", "usuarios", "6"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "autenticaciones",
+                    "usuarios",
+                    "6"
+                  ]
                 }
               },
               "response": []
@@ -510,9 +703,17 @@
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/usuarios/3",
                   "protocol": "http",
-                  "host": ["localhost"],
+                  "host": [
+                    "localhost"
+                  ],
                   "port": "9002",
-                  "path": ["api", "v1", "autenticaciones", "usuarios", "3"]
+                  "path": [
+                    "api",
+                    "v1",
+                    "autenticaciones",
+                    "usuarios",
+                    "3"
+                  ]
                 }
               },
               "response": []
@@ -532,9 +733,15 @@
             "url": {
               "raw": "http://localhost:9003/api/v1/juegos",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "9003",
-              "path": ["api", "v1", "juegos"]
+              "path": [
+                "api",
+                "v1",
+                "juegos"
+              ]
             }
           },
           "response": []
@@ -547,9 +754,16 @@
             "url": {
               "raw": "http://localhost:9003/api/v1/juegos/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "9003",
-              "path": ["api", "v1", "juegos", "1"]
+              "path": [
+                "api",
+                "v1",
+                "juegos",
+                "1"
+              ]
             }
           },
           "response": []
@@ -571,9 +785,15 @@
             "url": {
               "raw": "http://localhost:9003/api/v1/juegos",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "9003",
-              "path": ["api", "v1", "juegos"]
+              "path": [
+                "api",
+                "v1",
+                "juegos"
+              ]
             }
           },
           "response": []
@@ -595,9 +815,16 @@
             "url": {
               "raw": "http://localhost:9003/api/v1/juegos/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "9003",
-              "path": ["api", "v1", "juegos", "1"]
+              "path": [
+                "api",
+                "v1",
+                "juegos",
+                "1"
+              ]
             }
           },
           "response": []
@@ -610,9 +837,16 @@
             "url": {
               "raw": "http://localhost:9003/api/v1/juegos/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "9003",
-              "path": ["api", "v1", "juegos", "1"]
+              "path": [
+                "api",
+                "v1",
+                "juegos",
+                "1"
+              ]
             }
           },
           "response": []
@@ -630,9 +864,15 @@
             "url": {
               "raw": "http://localhost:9004/api/v1/torneos",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "9004",
-              "path": ["api", "v1", "torneos"]
+              "path": [
+                "api",
+                "v1",
+                "torneos"
+              ]
             }
           },
           "response": []
@@ -645,9 +885,16 @@
             "url": {
               "raw": "http://localhost:9004/api/v1/torneos/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "9004",
-              "path": ["api", "v1", "torneos", "1"]
+              "path": [
+                "api",
+                "v1",
+                "torneos",
+                "1"
+              ]
             }
           },
           "response": []
@@ -660,9 +907,17 @@
             "url": {
               "raw": "http://localhost:9004/api/v1/torneos/juego/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "9004",
-              "path": ["api", "v1", "torneos", "juego", "1"]
+              "path": [
+                "api",
+                "v1",
+                "torneos",
+                "juego",
+                "1"
+              ]
             }
           },
           "response": []
@@ -684,9 +939,15 @@
             "url": {
               "raw": "http://localhost:9004/api/v1/torneos",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "9004",
-              "path": ["api", "v1", "torneos"]
+              "path": [
+                "api",
+                "v1",
+                "torneos"
+              ]
             }
           },
           "response": []
@@ -708,331 +969,49 @@
             "url": {
               "raw": "http://localhost:9004/api/v1/torneos/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "9004",
-              "path": ["api", "v1", "torneos", "1"]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "eliminar",
-              "request": {
-                "method": "DELETE",
-                "header": [],
-                "url": {
-                  "raw": "http://localhost:9004/api/v1/torneos/1",
-                  "protocol": "http",
-                  "host": ["localhost"],
-                  "port": "9004",
-                  "path": ["api", "v1", "torneos", "1"]
-                }
-              },
-              "response": []
-            }
-          ]
-        },
-        {
-          "name": "ms-equipos",
-          "item": [
-            {
-              "name": "equipos",
-              "item": [
-                {
-                  "name": "get all",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/equipos",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "equipos"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "get by id",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/equipos/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "equipos", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "crear",
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"nombreEquipo\": \"T400 Esports\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/equipos",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "equipos"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "actualizar",
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"nombreEquipo\": \"T1 Esports\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/equipos/2",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "equipos", "2"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "eliminar",
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/equipos/3",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "equipos", "3"]
-                    }
-                  },
-                  "response": []
-                }
-              ]
-            },
-            {
-              "name": "miembros",
-              "item": [
-                {
-                  "name": "get all",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/miembros",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "miembros"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "get by equipo",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/miembros/equipo/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "miembros", "equipo", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "crear",
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idUsuario\": 6,\n  \"idEquipo\": 1,\n  \"idRolEquipo\": 1\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/miembros",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "miembros"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "actualizar",
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idUsuario\": 7,\n  \"idEquipo\": 1,\n  \"idRolEquipo\": 1\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/miembros/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "miembros", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "eliminar",
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/miembros/2",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "miembros", "2"]
-                    }
-                  },
-                  "response": []
-                }
-              ]
-            },
-            {
-              "name": "roles",
-              "item": [
-                {
-                  "name": "get all",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/roles",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "roles"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "get by id",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/roles/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "roles", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "crear",
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"nombreRolEquipo\": \"support\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/roles",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "roles"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "actualizar",
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"nombreRolEquipo\": \"CAPITAN\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/roles/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "roles", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "eliminar",
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9005/api/v1/equipos/roles/3",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9005",
-                      "path": ["api", "v1", "equipos", "roles", "3"]
-                    }
-                  },
-                  "response": []
-                }
+              "path": [
+                "api",
+                "v1",
+                "torneos",
+                "1"
               ]
             }
-          ]
+          },
+          "response": []
         },
         {
-          "name": "ms-partidas",
+          "name": "eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9004/api/v1/torneos/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9004",
+              "path": [
+                "api",
+                "v1",
+                "torneos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ms-equipos",
+      "item": [
+        {
+          "name": "equipos",
           "item": [
             {
               "name": "get all",
@@ -1040,11 +1019,18 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "http://localhost:9006/api/v1/partidas",
+                  "raw": "http://localhost:9005/api/v1/equipos/equipos",
                   "protocol": "http",
-                  "host": ["localhost"],
-                  "port": "9006",
-                  "path": ["api", "v1", "partidas"]
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "equipos"
+                  ]
                 }
               },
               "response": []
@@ -1055,11 +1041,19 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "http://localhost:9006/api/v1/partidas/1",
+                  "raw": "http://localhost:9005/api/v1/equipos/equipos/1",
                   "protocol": "http",
-                  "host": ["localhost"],
-                  "port": "9006",
-                  "path": ["api", "v1", "partidas", "1"]
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "equipos",
+                    "1"
+                  ]
                 }
               },
               "response": []
@@ -1071,7 +1065,7 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"torneoId\": 1,\n  \"ronda\": \"Cuartos\",\n  \"estado\": \"PENDIENTE\"\n}",
+                  "raw": "{\n  \"nombreEquipo\": \"T400 Esports\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1079,35 +1073,18 @@
                   }
                 },
                 "url": {
-                  "raw": "http://localhost:9006/api/v1/partidas",
+                  "raw": "http://localhost:9005/api/v1/equipos/equipos",
                   "protocol": "http",
-                  "host": ["localhost"],
-                  "port": "9006",
-                  "path": ["api", "v1", "partidas"]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "crear resultado",
-              "request": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"idEquipoGanador\": 1,\n  \"puntajeEquipo1\": 3,\n  \"puntajeEquipo2\": 1,\n  \"duracionPartida\": 1800\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "http://localhost:9006/api/v1/partidas/1/resultado",
-                  "protocol": "http",
-                  "host": ["localhost"],
-                  "port": "9006",
-                  "path": ["api", "v1", "partidas", "1", "resultado"]
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "equipos"
+                  ]
                 }
               },
               "response": []
@@ -1119,7 +1096,7 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"torneoId\": 1,\n  \"ronda\": \"Semifinal\",\n  \"estado\": \"FINALIZADA\"\n}",
+                  "raw": "{\n  \"nombreEquipo\": \"T1 Esports\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1127,11 +1104,19 @@
                   }
                 },
                 "url": {
-                  "raw": "http://localhost:9006/api/v1/partidas/1",
+                  "raw": "http://localhost:9005/api/v1/equipos/equipos/2",
                   "protocol": "http",
-                  "host": ["localhost"],
-                  "port": "9006",
-                  "path": ["api", "v1", "partidas", "1"]
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "equipos",
+                    "2"
+                  ]
                 }
               },
               "response": []
@@ -1142,11 +1127,19 @@
                 "method": "DELETE",
                 "header": [],
                 "url": {
-                  "raw": "http://localhost:9006/api/v1/partidas/1",
+                  "raw": "http://localhost:9005/api/v1/equipos/equipos/3",
                   "protocol": "http",
-                  "host": ["localhost"],
-                  "port": "9006",
-                  "path": ["api", "v1", "partidas", "1"]
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "equipos",
+                    "3"
+                  ]
                 }
               },
               "response": []
@@ -1154,7 +1147,7 @@
           ]
         },
         {
-          "name": "ms-inscripciones",
+          "name": "miembros",
           "item": [
             {
               "name": "get all",
@@ -1162,26 +1155,42 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "http://localhost:9007/api/v1/inscripciones",
+                  "raw": "http://localhost:9005/api/v1/equipos/miembros",
                   "protocol": "http",
-                  "host": ["localhost"],
-                  "port": "9007",
-                  "path": ["api", "v1", "inscripciones"]
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "miembros"
+                  ]
                 }
               },
               "response": []
             },
             {
-              "name": "get by id",
+              "name": "get by equipo",
               "request": {
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "http://localhost:9007/api/v1/inscripciones/1",
+                  "raw": "http://localhost:9005/api/v1/equipos/miembros/equipo/1",
                   "protocol": "http",
-                  "host": ["localhost"],
-                  "port": "9007",
-                  "path": ["api", "v1", "inscripciones", "1"]
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "miembros",
+                    "equipo",
+                    "1"
+                  ]
                 }
               },
               "response": []
@@ -1193,7 +1202,7 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"idUsuario\": 1,\n  \"idTorneo\": 1\n}",
+                  "raw": "{\n  \"idUsuario\": 6,\n  \"idEquipo\": 1,\n  \"idRolEquipo\": 1\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1201,11 +1210,50 @@
                   }
                 },
                 "url": {
-                  "raw": "http://localhost:9007/api/v1/inscripciones",
+                  "raw": "http://localhost:9005/api/v1/equipos/miembros",
                   "protocol": "http",
-                  "host": ["localhost"],
-                  "port": "9007",
-                  "path": ["api", "v1", "inscripciones"]
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "miembros"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "actualizar",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idUsuario\": 7,\n  \"idEquipo\": 1,\n  \"idRolEquipo\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9005/api/v1/equipos/miembros/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "miembros",
+                    "1"
+                  ]
                 }
               },
               "response": []
@@ -1216,11 +1264,19 @@
                 "method": "DELETE",
                 "header": [],
                 "url": {
-                  "raw": "http://localhost:9007/api/v1/inscripciones/1",
+                  "raw": "http://localhost:9005/api/v1/equipos/miembros/2",
                   "protocol": "http",
-                  "host": ["localhost"],
-                  "port": "9007",
-                  "path": ["api", "v1", "inscripciones", "1"]
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "miembros",
+                    "2"
+                  ]
                 }
               },
               "response": []
@@ -1228,773 +1284,1467 @@
           ]
         },
         {
-          "name": "ms-ranking",
+          "name": "roles",
           "item": [
             {
-              "name": "rankings",
-              "item": [
-                {
-                  "name": "get all",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/rankings",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "rankings"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "get by id",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/rankings/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "rankings", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "crear",
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idJuego\": 1,\n  \"idTipoRanking\": 1,\n  \"registros\": []\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/rankings",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "rankings"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "actualizar",
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idJuego\": 1,\n  \"idTipoRanking\": 1,\n  \"registros\": []\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/rankings/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "rankings", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "eliminar",
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/rankings/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "rankings", "1"]
-                    }
-                  },
-                  "response": []
+              "name": "get all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9005/api/v1/equipos/roles",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "roles"
+                  ]
                 }
-              ]
+              },
+              "response": []
             },
             {
-              "name": "tipos",
-              "item": [
-                {
-                  "name": "get all",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/tipos",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "tipos"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "get by id",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/tipos/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "tipos", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "crear",
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"nombreTipoRanking\": \"Global\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/tipos",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "tipos"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "actualizar",
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"nombreTipoRanking\": \"Regional\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/tipos/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "tipos", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "eliminar",
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/tipos/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "tipos", "1"]
-                    }
-                  },
-                  "response": []
+              "name": "get by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9005/api/v1/equipos/roles/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "roles",
+                    "1"
+                  ]
                 }
-              ]
+              },
+              "response": []
             },
             {
-              "name": "registros",
-              "item": [
-                {
-                  "name": "get all",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/registros",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "registros"]
+              "name": "crear",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombreRolEquipo\": \"support\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
                     }
-                  },
-                  "response": []
+                  }
                 },
-                {
-                  "name": "get by id",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/registros/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "registros", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "actualizar",
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idRanking\": 1,\n  \"idUsuario\": 1,\n  \"puntos\": 1500,\n  \"posicion\": 1\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/registros/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "registros", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "eliminar",
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9008/api/v1/rankings/registros/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9008",
-                      "path": ["api", "v1", "rankings", "registros", "1"]
-                    }
-                  },
-                  "response": []
+                "url": {
+                  "raw": "http://localhost:9005/api/v1/equipos/roles",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "roles"
+                  ]
                 }
+              },
+              "response": []
+            },
+            {
+              "name": "actualizar",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombreRolEquipo\": \"CAPITAN\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9005/api/v1/equipos/roles/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "roles",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "eliminar",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9005/api/v1/equipos/roles/3",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9005",
+                  "path": [
+                    "api",
+                    "v1",
+                    "equipos",
+                    "roles",
+                    "3"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ms-partidas",
+      "item": [
+        {
+          "name": "get all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9006/api/v1/partidas",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9006",
+              "path": [
+                "api",
+                "v1",
+                "partidas"
               ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9006/api/v1/partidas/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9006",
+              "path": [
+                "api",
+                "v1",
+                "partidas",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "crear",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"torneoId\": 1,\n  \"ronda\": \"Cuartos\",\n  \"estado\": \"PENDIENTE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9006/api/v1/partidas",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9006",
+              "path": [
+                "api",
+                "v1",
+                "partidas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "crear resultado",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idEquipoGanador\": 1,\n  \"puntajeEquipo1\": 3,\n  \"puntajeEquipo2\": 1,\n  \"duracionPartida\": 1800\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9006/api/v1/partidas/1/resultado",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9006",
+              "path": [
+                "api",
+                "v1",
+                "partidas",
+                "1",
+                "resultado"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"torneoId\": 1,\n  \"ronda\": \"Semifinal\",\n  \"estado\": \"FINALIZADA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9006/api/v1/partidas/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9006",
+              "path": [
+                "api",
+                "v1",
+                "partidas",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9006/api/v1/partidas/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9006",
+              "path": [
+                "api",
+                "v1",
+                "partidas",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ms-inscripciones",
+      "item": [
+        {
+          "name": "get all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9007/api/v1/inscripciones",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9007",
+              "path": [
+                "api",
+                "v1",
+                "inscripciones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9007/api/v1/inscripciones/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9007",
+              "path": [
+                "api",
+                "v1",
+                "inscripciones",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "crear",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idUsuario\": 1,\n  \"idTorneo\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9007/api/v1/inscripciones",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9007",
+              "path": [
+                "api",
+                "v1",
+                "inscripciones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9007/api/v1/inscripciones/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9007",
+              "path": [
+                "api",
+                "v1",
+                "inscripciones",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ms-ranking",
+      "item": [
+        {
+          "name": "rankings",
+          "item": [
+            {
+              "name": "get all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/rankings",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "rankings"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/rankings/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "rankings",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "crear",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idJuego\": 1,\n  \"idTipoRanking\": 1,\n  \"registros\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/rankings",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "rankings"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "actualizar",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idJuego\": 1,\n  \"idTipoRanking\": 1,\n  \"registros\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/rankings/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "rankings",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "eliminar",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/rankings/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "rankings",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
             }
           ]
         },
         {
-          "name": "ms-notificaciones",
+          "name": "tipos",
           "item": [
             {
-              "name": "notificaciones",
-              "item": [
-                {
-                  "name": "get test",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9009/api/v1/notificaciones/test",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9009",
-                      "path": ["api", "v1", "notificaciones", "test"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "get all",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9009/api/v1/notificaciones",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9009",
-                      "path": ["api", "v1", "notificaciones"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "crear",
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idTipoNotificacion\": 1,\n  \"mensaje\": \"Tu torneo esta por comenzar\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9009/api/v1/notificaciones",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9009",
-                      "path": ["api", "v1", "notificaciones"]
-                    }
-                  },
-                  "response": []
+              "name": "get all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/tipos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "tipos"
+                  ]
                 }
-              ]
+              },
+              "response": []
             },
             {
-              "name": "tipos",
-              "item": [
-                {
-                  "name": "get all",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9009/api/v1/notificaciones/tipos",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9009",
-                      "path": ["api", "v1", "notificaciones", "tipos"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "crear",
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"nombreTipoNotificacion\": \"Alerta\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9009/api/v1/notificaciones/tipos",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9009",
-                      "path": ["api", "v1", "notificaciones", "tipos"]
-                    }
-                  },
-                  "response": []
+              "name": "get by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/tipos/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "tipos",
+                    "1"
+                  ]
                 }
-              ]
+              },
+              "response": []
             },
             {
-              "name": "usuarios",
-              "item": [
-                {
-                  "name": "asignar",
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idUsuario\": 1,\n  \"idNotificacion\": 1\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9009/api/v1/notificaciones/usuarios",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9009",
-                      "path": ["api", "v1", "notificaciones", "usuarios"]
+              "name": "crear",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombreTipoRanking\": \"Global\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
                     }
-                  },
-                  "response": []
+                  }
                 },
-                {
-                  "name": "listar por usuario",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9009",
-                      "path": ["api", "v1", "notificaciones", "usuarios", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "listar no leidas",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1/no-leidas",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9009",
-                      "path": ["api", "v1", "notificaciones", "usuarios", "1", "no-leidas"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "marcar leida",
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1/leer",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9009",
-                      "path": ["api", "v1", "notificaciones", "usuarios", "1", "leer"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "eliminar asignacion",
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9009",
-                      "path": ["api", "v1", "notificaciones", "usuarios", "1"]
-                    }
-                  },
-                  "response": []
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/tipos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "tipos"
+                  ]
                 }
-              ]
+              },
+              "response": []
+            },
+            {
+              "name": "actualizar",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombreTipoRanking\": \"Regional\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/tipos/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "tipos",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "eliminar",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/tipos/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "tipos",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
             }
           ]
         },
         {
-          "name": "ms-estadisticas",
+          "name": "registros",
           "item": [
             {
-              "name": "equipos",
-              "item": [
-                {
-                  "name": "get all",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/equipos",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "equipos"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "get by id",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/equipos/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "equipos", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "crear",
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idEquipo\": 1,\n  \"victoriasEquipo\": 10,\n  \"derrotasEquipo\": 2\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/equipos",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "equipos"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "actualizar",
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idEquipo\": 1,\n  \"victoriasEquipo\": 12,\n  \"derrotasEquipo\": 2\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/equipos/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "equipos", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "eliminar",
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/equipos/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "equipos", "1"]
-                    }
-                  },
-                  "response": []
+              "name": "get all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/registros",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "registros"
+                  ]
                 }
-              ]
+              },
+              "response": []
             },
             {
-              "name": "players",
-              "item": [
-                {
-                  "name": "get all",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/players",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "players"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "get by id",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/players/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "players", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "crear",
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idUsuario\": 5,\n  \"victoriasJugador\": 10,\n  \"derrotasJugador\": 2\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/players",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "players"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "actualizar",
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idUsuario\": 5,\n  \"victoriasJugador\": 12,\n  \"derrotasJugador\": 2\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/players/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "players", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "eliminar",
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/players/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "players", "1"]
-                    }
-                  },
-                  "response": []
+              "name": "get by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/registros/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "registros",
+                    "1"
+                  ]
                 }
-              ]
+              },
+              "response": []
             },
             {
-              "name": "partidas",
-              "item": [
-                {
-                  "name": "get all",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/partidas",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "partidas"]
+              "name": "actualizar",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idRanking\": 1,\n  \"idUsuario\": 1,\n  \"puntos\": 1500,\n  \"posicion\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
                     }
-                  },
-                  "response": []
+                  }
                 },
-                {
-                  "name": "get by id",
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/partidas/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "partidas", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "crear",
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idPartida\": 1,\n  \"duracion\": \"PT25M\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/partidas",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "partidas"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "actualizar",
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"idPartida\": 1,\n  \"duracion\": \"PT30M\"\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/partidas/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "partidas", "1"]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "eliminar",
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://localhost:9010/api/v1/stats/partidas/1",
-                      "protocol": "http",
-                      "host": ["localhost"],
-                      "port": "9010",
-                      "path": ["api", "v1", "stats", "partidas", "1"]
-                    }
-                  },
-                  "response": []
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/registros/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "registros",
+                    "1"
+                  ]
                 }
-              ]
+              },
+              "response": []
+            },
+            {
+              "name": "eliminar",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9008/api/v1/rankings/registros/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9008",
+                  "path": [
+                    "api",
+                    "v1",
+                    "rankings",
+                    "registros",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ms-notificaciones",
+      "item": [
+        {
+          "name": "notificaciones",
+          "item": [
+            {
+              "name": "get test",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9009/api/v1/notificaciones/test",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9009",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notificaciones",
+                    "test"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9009/api/v1/notificaciones",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9009",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notificaciones"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "crear",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idTipoNotificacion\": 1,\n  \"mensaje\": \"Tu torneo esta por comenzar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9009/api/v1/notificaciones",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9009",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notificaciones"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "tipos",
+          "item": [
+            {
+              "name": "get all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9009/api/v1/notificaciones/tipos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9009",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notificaciones",
+                    "tipos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "crear",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombreTipoNotificacion\": \"Alerta\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9009/api/v1/notificaciones/tipos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9009",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notificaciones",
+                    "tipos"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "usuarios",
+          "item": [
+            {
+              "name": "asignar",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idUsuario\": 1,\n  \"idNotificacion\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9009/api/v1/notificaciones/usuarios",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9009",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notificaciones",
+                    "usuarios"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "listar por usuario",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9009",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notificaciones",
+                    "usuarios",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "listar no leidas",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1/no-leidas",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9009",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notificaciones",
+                    "usuarios",
+                    "1",
+                    "no-leidas"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "marcar leida",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1/leer",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9009",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notificaciones",
+                    "usuarios",
+                    "1",
+                    "leer"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "eliminar asignacion",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9009",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notificaciones",
+                    "usuarios",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ms-estadisticas",
+      "item": [
+        {
+          "name": "equipos",
+          "item": [
+            {
+              "name": "get all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/equipos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "equipos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/equipos/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "equipos",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "crear",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idEquipo\": 1,\n  \"victoriasEquipo\": 10,\n  \"derrotasEquipo\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/equipos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "equipos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "actualizar",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idEquipo\": 1,\n  \"victoriasEquipo\": 12,\n  \"derrotasEquipo\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/equipos/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "equipos",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "eliminar",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/equipos/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "equipos",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "players",
+          "item": [
+            {
+              "name": "get all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/players",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "players"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/players/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "players",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "crear",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idUsuario\": 5,\n  \"victoriasJugador\": 10,\n  \"derrotasJugador\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/players",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "players"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "actualizar",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idUsuario\": 5,\n  \"victoriasJugador\": 12,\n  \"derrotasJugador\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/players/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "players",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "eliminar",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/players/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "players",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "partidas",
+          "item": [
+            {
+              "name": "get all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/partidas",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "partidas"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/partidas/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "partidas",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "crear",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idPartida\": 1,\n  \"duracion\": \"PT25M\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/partidas",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "partidas"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "actualizar",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idPartida\": 1,\n  \"duracion\": \"PT30M\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/partidas/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "partidas",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "eliminar",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:9010/api/v1/stats/partidas/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "9010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stats",
+                    "partidas",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
             }
           ]
         }
