@@ -1,6 +1,8 @@
 package cl.duoc.autenticaciones.controller;
 
 import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import cl.duoc.autenticaciones.dtos.auth.*;
 import cl.duoc.autenticaciones.dtos.role.*;
@@ -20,50 +22,52 @@ public class AuthController {
     // RECURSO: CREDENCIALES (USUARIOS)
     // ==========================================
     @PostMapping("/usuarios")
-    public AuthResponse register(@Valid @RequestBody AuthRequest request) {
-        return authService.register(request);
+    public ResponseEntity<AuthResponse> register(@Valid @RequestBody AuthRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(authService.register(request));
     }
 
     @GetMapping("/usuarios/{id}")
-    public AuthResponse getAuthInfo(@PathVariable Long id) {
-        return authService.getById(id);
+    public ResponseEntity<AuthResponse> getAuthInfo(@PathVariable Long id) {
+        return ResponseEntity.ok(authService.getById(id));
     }
 
     @PutMapping("/usuarios/{id}")
-    public AuthResponse updateAuth(@PathVariable Long id, @Valid @RequestBody AuthRequest request) {
-        return authService.updateAuth(id, request);
+    public ResponseEntity<AuthResponse> updateAuth(@PathVariable Long id, @Valid @RequestBody AuthRequest request) {
+        return ResponseEntity.ok(authService.updateAuth(id, request));
     }
 
     @DeleteMapping("/usuarios/{id}")
-    public void deleteAuth(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteAuth(@PathVariable Long id) {
         authService.deleteAuth(id);
+        return ResponseEntity.noContent().build();
     }
 
     // ==========================================
     // RECURSO: ROLES
     // ==========================================
     @PostMapping("/roles")
-    public RoleResponse createRol(@Valid @RequestBody RoleRequest request) {
-        return roleService.addRol(request);
+    public ResponseEntity<RoleResponse> createRol(@Valid @RequestBody RoleRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(roleService.addRol(request));
     }
 
     @GetMapping("/roles")
-    public List<RoleResponse> getAllRoles() {
-        return roleService.getAll();
+    public ResponseEntity<List<RoleResponse>> getAllRoles() {
+        return ResponseEntity.ok(roleService.getAll());
     }
 
     @GetMapping("/roles/{id}")
-    public RoleResponse getRolById(@PathVariable Long id) {
-        return roleService.getById(id);
+    public ResponseEntity<RoleResponse> getRolById(@PathVariable Long id) {
+        return ResponseEntity.ok(roleService.getById(id));
     }
 
     @PutMapping("/roles/{id}")
-    public RoleResponse updateRol(@PathVariable Long id, @Valid @RequestBody RoleRequest request) {
-        return roleService.updateRol(id, request);
+    public ResponseEntity<RoleResponse> updateRol(@PathVariable Long id, @Valid @RequestBody RoleRequest request) {
+        return ResponseEntity.ok(roleService.updateRol(id, request));
     }
 
     @DeleteMapping("/roles/{id}")
-    public void deleteRol(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteRol(@PathVariable Long id) {
         roleService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

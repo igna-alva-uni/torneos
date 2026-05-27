@@ -1,5 +1,6 @@
 package cl.duoc.estadisticas.service;
 
+import cl.duoc.estadisticas.client.UserClient;
 import cl.duoc.estadisticas.dto.jugador.EstadisticaJugadorRequest;
 import cl.duoc.estadisticas.dto.jugador.EstadisticaJugadorResponse;
 import cl.duoc.estadisticas.mapper.EstadisticaJugadorMapper;
@@ -18,6 +19,7 @@ public class EstadisticaJugadorService {
 
     private final EstadisticaJugadorRepository repository;
     private final EstadisticaJugadorMapper mapper;
+    private final UserClient userClient;
 
     @Transactional(readOnly = true)
     public List<EstadisticaJugadorResponse> findAll() {
@@ -35,6 +37,13 @@ public class EstadisticaJugadorService {
 
     @Transactional
     public EstadisticaJugadorResponse create(EstadisticaJugadorRequest request) {
+        // Validar usuario
+        try {
+            userClient.getUsuarioById(request.getIdUsuario().longValue());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("No existe el usuario con ID: " + request.getIdUsuario());
+        }
+
         if (repository.existsByIdUsuario(request.getIdUsuario())) {
             throw new RuntimeException("Ya existen estadísticas registradas para el usuario con ID: " + request.getIdUsuario());
         }
@@ -48,6 +57,13 @@ public class EstadisticaJugadorService {
         EstadisticaJugador existing = repository.findByIdEstadisticaJugador(id)
                 .orElseThrow(() -> new RuntimeException("No se puede actualizar: Registro no encontrado con ID: " + id));
         
+        // Validar usuario
+        try {
+            userClient.getUsuarioById(request.getIdUsuario().longValue());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("No existe el usuario con ID: " + request.getIdUsuario());
+        }
+
         if (!existing.getIdUsuario().equals(request.getIdUsuario()) && repository.existsByIdUsuario(request.getIdUsuario())) {
             throw new RuntimeException("Ya existen estadísticas para el nuevo usuario con ID: " + request.getIdUsuario());
         }

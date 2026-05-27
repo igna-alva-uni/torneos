@@ -1,5 +1,6 @@
 package cl.duoc.partidas.service;
 
+import cl.duoc.partidas.client.EquipoClient;
 import cl.duoc.partidas.client.TorneosClient;
 import cl.duoc.partidas.dto.PartidaRequest;
 import cl.duoc.partidas.dto.PartidaResponse;
@@ -24,6 +25,7 @@ public class PartidaService {
     private final PartidaMapper partidaMapper;
     private final ResultadoPartidaMapper resultadoMapper;
     private final TorneosClient torneosClient;
+    private final EquipoClient equipoClient;
 
     public List<PartidaResponse> findAll() {
         return partidaMapper.toResponseList(
@@ -46,6 +48,15 @@ public class PartidaService {
 
             Partida partida = partidaRepository.findById(request.getIdPartida())
                     .orElseThrow(() -> new RuntimeException("La partida no existe"));
+
+            // Validar que el equipo ganador existe
+            if (request.getIdEquipoGanador() != null) {
+                try {
+                    equipoClient.getEquipo(request.getIdEquipoGanador());
+                } catch (Exception e) {
+                    throw new RuntimeException("No existe el equipo ganador con id: " + request.getIdEquipoGanador());
+                }
+            }
 
             ResultadoPartida resultado = ResultadoPartida.builder()
                     .partida(partida)

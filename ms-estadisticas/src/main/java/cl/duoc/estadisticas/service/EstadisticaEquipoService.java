@@ -1,5 +1,6 @@
 package cl.duoc.estadisticas.service;
 
+import cl.duoc.estadisticas.client.TeamClient;
 import cl.duoc.estadisticas.dto.equipo.EstadisticaEquipoRequest;
 import cl.duoc.estadisticas.dto.equipo.EstadisticaEquipoResponse;
 import cl.duoc.estadisticas.mapper.EstadisticaEquipoMapper;
@@ -18,6 +19,7 @@ public class EstadisticaEquipoService {
 
     private final EstadisticaEquipoRepository repository;
     private final EstadisticaEquipoMapper mapper;
+    private final TeamClient teamClient;
 
     @Transactional(readOnly = true)
     public List<EstadisticaEquipoResponse> findAll() {
@@ -35,6 +37,13 @@ public class EstadisticaEquipoService {
 
     @Transactional
     public EstadisticaEquipoResponse create(EstadisticaEquipoRequest request) {
+        // Validar equipo
+        try {
+            teamClient.getEquipoById(request.getIdEquipo().longValue());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("No existe el equipo con ID: " + request.getIdEquipo());
+        }
+
         if (repository.existsByIdEquipo(request.getIdEquipo())) {
             throw new RuntimeException("Ya existen estadísticas registradas para el equipo con ID: " + request.getIdEquipo());
         }
@@ -48,6 +57,13 @@ public class EstadisticaEquipoService {
         EstadisticaEquipo existing = repository.findByIdEstadisticaEquipo(id)
                 .orElseThrow(() -> new RuntimeException("No se puede actualizar: Registro no encontrado con ID: " + id));
         
+        // Validar equipo
+        try {
+            teamClient.getEquipoById(request.getIdEquipo().longValue());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("No existe el equipo con ID: " + request.getIdEquipo());
+        }
+
         if (!existing.getIdEquipo().equals(request.getIdEquipo()) && repository.existsByIdEquipo(request.getIdEquipo())) {
             throw new RuntimeException("Ya existen estadísticas para el nuevo equipo con ID: " + request.getIdEquipo());
         }

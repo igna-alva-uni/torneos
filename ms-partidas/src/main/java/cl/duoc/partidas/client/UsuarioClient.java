@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "ms-usuarios")
 public interface UsuarioClient {
-    @GetMapping("/api/v1/usuarios/{id}")
-    UsuarioDTO getUsuario(@PathVariable Integer id);
+    @GetMapping("/api/v1/usuarios/usuarios/{id}")
+    UsuarioDTO getUsuario(@PathVariable("id") Integer id);
 }

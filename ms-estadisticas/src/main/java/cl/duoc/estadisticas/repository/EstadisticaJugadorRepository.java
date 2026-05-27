@@ -12,4 +12,6 @@ public interface EstadisticaJugadorRepository extends JpaRepository<EstadisticaJ
     Optional<EstadisticaJugador> findByIdEstadisticaJugador(Integer idEstadisticaJugador);
     
     boolean existsByIdUsuario(Integer idUsuario);
+
+    void deleteByIdUsuario(Integer idUsuario);
 }

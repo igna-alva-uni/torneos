@@ -1,5 +1,7 @@
 package cl.duoc.inscripciones.service;
 
+import cl.duoc.inscripciones.client.TorneosClient;
+import cl.duoc.inscripciones.client.UsuarioClient;
 import cl.duoc.inscripciones.dto.InscripcionCreadaEvent;
 import cl.duoc.inscripciones.dto.InscripcionRequest;
 import cl.duoc.inscripciones.kafka.InscripcionProducer;
@@ -17,8 +19,23 @@ public class InscripcionService {
 
     private final InscripcionRepository inscripcionRepository;
     private final InscripcionProducer inscripcionProducer;
+    private final UsuarioClient usuarioClient;
+    private final TorneosClient torneosClient;
 
     public Inscripcion crear(InscripcionRequest request) {
+        // Validar usuario
+        try {
+            usuarioClient.getUsuarioById(request.getIdUsuario());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("No existe el usuario con id: " + request.getIdUsuario());
+        }
+
+        // Validar torneo
+        try {
+            torneosClient.getTorneoById(request.getIdTorneo());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("No existe el torneo con id: " + request.getIdTorneo());
+        }
 
         Inscripcion inscripcion = Inscripcion.builder()
                 .idUsuario(request.getIdUsuario())

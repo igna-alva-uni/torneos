@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "ms-equipos")
 public interface EquipoClient {
-    @GetMapping("/api/v1/equipos/{id}")
-    EquipoDTO getEquipo(@PathVariable Integer id);
+    @GetMapping("/api/v1/equipos/equipos/{id}")
+    EquipoDTO getEquipo(@PathVariable("id") Integer id);
 }

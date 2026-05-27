@@ -15,7 +15,8 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        "[spring.json.trusted.packages]": "*" # Permite deserializar JSON de cualquier paquete
+        "spring.json.trusted.packages": "cl.duoc.*"
+        "spring.json.value.default.type": "cl.duoc.estadisticas.event.UsuarioEliminadoEvent"
 
   datasource:
     driver-class-name: org.postgresql.Driver

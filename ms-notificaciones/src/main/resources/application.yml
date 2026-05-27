@@ -19,12 +19,9 @@ spring:
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-
       properties:
-        spring:
-          json:
-            trusted:
-              packages: "*"
+        "spring.json.trusted.packages": "cl.duoc.*"
+        "spring.json.value.default.type": "cl.duoc.notificaciones.dto.UsuarioEliminadoEvent"
 
   datasource:
     driver-class-name: org.postgresql.Driver

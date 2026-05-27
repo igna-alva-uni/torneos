@@ -11,4 +11,5 @@ import cl.duoc.notificaciones.model.NotificacionUsuario;
 public interface NotificacionUsuarioRepository extends JpaRepository<NotificacionUsuario, Integer> {
     List<NotificacionUsuario> findByIdUsuario(Integer idUsuario);
     List<NotificacionUsuario> findByIdUsuarioAndLeida(Integer idUsuario, Boolean leida);
+    void deleteByIdUsuario(Integer idUsuario);
 }
