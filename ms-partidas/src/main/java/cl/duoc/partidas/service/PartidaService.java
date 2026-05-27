@@ -57,7 +57,6 @@ public class PartidaService {
                     throw new RuntimeException("No existe el equipo ganador con id: " + request.getIdEquipoGanador());
                 }
             }
-
             ResultadoPartida resultado = ResultadoPartida.builder()
                     .partida(partida)
                     .idEquipoGanador(request.getIdEquipoGanador())

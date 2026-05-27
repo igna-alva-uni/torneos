@@ -7850,7 +7850,7 @@ public interface JuegoRepository extends JpaRepository<Juegos,Integer> {
 
 package cl.duoc.juegos.repository;
 
-import cl.duoc.juegos.model.Plataforma;
+import cl.duoc.juegos.model.Plataformas;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -7872,7 +7872,7 @@ import cl.duoc.juegos.exception.JuegoNotFoundException;
 import cl.duoc.juegos.mapper.JuegoMapper;
 import cl.duoc.juegos.model.Genero;
 import cl.duoc.juegos.model.Juegos;
-import cl.duoc.juegos.model.Plataforma;
+import cl.duoc.juegos.model.Plataformas;
 import cl.duoc.juegos.repository.GeneroRepository;
 import cl.duoc.juegos.repository.JuegoRepository;
 import cl.duoc.juegos.repository.PlataformaRepository;
