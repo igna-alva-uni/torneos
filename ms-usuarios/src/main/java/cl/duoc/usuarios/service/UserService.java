@@ -1,11 +1,14 @@
 package cl.duoc.usuarios.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import cl.duoc.usuarios.dtos.user.UserRequest;
 import cl.duoc.usuarios.dtos.user.UserResponse;
+import cl.duoc.usuarios.event.UsuarioEliminadoEvent;
+import cl.duoc.usuarios.event.UsuarioEventProducer;
 import cl.duoc.usuarios.mapper.UserMapper;
 import cl.duoc.usuarios.model.User;
 import cl.duoc.usuarios.repository.UserRepository;
@@ -16,6 +19,7 @@ import lombok.AllArgsConstructor;
 public class UserService {
     private final UserMapper mapper;
     private final UserRepository userRepo;
+    private final UsuarioEventProducer producer;
 
     public UserResponse addUser(UserRequest request) {
         if (userRepo.findByEmail(request.getEmail()).isPresent()) {
@@ -65,7 +69,18 @@ public class UserService {
         if (!userRepo.existsById(id)) {
             throw new RuntimeException("no hay ningún usuario con ese id");
         }
+
+        User user = userRepo.findById(id).orElseThrow();
+        
         userRepo.deleteById(id);
+
+        // Publicar evento de usuario eliminado a Kafka
+        UsuarioEliminadoEvent event = new UsuarioEliminadoEvent(
+            user.getId(),
+            user.getUsername(),
+            LocalDateTime.now()
+        );
+        producer.publicarUsuarioEliminado(event);
     }
 
 }

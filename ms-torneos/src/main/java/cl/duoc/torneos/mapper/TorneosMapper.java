@@ -11,12 +11,12 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface TorneosMapper {
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "nombre", ignore = true)
-    @Mapping(target = "videojuego", ignore = true)
     @Mapping(target = "formato", ignore = true)
-    @Mapping(target = "premio", ignore = true)
-
+    @Mapping(target = "premios", ignore = true)
     Torneos toModel(TorneosRequest request);
+
+    @Mapping(source = "formato.nombre", target = "formato")
     TorneosResponse toResponse(Torneos response);
+
     List<TorneosResponse> toResponseList(List<Torneos> torneos);
 }

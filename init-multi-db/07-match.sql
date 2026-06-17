@@ -1,19 +1,39 @@
 -- 1. Conectarse a la base de datos específica para este microservicio
 -- \c match_service
+CREATE SCHEMA IF NOT EXISTS partidas;
+
+SET search_path TO partidas;
 
 -- 2. Eliminación de las tablas en orden jerárquico inverso
 DROP TABLE IF EXISTS resultados_partidas CASCADE;
 DROP TABLE IF EXISTS jugadores_partida CASCADE;
 DROP TABLE IF EXISTS partidas CASCADE;
+DROP TABLE IF EXISTS torneos CASCADE;
+DROP TABLE IF EXISTS usuarios CASCADE;
+DROP TABLE IF EXISTS equipos CASCADE;
 
 -- 3. Crear las tablas y sus relaciones siguiendo fielmente el documento
+
+-- Tablas de Referencia
+CREATE TABLE torneos (
+    id_torneo INT PRIMARY KEY
+);
+
+CREATE TABLE usuarios (
+    id_usuario INT PRIMARY KEY
+);
+
+CREATE TABLE equipos (
+    id_equipo INT PRIMARY KEY
+);
 
 -- Tabla: partidas
 CREATE TABLE partidas (
     id_partida SERIAL PRIMARY KEY, --
     id_torneo INT NOT NULL, -- Validado vía REST contra TOURNAMENT SERVICE [cite: 144]
     ronda VARCHAR(50) NOT NULL, -- Ej: 'Fase de Grupos', 'Cuartos de Final', 'Final' [cite: 145]
-    estado_partida VARCHAR(20) DEFAULT 'PENDIENTE' CHECK (estado_partida IN ('PENDIENTE', 'EN_CURSO', 'FINALIZADA', 'CANCELADA')) -- [cite: 146]
+    estado_partida VARCHAR(20) DEFAULT 'PENDIENTE' CHECK (estado_partida IN ('PENDIENTE', 'EN_CURSO', 'FINALIZADA', 'CANCELADA')), -- [cite: 146]
+    CONSTRAINT fk_partida_torneo FOREIGN KEY (id_torneo) REFERENCES torneos(id_torneo) ON DELETE CASCADE
 );
 
 -- Tabla: jugadores_partida
@@ -23,7 +43,9 @@ CREATE TABLE jugadores_partida (
     id_usuario INT NOT NULL, -- Validado vía REST contra USER SERVICE [cite: 149]
     id_partida INT NOT NULL, -- [cite: 150]
     id_equipo INT NOT NULL, -- Validado vía REST contra TEAM SERVICE [cite: 151]
-    CONSTRAINT fk_jugador_partida FOREIGN KEY (id_partida) REFERENCES partidas(id_partida) ON DELETE CASCADE
+    CONSTRAINT fk_jugador_partida FOREIGN KEY (id_partida) REFERENCES partidas(id_partida) ON DELETE CASCADE,
+    CONSTRAINT fk_jugador_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    CONSTRAINT fk_jugador_equipo FOREIGN KEY (id_equipo) REFERENCES equipos(id_equipo) ON DELETE CASCADE
 );
 
 -- Índice para buscar rápidamente los jugadores de un equipo en una partida específica
@@ -36,10 +58,16 @@ CREATE TABLE resultados_partidas (
     id_partida INT UNIQUE NOT NULL, -- Relación 1:1, un resultado por partida [cite: 154]
     id_equipo_ganador INT, -- Validado vía REST contra TEAM SERVICE. Puede ser nulo si es empate (dependiendo del juego) [cite: 155]
     puntaje VARCHAR(20) NOT NULL, -- Ej: '2-0', '3-1', '16-14' [cite: 156]
-    CONSTRAINT fk_resultado_partida FOREIGN KEY (id_partida) REFERENCES partidas(id_partida) ON DELETE CASCADE
+    CONSTRAINT fk_resultado_partida FOREIGN KEY (id_partida) REFERENCES partidas(id_partida) ON DELETE CASCADE,
+    CONSTRAINT fk_resultado_equipo_ganador FOREIGN KEY (id_equipo_ganador) REFERENCES equipos(id_equipo) ON DELETE SET NULL
 );
 
 -- 4. Poblar las tablas con datos de prueba coherentes y reales
+
+-- Insertar datos en Tablas de Referencia
+INSERT INTO torneos (id_torneo) VALUES (1), (3);
+INSERT INTO usuarios (id_usuario) VALUES (1), (2), (3), (4);
+INSERT INTO equipos (id_equipo) VALUES (1), (2);
 
 -- Insertar Partidas
 -- Asumiendo id_torneo 1 (Liga de LoL) e id_torneo 3 (CS2 Major)

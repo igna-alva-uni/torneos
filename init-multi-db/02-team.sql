@@ -9,6 +9,7 @@ SET search_path TO team;
 DROP TABLE IF EXISTS miembros_equipos CASCADE;
 DROP TABLE IF EXISTS roles_equipo CASCADE;
 DROP TABLE IF EXISTS equipos CASCADE;
+DROP TABLE IF EXISTS usuarios CASCADE;
 
 -- 3. Crear las tablas y sus relaciones siguiendo fielmente el documento
 
@@ -25,6 +26,11 @@ CREATE TABLE roles_equipo (
     nombre_rol_equipo VARCHAR(50) UNIQUE NOT NULL -- [cite: 135]
 );
 
+-- Tabla: usuarios (Tabla de Referencia)
+CREATE TABLE usuarios (
+    id_usuario INT PRIMARY KEY
+);
+
 -- Tabla: miembros_equipos
 CREATE TABLE miembros_equipos (
     id_miembro_equipo SERIAL PRIMARY KEY, -- [cite: 137]
@@ -32,7 +38,8 @@ CREATE TABLE miembros_equipos (
     id_equipo INT NOT NULL, -- [cite: 139]
     id_rol_equipo INT NOT NULL, -- [cite: 140]
     CONSTRAINT fk_miembro_equipo FOREIGN KEY (id_equipo) REFERENCES equipos(id_equipo) ON DELETE CASCADE,
-    CONSTRAINT fk_miembro_rol FOREIGN KEY (id_rol_equipo) REFERENCES roles_equipo(id_rol_equipo) ON DELETE RESTRICT
+    CONSTRAINT fk_miembro_rol FOREIGN KEY (id_rol_equipo) REFERENCES roles_equipo(id_rol_equipo) ON DELETE RESTRICT,
+    CONSTRAINT fk_miembro_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
 );
 
 -- Índice para búsquedas rápidas del roster de un equipo específico
@@ -54,6 +61,9 @@ INSERT INTO roles_equipo (nombre_rol_equipo) VALUES
 ('Jugador Suplente'),
 ('Coach'),
 ('Analista');
+
+-- Insertar Usuarios de Referencia
+INSERT INTO usuarios (id_usuario) VALUES (1), (2), (3), (4), (5);
 
 -- Insertar Miembros de Equipos (Asignando usuarios ficticios del 1 al 5 de las pruebas anteriores)
 -- Respetando la regla: 1 usuario = 1 solo equipo 

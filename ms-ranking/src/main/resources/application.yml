@@ -6,17 +6,27 @@ server:
 spring:
   application:
     name: ms-ranking
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/ranking
+    url: jdbc:postgresql://localhost:5433/torneos
     username: postgres
-    password: 123
+    password: 123   
   jpa:
     hibernate:
       ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-
+    properties:
+      hibernate:
+        defaultSchema: ranking
+  
 eureka:
   client:
     register-with-eureka: true
@@ -28,3 +38,4 @@ eureka:
     instance-id: "${spring.application.name}:${random.value}"
     lease-renewal-interval-in-seconds: 15
     lease-expiration-duration-in-seconds: 60
+

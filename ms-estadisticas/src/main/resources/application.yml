@@ -6,9 +6,21 @@ server:
 spring:
   application:
     name: ms-estadisticas
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: "estadisticas-group" # Identificador del consumidor
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        "spring.json.trusted.packages": "cl.duoc.*"
+        "spring.json.value.default.type": "cl.duoc.estadisticas.event.UsuarioEliminadoEvent"
+
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/estadisticas
+    url: jdbc:postgresql://localhost:5433/torneos
     username: postgres
     password: 123
   jpa:
@@ -16,7 +28,9 @@ spring:
       ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-
+    properties:
+      hibernate:
+        defaultSchema: estadisticas
 eureka:
   client:
     register-with-eureka: true

@@ -16,6 +16,10 @@ spring:
       ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate.default_schema: torneos
+  kafka:
+    bootstrap-servers: localhost:9092
 
 eureka:
   client:

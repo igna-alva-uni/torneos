@@ -2,6 +2,7 @@ package cl.duoc.usuarios.service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import cl.duoc.usuarios.dtos.perfil.PerfilRequest;
 import cl.duoc.usuarios.dtos.perfil.PerfilResponse;
@@ -73,10 +74,15 @@ public class PerfilService {
         return mapper.toResponse(updated);
     }
 
+    @Transactional // 1. Asegura que se ejecute en una transacción
     public void deletePerfil(Long id) {
-        if (!perfilRepo.existsById(id)) {
-            throw new RuntimeException("no hay ningún perfil con ese id");
+        Perfil perfil = perfilRepo.findById(id)
+            .orElseThrow(() -> new RuntimeException("no hay ningún perfil con ese id"));
+
+        if (perfil.getUsuario() != null) {
+            perfil.getUsuario().setPerfil(null);
         }
-        perfilRepo.deleteById(id);
+        
+        perfilRepo.delete(perfil);
     }
 }

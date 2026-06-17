@@ -1,5 +1,8 @@
 -- 1. Conectarse a la base de datos específica para este microservicio
 -- \c game_service
+CREATE SCHEMA IF NOT EXISTS juegos;
+
+SET search_path TO juegos;
 
 -- 2. Eliminación de las tablas en orden jerárquico inverso
 DROP TABLE IF EXISTS plataformas_juegos CASCADE;

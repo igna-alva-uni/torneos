@@ -27,6 +27,6 @@ public class User {
     @Column(name = "creado_el", insertable = false, updatable = false)
     private LocalDate creadoEl;
 
-    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private Perfil perfil;
 }

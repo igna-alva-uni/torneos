@@ -1,10 +1,15 @@
 -- 1. Conectarse a la base de datos específica para este microservicio
 -- \c ranking_service
 
+CREATE SCHEMA IF NOT EXISTS ranking;
+SET search_path TO ranking;
+
 -- 2. Eliminación de las tablas en orden jerárquico inverso
 DROP TABLE IF EXISTS registros_ranking CASCADE;
 DROP TABLE IF EXISTS rankings CASCADE;
 DROP TABLE IF EXISTS tipos_ranking CASCADE;
+DROP TABLE IF EXISTS juegos CASCADE;
+DROP TABLE IF EXISTS equipos CASCADE;
 
 -- 3. Crear las tablas y sus relaciones siguiendo fielmente el documento
 
@@ -14,6 +19,15 @@ CREATE TABLE tipos_ranking (
     nombre_tipo_ranking VARCHAR(50) UNIQUE NOT NULL -- [cite: 173]
 );
 
+-- Tablas de Referencia
+CREATE TABLE juegos (
+    id_juego INT PRIMARY KEY
+);
+
+CREATE TABLE equipos (
+    id_equipo INT PRIMARY KEY
+);
+
 -- Tabla: rankings
 CREATE TABLE rankings (
     id_ranking SERIAL PRIMARY KEY, -- [cite: 175]
@@ -21,7 +35,8 @@ CREATE TABLE rankings (
     id_tipo_ranking INT NOT NULL, -- [cite: 177]
     -- Restricción para evitar que haya dos rankings del mismo tipo para el mismo juego
     CONSTRAINT uq_juego_tipo UNIQUE (id_juego, id_tipo_ranking),
-    CONSTRAINT fk_ranking_tipo FOREIGN KEY (id_tipo_ranking) REFERENCES tipos_ranking(id_tipo_ranking) ON DELETE RESTRICT
+    CONSTRAINT fk_ranking_tipo FOREIGN KEY (id_tipo_ranking) REFERENCES tipos_ranking(id_tipo_ranking) ON DELETE RESTRICT,
+    CONSTRAINT fk_ranking_juego FOREIGN KEY (id_juego) REFERENCES juegos(id_juego) ON DELETE CASCADE
 );
 
 -- Índice para buscar los rankings de un juego específico rápidamente
@@ -36,7 +51,8 @@ CREATE TABLE registros_ranking (
     puntos INT NOT NULL DEFAULT 0 CHECK (puntos >= 0), -- [cite: 182]
     -- Un equipo solo puede tener un registro (una posición) dentro de un mismo ranking
     CONSTRAINT uq_ranking_equipo UNIQUE (id_ranking, id_equipo),
-    CONSTRAINT fk_registro_ranking FOREIGN KEY (id_ranking) REFERENCES rankings(id_ranking) ON DELETE CASCADE
+    CONSTRAINT fk_registro_ranking FOREIGN KEY (id_ranking) REFERENCES rankings(id_ranking) ON DELETE CASCADE,
+    CONSTRAINT fk_registro_equipo FOREIGN KEY (id_equipo) REFERENCES equipos(id_equipo) ON DELETE CASCADE
 );
 
 -- Índice para ordenar la tabla de posiciones de un ranking por puntos (de mayor a menor)
@@ -50,6 +66,10 @@ INSERT INTO tipos_ranking (nombre_tipo_ranking) VALUES
 ('Regional - LATAM'),
 ('Nacional - Chile'),
 ('Amateur');
+
+-- Insertar datos en Tablas de Referencia
+INSERT INTO juegos (id_juego) VALUES (1), (2), (3);
+INSERT INTO equipos (id_equipo) VALUES (1), (2), (3), (4);
 
 -- Insertar Rankings (Asociando los juegos del GAME SERVICE)
 -- id_juego 1: LoL, id_juego 2: Valorant, id_juego 3: CS2

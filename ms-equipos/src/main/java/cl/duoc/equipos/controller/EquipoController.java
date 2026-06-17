@@ -1,6 +1,8 @@
 package cl.duoc.equipos.controller;
 
 import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import cl.duoc.equipos.dtos.equipo.*;
@@ -27,83 +29,86 @@ public class EquipoController {
     // RECURSO: EQUIPOS
     // ==========================================
     @PostMapping("/equipos")
-    public EquipoResponse createEquipo(@Valid @RequestBody EquipoRequest request) {
-        return equipoService.addEquipo(request);
+    public ResponseEntity<EquipoResponse> createEquipo(@Valid @RequestBody EquipoRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(equipoService.addEquipo(request));
     }
 
     @GetMapping("/equipos")
-    public List<EquipoResponse> getAllEquipos() {
-        return equipoService.getAll();
+    public ResponseEntity<List<EquipoResponse>> getAllEquipos() {
+        return ResponseEntity.ok(equipoService.getAll());
     }
 
     @GetMapping("/equipos/{id}")
-    public EquipoResponse getEquipoById(@PathVariable Long id) {
-        return equipoService.getById(id);
+    public ResponseEntity<EquipoResponse> getEquipoById(@PathVariable Long id) {
+        return ResponseEntity.ok(equipoService.getById(id));
     }
 
     @PutMapping("/equipos/{id}")
-    public EquipoResponse updateEquipo(@PathVariable Long id, @Valid @RequestBody EquipoRequest request) {
-        return equipoService.update(id, request);
+    public ResponseEntity<EquipoResponse> updateEquipo(@PathVariable Long id, @Valid @RequestBody EquipoRequest request) {
+        return ResponseEntity.ok(equipoService.update(id, request));
     }
 
     @DeleteMapping("/equipos/{id}")
-    public void deleteEquipo(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteEquipo(@PathVariable Long id) {
         equipoService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
     // ==========================================
     // RECURSO: ROLES
     // ==========================================
     @PostMapping("/roles")
-    public RolEquipoResponse createRol(@Valid @RequestBody RolEquipoRequest request) {
-        return rolService.addRol(request);
+    public ResponseEntity<RolEquipoResponse> createRol(@Valid @RequestBody RolEquipoRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(rolService.addRol(request));
     }
 
     @GetMapping("/roles")
-    public List<RolEquipoResponse> getAllRoles() {
-        return rolService.getAll();
+    public ResponseEntity<List<RolEquipoResponse>> getAllRoles() {
+        return ResponseEntity.ok(rolService.getAll());
     }
 
     @GetMapping("/roles/{id}")
-    public RolEquipoResponse getRolById(@PathVariable Long id) {
-        return rolService.getById(id);
+    public ResponseEntity<RolEquipoResponse> getRolById(@PathVariable Long id) {
+        return ResponseEntity.ok(rolService.getById(id));
     }
 
     @PutMapping("/roles/{id}")
-    public RolEquipoResponse putRol(@PathVariable Long id, @Valid @RequestBody RolEquipoRequest request) {
-        return rolService.updateRol(id, request);
+    public ResponseEntity<RolEquipoResponse> putRol(@PathVariable Long id, @Valid @RequestBody RolEquipoRequest request) {
+        return ResponseEntity.ok(rolService.updateRol(id, request));
     }
 
     @DeleteMapping("/roles/{id}")
-    public void deleteRol(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteRol(@PathVariable Long id) {
         rolService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
     // ==========================================
     // RECURSO: MIEMBROS
     // ==========================================
     @PostMapping("/miembros")
-    public MiembroEquipoResponse addMiembro(@Valid @RequestBody MiembroEquipoRequest request) {
-        return miembroService.addMiembro(request);
+    public ResponseEntity<MiembroEquipoResponse> addMiembro(@Valid @RequestBody MiembroEquipoRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(miembroService.addMiembro(request));
     }
 
     @GetMapping("/miembros")
-    public List<MiembroEquipoResponse> getAllMiembros() {
-        return miembroService.getAllMiembros();
+    public ResponseEntity<List<MiembroEquipoResponse>> getAllMiembros() {
+        return ResponseEntity.ok(miembroService.getAllMiembros());
     }
 
     @GetMapping("/miembros/equipo/{idEquipo}")
-    public List<MiembroEquipoResponse> getMiembrosByEquipo(@PathVariable Long idEquipo) {
-        return miembroService.getMiembrosByEquipoId(idEquipo);
+    public ResponseEntity<List<MiembroEquipoResponse>> getMiembrosByEquipo(@PathVariable Long idEquipo) {
+        return ResponseEntity.ok(miembroService.getMiembrosByEquipoId(idEquipo));
     }
 
     @PutMapping("/miembros/{id}")
-    public MiembroEquipoResponse updateMiembro(@PathVariable Long id, @Valid @RequestBody MiembroEquipoRequest request) {
-        return miembroService.updateMiembro(id, request);
+    public ResponseEntity<MiembroEquipoResponse> updateMiembro(@PathVariable Long id, @Valid @RequestBody MiembroEquipoRequest request) {
+        return ResponseEntity.ok(miembroService.updateMiembro(id, request));
     }
 
     @DeleteMapping("/miembros/{id}")
-    public void deleteMiembro(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteMiembro(@PathVariable Long id) {
         miembroService.deleteMiembro(id);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -48,7 +48,7 @@ def consolidar_archivos(config_extensiones, archivo_salida="myfiles.txt"):
 
 # --- CONFIGURACIÓN ---
 # Aquí pones tus extensiones o nombres separados por ";"
-extensiones_a_buscar = ".java; .properties; application.yml; .xml; .json; .md; .bat;.sql; .js; .css; .html"
+extensiones_a_buscar = ".yml; .java; .properties; application.yml; .xml; .json; .md; .bat;.sql; .js; .css; .html"
 
 # Ejecutar el programa
 consolidar_archivos(extensiones_a_buscar)
