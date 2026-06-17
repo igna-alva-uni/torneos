@@ -1,6 +1,6 @@
 package cl.duoc.estadisticas.service;
 
-import cl.duoc.estadisticas.client.PartidaClient;
+import cl.duoc.commons.client.PartidaClient;
 import cl.duoc.estadisticas.dto.partida.EstadisticaPartidaRequest;
 import cl.duoc.estadisticas.dto.partida.EstadisticaPartidaResponse;
 import cl.duoc.estadisticas.mapper.EstadisticaPartidaMapper;

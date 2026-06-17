@@ -7,6 +7,8 @@ SET search_path TO inscripciones;
 DROP TABLE IF EXISTS historiales_inscripcion CASCADE;
 DROP TABLE IF EXISTS inscripciones CASCADE;
 DROP TABLE IF EXISTS estados_inscripcion CASCADE;
+DROP TABLE IF EXISTS usuarios CASCADE;
+DROP TABLE IF EXISTS torneos CASCADE;
 
 -- 3. Crear las tablas y sus relaciones siguiendo fielmente el documento
 
@@ -16,18 +18,31 @@ CREATE TABLE estados_inscripcion (
     nombre_estado VARCHAR(50) UNIQUE NOT NULL -- [cite: 164]
 );
 
+-- Tablas de Referencia
+CREATE TABLE usuarios (
+    id_usuario INT PRIMARY KEY
+);
+
+CREATE TABLE torneos (
+    id_torneo INT PRIMARY KEY
+);
+
 -- Tabla: inscripciones
 CREATE TABLE inscripciones (
     id_inscripcion SERIAL PRIMARY KEY, -- [cite: 159]
+    id_usuario INT NOT NULL,
     id_torneo INT NOT NULL, -- Validado vía REST contra TOURNAMENT SERVICE [cite: 160]
-    id_equipo INT NOT NULL, -- Validado vía REST contra TEAM SERVICE [cite: 161]
-    -- Se añade un índice único para evitar que un equipo se inscriba dos veces al mismo torneo
-    CONSTRAINT uq_equipo_torneo UNIQUE (id_equipo, id_torneo)
+    estado VARCHAR(50) NOT NULL,
+    fecha_inscripcion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    -- Se añade un índice único para evitar que un usuario se inscriba dos veces al mismo torneo
+    CONSTRAINT uq_usuario_torneo UNIQUE (id_usuario, id_torneo),
+    CONSTRAINT fk_inscripcion_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    CONSTRAINT fk_inscripcion_torneo FOREIGN KEY (id_torneo) REFERENCES torneos(id_torneo) ON DELETE CASCADE
 );
 
--- Índices para optimizar la búsqueda de inscripciones por torneo o por equipo
+-- Índices para optimizar la búsqueda de inscripciones por torneo o por usuario
 CREATE INDEX idx_inscripcion_torneo ON inscripciones(id_torneo);
-CREATE INDEX idx_inscripcion_equipo ON inscripciones(id_equipo);
+CREATE INDEX idx_inscripcion_usuario ON inscripciones(id_usuario);
 
 -- Tabla: historiales_inscripcion
 CREATE TABLE historiales_inscripcion (
@@ -49,13 +64,17 @@ INSERT INTO estados_inscripcion (nombre_estado) VALUES
 ('RECHAZADA'),
 ('CANCELADA');
 
+-- Insertar datos en Tablas de Referencia
+INSERT INTO usuarios (id_usuario) VALUES (1), (2), (3);
+INSERT INTO torneos (id_torneo) VALUES (1), (2);
+
 -- Insertar Inscripciones
--- Equipo 1 y 2 se inscriben al Torneo 1 (Liga LoL)
--- Equipo 3 se inscribe al Torneo 2 (Copa Valorant)
-INSERT INTO inscripciones (id_torneo, id_equipo) VALUES 
-(1, 1), 
-(1, 2),
-(2, 3);
+-- Usuario 1 y 2 se inscriben al Torneo 1 (Liga LoL)
+-- Usuario 3 se inscribe al Torneo 2 (Copa Valorant)
+INSERT INTO inscripciones (id_usuario, id_torneo, estado, fecha_inscripcion) VALUES 
+(1, 1, 'ACEPTADA', CURRENT_TIMESTAMP - INTERVAL '1 hour'), 
+(2, 1, 'RECHAZADA', CURRENT_TIMESTAMP - INTERVAL '1 hour'),
+(3, 2, 'PENDIENTE', CURRENT_TIMESTAMP);
 
 -- Insertar Historiales (Simulando el flujo de estados)
 -- Flujo para Inscripción 1 (Equipo 1 en Torneo 1)

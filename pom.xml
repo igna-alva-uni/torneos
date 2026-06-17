@@ -16,6 +16,7 @@
     Cada uno es un subproyecto independiente (microservicio o libreria comun).
     -->
     <modules>
+        <module>commons</module>      <!-- Biblioteca Compartida -->
         <module>eureka</module>      <!-- Servidor Eureka -->
         <module>ms-usuarios</module>      <!-- Microservicio usuarios -->
         <module>ms-autenticaciones</module>      <!-- Microservicio autenticaciones -->

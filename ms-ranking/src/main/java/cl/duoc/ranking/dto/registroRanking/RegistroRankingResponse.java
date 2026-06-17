@@ -1,6 +1,6 @@
 package cl.duoc.ranking.dto.registroRanking;
 
-import cl.duoc.ranking.client.EstadisticaEquipoResponse;
+import cl.duoc.commons.dto.EstadisticaEquipoResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
