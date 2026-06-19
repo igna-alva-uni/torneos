@@ -1,5 +1,6 @@
 package cl.duoc.estadisticas.event;
 
+import cl.duoc.commons.event.UsuarioEliminadoEvent;
 import cl.duoc.estadisticas.repository.EstadisticaJugadorRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;

@@ -13,7 +13,7 @@ import cl.duoc.equipos.model.RolEquipo;
 import cl.duoc.equipos.repository.EquipoRepository;
 import cl.duoc.equipos.repository.MiembroEquipoRepository;
 import cl.duoc.equipos.repository.RolEquipoRepository;
-import cl.duoc.commons.client.UsuarioClient;
+import cl.duoc.equipos.client.UsuarioClient;
 import feign.FeignException;
 import lombok.AllArgsConstructor;
 

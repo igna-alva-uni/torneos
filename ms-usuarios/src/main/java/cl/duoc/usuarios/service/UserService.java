@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 
 import cl.duoc.usuarios.dtos.user.UserRequest;
 import cl.duoc.usuarios.dtos.user.UserResponse;
-import cl.duoc.usuarios.event.UsuarioEliminadoEvent;
+import cl.duoc.commons.event.UsuarioEliminadoEvent;
+import cl.duoc.usuarios.event.UsuarioActualizadoEvent;
 import cl.duoc.usuarios.event.UsuarioEventProducer;
 import cl.duoc.usuarios.mapper.UserMapper;
 import cl.duoc.usuarios.model.User;
@@ -62,6 +63,13 @@ public class UserService {
         user.setEmail(request.getEmail());
 
         User updated = userRepo.save(user);
+        UsuarioActualizadoEvent event = new UsuarioActualizadoEvent(
+            user.getId(),
+            user.getUsername(),
+            user.getEmail(),
+            LocalDateTime.now()
+        );
+        producer.publicarUsuarioActualizado(event);
         return mapper.toResponse(updated);
     }
 

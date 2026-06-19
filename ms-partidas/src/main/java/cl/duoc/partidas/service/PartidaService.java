@@ -1,8 +1,8 @@
 package cl.duoc.partidas.service;
 
 
-import cl.duoc.commons.client.EquipoClient;
-import cl.duoc.commons.client.TorneosClient;
+import cl.duoc.partidas.client.EquipoClient;
+import cl.duoc.partidas.client.TorneosClient;
 import cl.duoc.partidas.dto.PartidaRequest;
 import cl.duoc.partidas.dto.PartidaResponse;
 import cl.duoc.partidas.dto.ResultadoPartidaRequest;

@@ -1,6 +1,6 @@
 package cl.duoc.equipos.event;
 
-import cl.duoc.equipos.event.UsuarioEliminadoEvent;
+import cl.duoc.commons.event.UsuarioEliminadoEvent;
 import cl.duoc.equipos.repository.MiembroEquipoRepository;
 import lombok.AllArgsConstructor;
 

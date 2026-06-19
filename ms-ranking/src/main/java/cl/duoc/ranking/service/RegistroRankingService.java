@@ -1,7 +1,7 @@
 package cl.duoc.ranking.service;
 
 
-import cl.duoc.commons.client.EstadisticaClient;
+import cl.duoc.ranking.client.EstadisticaClient;
 import cl.duoc.commons.dto.EstadisticaEquipoResponse;
 import cl.duoc.ranking.dto.registroRanking.RegistroRankingRequest;
 import cl.duoc.ranking.dto.registroRanking.RegistroRankingResponse;

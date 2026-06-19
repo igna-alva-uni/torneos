@@ -1,6 +1,6 @@
 package cl.duoc.notificaciones.kafka;
 
-import cl.duoc.notificaciones.dto.InscripcionCreadaEvent;
+import cl.duoc.commons.event.InscripcionCreadaEvent;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 

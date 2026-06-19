@@ -1,6 +1,6 @@
 package cl.duoc.ranking.event;
 
-import cl.duoc.ranking.event.RankingUpdateEvent;
+import cl.duoc.commons.event.RankingUpdateEvent;
 import lombok.extern.slf4j.Slf4j;
 import lombok.RequiredArgsConstructor;
 

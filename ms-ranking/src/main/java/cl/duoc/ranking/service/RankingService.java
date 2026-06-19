@@ -9,7 +9,7 @@ import cl.duoc.ranking.model.RegistroRanking;
 import cl.duoc.ranking.model.TipoRanking;
 import cl.duoc.ranking.repository.RankingRepository;
 import cl.duoc.ranking.event.RankingEventProducer;
-import cl.duoc.ranking.event.RankingUpdateEvent;
+import cl.duoc.commons.event.RankingUpdateEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

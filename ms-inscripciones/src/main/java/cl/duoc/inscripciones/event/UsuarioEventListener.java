@@ -1,5 +1,6 @@
 package cl.duoc.inscripciones.event;
 
+import cl.duoc.commons.event.UsuarioEliminadoEvent;
 import cl.duoc.inscripciones.repository.InscripcionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;

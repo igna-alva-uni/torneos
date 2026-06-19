@@ -1,6 +1,6 @@
 package cl.duoc.notificaciones.kafka;
 
-import cl.duoc.notificaciones.dto.UsuarioEliminadoEvent;
+import cl.duoc.commons.event.UsuarioEliminadoEvent;
 import cl.duoc.notificaciones.repository.NotificacionUsuarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;

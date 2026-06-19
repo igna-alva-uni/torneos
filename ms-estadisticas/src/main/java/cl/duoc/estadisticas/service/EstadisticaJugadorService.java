@@ -1,6 +1,6 @@
 package cl.duoc.estadisticas.service;
 
-import cl.duoc.commons.client.UsuarioClient;
+import cl.duoc.estadisticas.client.UserClient;
 import cl.duoc.estadisticas.dto.jugador.EstadisticaJugadorRequest;
 import cl.duoc.estadisticas.dto.jugador.EstadisticaJugadorResponse;
 import cl.duoc.estadisticas.mapper.EstadisticaJugadorMapper;
@@ -19,7 +19,7 @@ public class EstadisticaJugadorService {
 
     private final EstadisticaJugadorRepository repository;
     private final EstadisticaJugadorMapper mapper;
-    private final UsuarioClient userClient;
+    private final UserClient userClient;
 
     @Transactional(readOnly = true)
     public List<EstadisticaJugadorResponse> findAll() {

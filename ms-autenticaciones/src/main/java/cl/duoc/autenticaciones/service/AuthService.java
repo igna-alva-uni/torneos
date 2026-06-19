@@ -10,7 +10,7 @@ import cl.duoc.autenticaciones.mapper.AuthMapper;
 import cl.duoc.autenticaciones.model.*;
 import cl.duoc.autenticaciones.repository.*;
 import feign.FeignException;
-import cl.duoc.commons.client.UsuarioClient;
+import cl.duoc.autenticaciones.client.UsuarioClient;
 import lombok.AllArgsConstructor;
 
 @Service

@@ -1,6 +1,6 @@
 package cl.duoc.autenticaciones.event;
 
-import cl.duoc.autenticaciones.event.UsuarioEliminadoEvent;
+import cl.duoc.commons.event.UsuarioEliminadoEvent;
 import cl.duoc.autenticaciones.repository.AuthUserRepository;
 import lombok.AllArgsConstructor;
 

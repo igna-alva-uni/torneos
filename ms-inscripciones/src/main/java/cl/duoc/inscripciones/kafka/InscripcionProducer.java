@@ -1,6 +1,6 @@
 package cl.duoc.inscripciones.kafka;
 
-import cl.duoc.inscripciones.dto.InscripcionCreadaEvent;
+import cl.duoc.commons.event.InscripcionCreadaEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;

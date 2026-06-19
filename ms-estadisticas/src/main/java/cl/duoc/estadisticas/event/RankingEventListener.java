@@ -1,6 +1,6 @@
 package cl.duoc.estadisticas.event;
 
-import cl.duoc.estadisticas.event.RankingUpdateEvent;
+import cl.duoc.commons.event.RankingUpdateEvent;
 import cl.duoc.estadisticas.repository.EstadisticaPartidaRepository;
 import cl.duoc.estadisticas.repository.EstadisticaJugadorRepository;
 import cl.duoc.estadisticas.service.EstadisticaEquipoService;

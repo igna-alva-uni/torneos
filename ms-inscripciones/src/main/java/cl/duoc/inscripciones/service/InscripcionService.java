@@ -1,8 +1,8 @@
 package cl.duoc.inscripciones.service;
 
-import cl.duoc.commons.client.TorneosClient;
-import cl.duoc.commons.client.UsuarioClient;
-import cl.duoc.inscripciones.dto.InscripcionCreadaEvent;
+import cl.duoc.inscripciones.client.TorneosClient;
+import cl.duoc.inscripciones.client.UsuarioClient;
+import cl.duoc.commons.event.InscripcionCreadaEvent;
 import cl.duoc.inscripciones.dto.InscripcionRequest;
 import cl.duoc.inscripciones.kafka.InscripcionProducer;
 import cl.duoc.inscripciones.model.Inscripcion;
