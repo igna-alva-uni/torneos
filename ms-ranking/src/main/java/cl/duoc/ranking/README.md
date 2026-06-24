@@ -81,7 +81,7 @@ Tablas principales:
 
 ## registro ranking permite:
 
-* Ingresar registros 
+* Ingresar registros
 * Consultar registros
 * Eliminar registros
 
