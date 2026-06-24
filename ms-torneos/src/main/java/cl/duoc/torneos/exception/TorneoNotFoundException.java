@@ -2,18 +2,9 @@ package cl.duoc.torneos.exception;
 
 public class TorneoNotFoundException extends RuntimeException {
     public TorneoNotFoundException(Integer id) {
-        super("No existe el torneo con id: " + id);
+        super("No existe el torneo " + id);
     }
-    public TorneoNotFoundException() {
-        super("No hay torneos registrados");
+    public TorneoNotFoundException(String videojuego) {
+        super("No existe el torneo con el videojuego: " + videojuego);
     }
-    public TorneoNotFoundException porJuego(Integer idJuego) {
-        return new TorneoNotFoundException(
-                "No existe torneos asociados al juego con id: "+idJuego
-        );
-    }
-    private TorneoNotFoundException(String message) {
-        super(message);
-    }
-
 }

@@ -1,5 +1,6 @@
 package cl.duoc.estadisticas.service;
 
+import cl.duoc.commons.client.PartidaClient;
 import cl.duoc.estadisticas.dto.partida.EstadisticaPartidaRequest;
 import cl.duoc.estadisticas.dto.partida.EstadisticaPartidaResponse;
 import cl.duoc.estadisticas.mapper.EstadisticaPartidaMapper;
@@ -18,6 +19,7 @@ public class EstadisticaPartidaService {
 
     private final EstadisticaPartidaRepository repository;
     private final EstadisticaPartidaMapper mapper;
+    private final PartidaClient partidaClient;
 
     @Transactional(readOnly = true)
     public List<EstadisticaPartidaResponse> findAll() {
@@ -35,6 +37,13 @@ public class EstadisticaPartidaService {
 
     @Transactional
     public EstadisticaPartidaResponse create(EstadisticaPartidaRequest request) {
+        // Validar partida
+        try {
+            partidaClient.getPartidaById(request.getIdPartida());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("No existe la partida con ID: " + request.getIdPartida());
+        }
+
         if (repository.existsByIdPartida(request.getIdPartida())) {
             throw new RuntimeException("Ya existen estadísticas registradas para la partida con ID: " + request.getIdPartida());
         }
@@ -48,6 +57,13 @@ public class EstadisticaPartidaService {
         EstadisticaPartida existing = repository.findByIdEstadisticaPartida(id)
                 .orElseThrow(() -> new RuntimeException("No se puede actualizar: Registro no encontrado con ID: " + id));
         
+        // Validar partida
+        try {
+            partidaClient.getPartidaById(request.getIdPartida());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("No existe la partida con ID: " + request.getIdPartida());
+        }
+
         if (!existing.getIdPartida().equals(request.getIdPartida()) && repository.existsByIdPartida(request.getIdPartida())) {
             throw new RuntimeException("Ya existen estadísticas para la nueva partida con ID: " + request.getIdPartida());
         }

@@ -10,7 +10,7 @@ import cl.duoc.autenticaciones.mapper.AuthMapper;
 import cl.duoc.autenticaciones.model.*;
 import cl.duoc.autenticaciones.repository.*;
 import feign.FeignException;
-import cl.duoc.autenticaciones.client.UsuarioClient;
+import cl.duoc.commons.client.UsuarioClient;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -30,7 +30,7 @@ public class AuthService {
         try {
             // Llamamos a ms-usuarios a través de Feign
             usuarioClient.getUsuarioById(request.getIdUsuario());
-        } catch (FeignException.NotFound e) {
+        } catch (Exception e) {
             // Si ms-usuarios responde un 404, lanzamos error aquí
             throw new IllegalArgumentException("el usuario indicado no existe en el sistema");
         }

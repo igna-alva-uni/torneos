@@ -1,10 +1,14 @@
 -- 1. Conectarse a la base de datos específica para este microservicio
 -- \c tournament_service
+CREATE SCHEMA IF NOT EXISTS torneos;
+
+SET search_path TO torneos;
 
 -- 2. Eliminación de las tablas en orden jerárquico inverso
 DROP TABLE IF EXISTS premios CASCADE;
 DROP TABLE IF EXISTS torneos CASCADE;
 DROP TABLE IF EXISTS formatos_torneo CASCADE;
+DROP TABLE IF EXISTS juegos CASCADE;
 
 -- 3. Crear las tablas y sus relaciones siguiendo fielmente el documento
 
@@ -12,6 +16,11 @@ DROP TABLE IF EXISTS formatos_torneo CASCADE;
 CREATE TABLE formatos_torneo (
     id_formato SERIAL PRIMARY KEY, -- [cite: 114]
     tipo_formato VARCHAR(50) UNIQUE NOT NULL -- [cite: 115]
+);
+
+-- Tablas de Referencia
+CREATE TABLE juegos (
+    id_juego INT PRIMARY KEY
 );
 
 -- Tabla: torneos
@@ -22,7 +31,8 @@ CREATE TABLE torneos (
     id_formato INT NOT NULL, -- [cite: 120]
     fecha_inicio DATE, -- [cite: 121]
     fecha_termino DATE, -- [cite: 122]
-    CONSTRAINT fk_torneo_formato FOREIGN KEY (id_formato) REFERENCES formatos_torneo(id_formato) ON DELETE RESTRICT
+    CONSTRAINT fk_torneo_formato FOREIGN KEY (id_formato) REFERENCES formatos_torneo(id_formato) ON DELETE RESTRICT,
+    CONSTRAINT fk_torneo_juego FOREIGN KEY (id_juego) REFERENCES juegos(id_juego) ON DELETE CASCADE
 );
 
 -- Índice para búsquedas frecuentes de torneos por juego
@@ -45,6 +55,9 @@ INSERT INTO formatos_torneo (tipo_formato) VALUES
 ('Doble Eliminación (Double Elimination)'),
 ('Todos contra Todos (Round Robin)'),
 ('Sistema Suizo');
+
+-- Insertar datos en Tablas de Referencia
+INSERT INTO juegos (id_juego) VALUES (1), (2), (3);
 
 -- Insertar Torneos
 -- Nota: Los id_juego asumen los IDs generados en GAME SERVICE (1: LoL, 2: Valorant, 3: CS2)

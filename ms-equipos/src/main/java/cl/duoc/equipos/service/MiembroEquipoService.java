@@ -13,7 +13,7 @@ import cl.duoc.equipos.model.RolEquipo;
 import cl.duoc.equipos.repository.EquipoRepository;
 import cl.duoc.equipos.repository.MiembroEquipoRepository;
 import cl.duoc.equipos.repository.RolEquipoRepository;
-import cl.duoc.equipos.client.UsuarioClient;
+import cl.duoc.commons.client.UsuarioClient;
 import feign.FeignException;
 import lombok.AllArgsConstructor;
 
@@ -36,7 +36,7 @@ public class MiembroEquipoService {
         try {
             // Llamamos a ms-usuarios a través de Feign
             usuarioClient.getUsuarioById(request.getIdUsuario());
-        } catch (FeignException.NotFound e) {
+        } catch (Exception e) {
             // Si ms-usuarios responde un 404, lanzamos error aquí
             throw new IllegalArgumentException("el usuario indicado no existe en el sistema");
         }

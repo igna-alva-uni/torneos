@@ -8,7 +8,7 @@ spring:
     name: ms-partidas
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/partidas
+    url: jdbc:postgresql://localhost:5433/torneos
     username: postgres
     password: 123
   jpa:
@@ -16,6 +16,8 @@ spring:
       ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate.default_schema: partidas
 
 eureka:
   client:
