@@ -28,6 +28,7 @@
         <module>ms-ranking</module>      <!-- Microservicio ranking -->
         <module>ms-notificaciones</module>      <!-- Microservicio notificaciones -->
         <module>ms-estadisticas</module>      <!-- Microservicio estadisticas -->
+        <module>api-gateway</module>      <!-- API Gateway -->
         <!-- CGV: Agrega aqui mas modulos segun sea necesario -->
     </modules>
 
@@ -150,6 +151,43 @@
                 <version>${spring-boot.version}</version>
             </dependency>
 
+            <!-- Spring Boot Security -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <!-- Spring Boot HATEOAS -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-hateoas</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <!-- Springdoc OpenAPI Starter -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>2.8.17</version>
+            </dependency>
+
+            <!-- Java JWT (JJWT) -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>0.11.5</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>0.11.5</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>0.11.5</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
