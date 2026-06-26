@@ -22,8 +22,7 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         "spring.json.trusted.packages": "cl.duoc.*"
-        "spring.json.value.default.type": "cl.duoc.commons.event.UsuarioEliminadoEvent"
-        "spring.json.use.type.headers": "false"
+        "spring.json.use.type.headers": "true"
 
   datasource:
     driver-class-name: org.postgresql.Driver
