@@ -7,6 +7,85 @@
   },
   "item": [
     {
+      "name": "🔐 Autenticacion (Gateway)",
+      "item": [
+        {
+          "name": "registro (crear cuenta)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"nuevo_jugador\",\n  \"email\": \"nuevo@gmail.com\",\n  \"password\": \"mipass123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/auth/registro",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "registro"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login (obtener token)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"nuevo@gmail.com\",\n  \"password\": \"mipass123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "ms-usuarios",
       "item": [
         {
@@ -16,7 +95,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/usuarios",
                   "protocol": "http",
@@ -38,7 +123,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/usuarios/1",
                   "protocol": "http",
@@ -61,7 +152,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"username\": \"Faker_12345\",\n  \"email\": \"faker12@esports.com\"\n}",
@@ -92,7 +189,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"username\": \"Faker_123\",\n  \"email\": \"faker@esports.com\"\n}",
@@ -124,7 +227,13 @@
               "name": "borrar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/usuarios/5",
                   "protocol": "http",
@@ -152,7 +261,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/paises",
                   "protocol": "http",
@@ -174,7 +289,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/paises/1",
                   "protocol": "http",
@@ -197,7 +318,13 @@
               "name": "get by codigo",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/paises/codigo/CHL",
                   "protocol": "http",
@@ -221,7 +348,13 @@
               "name": "get by name",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/paises/nombre/Chile",
                   "protocol": "http",
@@ -245,7 +378,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"nombrePais\": \"japon\",\n  \"codigoPais\": \"jp\"\n}",
@@ -276,7 +415,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"nombrePais\": \"rumania\",\n  \"codigoPais\": \"rum\"\n}",
@@ -308,7 +453,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/paises/5",
                   "protocol": "http",
@@ -336,7 +487,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/perfiles",
                   "protocol": "http",
@@ -358,7 +515,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/perfiles/1",
                   "protocol": "http",
@@ -381,7 +544,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idUsuario\": 6,\n  \"nickname\": \"Demonlord\",\n  \"urlAvatar\": \"https://imgur.com/foto_avatar.png\",\n  \"idPais\": 3\n}",
@@ -412,7 +581,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idUsuario\": 7,\n  \"nickname\": \"DemonKing\",\n  \"urlAvatar\": \"https://imgur.com/foto_avatar.png\",\n  \"idPais\": 1\n}",
@@ -444,7 +619,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9001/api/v1/usuarios/perfiles/4",
                   "protocol": "http",
@@ -471,13 +652,56 @@
       "name": "ms-autenticaciones",
       "item": [
         {
+          "name": "registro (crear cuenta)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"nuevo_jugador\",\n  \"email\": \"nuevo@gmail.com\",\n  \"password\": \"mipass123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9002/api/v1/autenticaciones/registro",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9002",
+              "path": [
+                "api",
+                "v1",
+                "autenticaciones",
+                "registro"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
           "name": "roles",
           "item": [
             {
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/roles",
                   "protocol": "http",
@@ -499,7 +723,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/roles/1",
                   "protocol": "http",
@@ -522,7 +752,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"nombreRol\": \"viewer\"\n}",
@@ -553,7 +789,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"nombreRol\": \"presentador\"\n}",
@@ -585,7 +827,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/roles/3",
                   "protocol": "http",
@@ -613,7 +861,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/usuarios/1",
                   "protocol": "http",
@@ -636,7 +890,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idUsuario\": 6,\n  \"email\": \"mythos@yahoo.com\",\n  \"password\": \"PasswordSegura123\",\n  \"nombresRoles\": [\n    \"ROLE_ADMIN\"\n  ]\n}",
@@ -667,7 +927,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idUsuario\": 7,\n  \"email\": \"sikey@gmail.com\",\n  \"password\": \"PasswordUltraSegura123\",\n  \"nombresRoles\": [\n    \"ROLE_ADMIN\"\n  ]\n}",
@@ -699,7 +965,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9002/api/v1/autenticaciones/usuarios/3",
                   "protocol": "http",
@@ -729,7 +1001,13 @@
           "name": "get all",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9003/api/v1/juegos",
               "protocol": "http",
@@ -750,7 +1028,13 @@
           "name": "get by id",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9003/api/v1/juegos/1",
               "protocol": "http",
@@ -772,7 +1056,13 @@
           "name": "crear",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"nombre\": \"League of Legends\",\n  \"idGenero\": 1,\n  \"descripcion\": \"MOBA game\",\n  \"plataformas\": [1, 2]\n}",
@@ -802,7 +1092,13 @@
           "name": "actualizar",
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"nombre\": \"League of Legends Updated\",\n  \"idGenero\": 1,\n  \"descripcion\": \"Competitive MOBA\",\n  \"plataformas\": [1, 2]\n}",
@@ -833,7 +1129,13 @@
           "name": "eliminar",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9003/api/v1/juegos/1",
               "protocol": "http",
@@ -860,7 +1162,13 @@
           "name": "get all",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9004/api/v1/torneos",
               "protocol": "http",
@@ -881,7 +1189,13 @@
           "name": "get by id",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9004/api/v1/torneos/1",
               "protocol": "http",
@@ -903,7 +1217,13 @@
           "name": "get by juego",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9004/api/v1/torneos/juego/1",
               "protocol": "http",
@@ -926,7 +1246,13 @@
           "name": "crear",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"nombre\": \"Copa Duoc 2026\",\n  \"idJuego\": 1,\n  \"idFormato\": 1,\n  \"fechaInicio\": \"2026-06-01\",\n  \"fechaTermino\": \"2026-06-15\"\n}",
@@ -956,7 +1282,13 @@
           "name": "actualizar",
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"nombre\": \"Copa Duoc 2026 Clausura\",\n  \"idJuego\": 1,\n  \"idFormato\": 1,\n  \"fechaInicio\": \"2026-06-01\",\n  \"fechaTermino\": \"2026-06-20\"\n}",
@@ -987,7 +1319,13 @@
           "name": "eliminar",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9004/api/v1/torneos/1",
               "protocol": "http",
@@ -1017,7 +1355,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9005/api/v1/equipos/equipos",
                   "protocol": "http",
@@ -1039,7 +1383,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9005/api/v1/equipos/equipos/1",
                   "protocol": "http",
@@ -1062,7 +1412,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"nombreEquipo\": \"T400 Esports\"\n}",
@@ -1093,7 +1449,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"nombreEquipo\": \"T1 Esports\"\n}",
@@ -1125,7 +1487,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9005/api/v1/equipos/equipos/3",
                   "protocol": "http",
@@ -1153,7 +1521,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9005/api/v1/equipos/miembros",
                   "protocol": "http",
@@ -1175,7 +1549,13 @@
               "name": "get by equipo",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9005/api/v1/equipos/miembros/equipo/1",
                   "protocol": "http",
@@ -1199,7 +1579,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idUsuario\": 6,\n  \"idEquipo\": 1,\n  \"idRolEquipo\": 1\n}",
@@ -1230,7 +1616,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idUsuario\": 7,\n  \"idEquipo\": 1,\n  \"idRolEquipo\": 1\n}",
@@ -1262,7 +1654,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9005/api/v1/equipos/miembros/2",
                   "protocol": "http",
@@ -1290,7 +1688,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9005/api/v1/equipos/roles",
                   "protocol": "http",
@@ -1312,7 +1716,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9005/api/v1/equipos/roles/1",
                   "protocol": "http",
@@ -1335,7 +1745,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"nombreRolEquipo\": \"support\"\n}",
@@ -1366,7 +1782,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"nombreRolEquipo\": \"CAPITAN\"\n}",
@@ -1398,7 +1820,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9005/api/v1/equipos/roles/3",
                   "protocol": "http",
@@ -1428,7 +1856,13 @@
           "name": "get all",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9006/api/v1/partidas",
               "protocol": "http",
@@ -1449,7 +1883,13 @@
           "name": "get by id",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9006/api/v1/partidas/1",
               "protocol": "http",
@@ -1471,7 +1911,13 @@
           "name": "crear",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"torneoId\": 1,\n  \"ronda\": \"Cuartos\",\n  \"estado\": \"PENDIENTE\"\n}",
@@ -1501,7 +1947,13 @@
           "name": "crear resultado",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"idEquipoGanador\": 1,\n  \"puntajeEquipo1\": 3,\n  \"puntajeEquipo2\": 1,\n  \"duracionPartida\": 1800\n}",
@@ -1533,7 +1985,13 @@
           "name": "actualizar",
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"torneoId\": 1,\n  \"ronda\": \"Semifinal\",\n  \"estado\": \"FINALIZADA\"\n}",
@@ -1564,7 +2022,13 @@
           "name": "eliminar",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9006/api/v1/partidas/1",
               "protocol": "http",
@@ -1591,7 +2055,13 @@
           "name": "get all",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9007/api/v1/inscripciones",
               "protocol": "http",
@@ -1612,7 +2082,13 @@
           "name": "get by id",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9007/api/v1/inscripciones/1",
               "protocol": "http",
@@ -1634,7 +2110,13 @@
           "name": "crear",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"idUsuario\": 1,\n  \"idTorneo\": 1\n}",
@@ -1664,7 +2146,13 @@
           "name": "eliminar",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "http://localhost:9007/api/v1/inscripciones/1",
               "protocol": "http",
@@ -1694,7 +2182,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9008/api/v1/rankings/rankings",
                   "protocol": "http",
@@ -1716,7 +2210,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9008/api/v1/rankings/rankings/1",
                   "protocol": "http",
@@ -1739,7 +2239,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idJuego\": 1,\n  \"idTipoRanking\": 1,\n  \"registros\": []\n}",
@@ -1770,7 +2276,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idJuego\": 1,\n  \"idTipoRanking\": 1,\n  \"registros\": []\n}",
@@ -1802,7 +2314,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9008/api/v1/rankings/rankings/1",
                   "protocol": "http",
@@ -1830,7 +2348,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9008/api/v1/rankings/tipos",
                   "protocol": "http",
@@ -1852,7 +2376,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9008/api/v1/rankings/tipos/1",
                   "protocol": "http",
@@ -1875,7 +2405,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"nombreTipoRanking\": \"Global\"\n}",
@@ -1906,7 +2442,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"nombreTipoRanking\": \"Regional\"\n}",
@@ -1938,7 +2480,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9008/api/v1/rankings/tipos/1",
                   "protocol": "http",
@@ -1966,7 +2514,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9008/api/v1/rankings/registros",
                   "protocol": "http",
@@ -1988,7 +2542,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9008/api/v1/rankings/registros/1",
                   "protocol": "http",
@@ -2011,7 +2571,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idRanking\": 1,\n  \"idUsuario\": 1,\n  \"puntos\": 1500,\n  \"posicion\": 1\n}",
@@ -2043,7 +2609,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9008/api/v1/rankings/registros/1",
                   "protocol": "http",
@@ -2076,7 +2648,13 @@
               "name": "get test",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9009/api/v1/notificaciones/test",
                   "protocol": "http",
@@ -2098,7 +2676,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9009/api/v1/notificaciones",
                   "protocol": "http",
@@ -2119,7 +2703,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idTipoNotificacion\": 1,\n  \"mensaje\": \"Tu torneo esta por comenzar\"\n}",
@@ -2154,7 +2744,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9009/api/v1/notificaciones/tipos",
                   "protocol": "http",
@@ -2176,7 +2772,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"nombreTipoNotificacion\": \"Alerta\"\n}",
@@ -2212,7 +2814,13 @@
               "name": "asignar",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idUsuario\": 1,\n  \"idNotificacion\": 1\n}",
@@ -2243,7 +2851,13 @@
               "name": "listar por usuario",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1",
                   "protocol": "http",
@@ -2266,7 +2880,13 @@
               "name": "listar no leidas",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1/no-leidas",
                   "protocol": "http",
@@ -2290,7 +2910,13 @@
               "name": "marcar leida",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1/leer",
                   "protocol": "http",
@@ -2314,7 +2940,13 @@
               "name": "eliminar asignacion",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9009/api/v1/notificaciones/usuarios/1",
                   "protocol": "http",
@@ -2347,7 +2979,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9010/api/v1/stats/equipos",
                   "protocol": "http",
@@ -2369,7 +3007,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9010/api/v1/stats/equipos/1",
                   "protocol": "http",
@@ -2392,7 +3036,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idEquipo\": 1,\n  \"victoriasEquipo\": 10,\n  \"derrotasEquipo\": 2\n}",
@@ -2423,7 +3073,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idEquipo\": 1,\n  \"victoriasEquipo\": 12,\n  \"derrotasEquipo\": 2\n}",
@@ -2455,7 +3111,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9010/api/v1/stats/equipos/1",
                   "protocol": "http",
@@ -2483,7 +3145,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9010/api/v1/stats/players",
                   "protocol": "http",
@@ -2505,7 +3173,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9010/api/v1/stats/players/1",
                   "protocol": "http",
@@ -2528,7 +3202,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idUsuario\": 5,\n  \"victoriasJugador\": 10,\n  \"derrotasJugador\": 2\n}",
@@ -2559,7 +3239,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idUsuario\": 5,\n  \"victoriasJugador\": 12,\n  \"derrotasJugador\": 2\n}",
@@ -2591,7 +3277,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9010/api/v1/stats/players/1",
                   "protocol": "http",
@@ -2619,7 +3311,13 @@
               "name": "get all",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9010/api/v1/stats/partidas",
                   "protocol": "http",
@@ -2641,7 +3339,13 @@
               "name": "get by id",
               "request": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9010/api/v1/stats/partidas/1",
                   "protocol": "http",
@@ -2664,7 +3368,13 @@
               "name": "crear",
               "request": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idPartida\": 1,\n  \"duracion\": \"PT25M\"\n}",
@@ -2695,7 +3405,13 @@
               "name": "actualizar",
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"idPartida\": 1,\n  \"duracion\": \"PT30M\"\n}",
@@ -2727,7 +3443,13 @@
               "name": "eliminar",
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "http://localhost:9010/api/v1/stats/partidas/1",
                   "protocol": "http",

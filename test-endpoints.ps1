@@ -114,11 +114,15 @@ function Invoke-HttpCall {
     $isOffline = $false
 
     try {
+        $headers = @{
+            "Authorization" = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0b3JuZW9zLmNvbSIsInJvbCI6IlJPTEVfQURNSU4iLCJpZFVzdWFyaW8iOjEsImlhdCI6MTc4MjQzNjE3NCwiZXhwIjo0OTM2MDM2MTc0fQ.tptKvop8UPwSPcYCECdPMGoHr4fLICUVNcT0biKzt6w"
+        }
         $params = @{
             Uri = $Url
             Method = $Method
             TimeoutSec = 5
             UseBasicParsing = $true
+            Headers = $headers
         }
         if ($Body) {
             $params.Body = $Body
