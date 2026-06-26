@@ -1,0 +1,96 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: ms-usuarios
+          uri: lb://MS-USUARIOS
+          predicates:
+            - Path=/api/v1/usuarios/**
+        - id: ms-autenticaciones
+          uri: lb://MS-AUTENTICACIONES
+          predicates:
+            - Path=/api/v1/autenticaciones/**
+        - id: ms-juegos
+          uri: lb://MS-JUEGOS
+          predicates:
+            - Path=/api/v1/juegos/**
+        - id: ms-torneos
+          uri: lb://MS-TORNEOS
+          predicates:
+            - Path=/api/v1/torneos/**
+        - id: ms-equipos
+          uri: lb://MS-EQUIPOS
+          predicates:
+            - Path=/api/v1/equipos/**
+        - id: ms-partidas
+          uri: lb://MS-PARTIDAS
+          predicates:
+            - Path=/api/v1/partidas/**
+        - id: ms-inscripciones
+          uri: lb://MS-INSCRIPCIONES
+          predicates:
+            - Path=/api/v1/inscripciones/**
+        - id: ms-ranking
+          uri: lb://MS-RANKING
+          predicates:
+            - Path=/api/v1/ranking/**
+        - id: ms-notificaciones
+          uri: lb://MS-NOTIFICACIONES
+          predicates:
+            - Path=/api/v1/notificaciones/**
+        - id: ms-estadisticas
+          uri: lb://MS-ESTADISTICAS
+          predicates:
+            - Path=/api/v1/estadisticas/**
+          filters:
+            - RewritePath=/api/v1/estadisticas/(?<segment>.*), /api/v1/stats/${segment}
+        - id: shared-auth
+          uri: lb://MS-AUTENTICACIONES
+          predicates:
+            - Path=/api/v1/auth/**
+          filters:
+            - RewritePath=/api/v1/auth/(?<segment>.*), /api/v1/autenticaciones/${segment}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html
+    urls:
+      - name: Usuarios (ms-usuarios)
+        url: /api/v1/usuarios/v3/api-docs
+      - name: Autenticaciones (ms-autenticaciones)
+        url: /api/v1/autenticaciones/v3/api-docs
+      - name: Juegos (ms-juegos)
+        url: /api/v1/juegos/v3/api-docs
+      - name: Torneos (ms-torneos)
+        url: /api/v1/torneos/v3/api-docs
+      - name: Equipos (ms-equipos)
+        url: /api/v1/equipos/v3/api-docs
+      - name: Partidas (ms-partidas)
+        url: /api/v1/partidas/v3/api-docs
+      - name: Inscripciones (ms-inscripciones)
+        url: /api/v1/inscripciones/v3/api-docs
+      - name: Ranking (ms-ranking)
+        url: /api/v1/ranking/v3/api-docs
+      - name: Notificaciones (ms-notificaciones)
+        url: /api/v1/notificaciones/v3/api-docs
+      - name: Estadisticas (ms-estadisticas)
+        url: /api/v1/estadisticas/v3/api-docs
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: "${spring.application.name}:${random.value}"
