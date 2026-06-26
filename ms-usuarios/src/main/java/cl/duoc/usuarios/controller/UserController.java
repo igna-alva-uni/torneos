@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 
 import cl.duoc.usuarios.dtos.user.UserRequest;
 import cl.duoc.usuarios.dtos.user.UserResponse;
@@ -34,22 +35,43 @@ public class UserController {
     
     @PostMapping("/usuarios")
     public ResponseEntity<UserResponse> createUser(@Valid @RequestBody UserRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.addUser(request));
+        UserResponse response = userService.addUser(request);
+        response.add(WebMvcLinkBuilder.linkTo(
+            WebMvcLinkBuilder.methodOn(UserController.class).getUserById(response.getId())).withSelfRel());
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @GetMapping("/usuarios")
     public ResponseEntity<List<UserResponse>> getAllUsers() {
-        return ResponseEntity.ok(userService.getAllUsers());
+        List<UserResponse> users = userService.getAllUsers();
+        for (UserResponse response : users) {
+            response.add(WebMvcLinkBuilder.linkTo(
+                WebMvcLinkBuilder.methodOn(UserController.class).getUserById(response.getId())).withSelfRel());
+        }
+        return ResponseEntity.ok(users);
     }
 
     @GetMapping("/usuarios/{id}")
     public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
-        return ResponseEntity.ok(userService.getUserById(id));
+        UserResponse response = userService.getUserById(id);
+        
+        // HATEOAS Links
+        response.add(WebMvcLinkBuilder.linkTo(
+            WebMvcLinkBuilder.methodOn(UserController.class).getUserById(id)).withSelfRel());
+        response.add(WebMvcLinkBuilder.linkTo(
+            WebMvcLinkBuilder.methodOn(UserController.class).getPerfilByUserId(id)).withRel("perfil"));
+        response.add(WebMvcLinkBuilder.linkTo(
+            WebMvcLinkBuilder.methodOn(UserController.class).getAllUsers()).withRel("todos-los-usuarios"));
+
+        return ResponseEntity.ok(response);
     }
 
     @PutMapping("/usuarios/{id}")
     public ResponseEntity<UserResponse> updateUser(@PathVariable Long id, @Valid @RequestBody UserRequest request) {
-        return ResponseEntity.ok(userService.updateUser(id, request));
+        UserResponse response = userService.updateUser(id, request);
+        response.add(WebMvcLinkBuilder.linkTo(
+            WebMvcLinkBuilder.methodOn(UserController.class).getUserById(response.getId())).withSelfRel());
+        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/usuarios/{id}")

@@ -17,5 +17,15 @@ public class KafkaTopicConfig {
         return TopicBuilder.name("usuarios-eliminados").partitions(1).replicas(1).build();
     }
 
+    @Bean
+    public NewTopic topicUserCreated(){
+        log.debug("publicando usuario creado");
+        return TopicBuilder.name("usuarios-creados").partitions(1).replicas(1).build();
+    }
 
+    @Bean
+    public NewTopic topicUserUpdated(){
+        log.debug("publicando usuario actualizado");
+        return TopicBuilder.name("usuarios-actualizados").partitions(1).replicas(1).build();
+    }
 }
