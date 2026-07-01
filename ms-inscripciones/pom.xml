@@ -100,6 +100,12 @@
             <artifactId>mapstruct-processor</artifactId>
         </dependency>
 
+        <!-- Spring Boot HATEOAS -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-hateoas</artifactId>
+        </dependency>
+
         <!-- Dependencias de testing con JUnit, MockMvc, etc. -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

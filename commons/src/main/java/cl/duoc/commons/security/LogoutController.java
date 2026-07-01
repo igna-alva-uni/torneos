@@ -1,6 +1,7 @@
 package cl.duoc.commons.security;
 
 import cl.duoc.commons.event.TokenExpiradoEvent;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,7 @@ public class LogoutController {
     @Autowired(required = false)
     private KafkaTemplate<String, Object> kafkaTemplate;
 
+    @Operation(summary = "Cerrar sesion e invalidar el token JWT")
     @PostMapping("/logout")
     public ResponseEntity<String> logout(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");

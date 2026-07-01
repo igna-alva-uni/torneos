@@ -11,6 +11,7 @@
 `ms-autenticaciones` administra la seguridad lógica de los usuarios registrados en la plataforma.
 
 Este servicio maneja:
+
 * Credenciales
 * Emails
 * Contraseñas hasheadas
@@ -53,7 +54,7 @@ Además, valida la existencia de usuarios utilizando comunicación REST con `ms-
 
 Este microservicio utiliza el esquema PostgreSQL:
 
-``` text
+```text
 auth
 Tablas principales:
     auth.auth_usuarios
@@ -66,6 +67,7 @@ Tablas principales:
 # 🧩 Responsabilidades del Servicio
 
 ## Credenciales permite:
+
 * Registrar credenciales
 * Actualizar credenciales
 * Eliminar credenciales
@@ -73,10 +75,12 @@ Tablas principales:
 * Asociar roles a usuarios
 
 ## Roles permite:
+
 * Crear roles
 * Consultar roles
 
 ## Ejemplos:
+
 * ROLE_ADMIN
 * ROLE_PLAYER
 * ROLE_REFEREE
@@ -87,13 +91,17 @@ Tablas principales:
 # 🔄 Comunicación Entre Servicios
 
 Este servicio utiliza OpenFeign para comunicarse con:
-``` text
+
+```text
 ms-usuarios
 ```
+
 Ejemplo:
-``` text
+
+```text
 @FeignClient(name = "ms-usuarios")
-``` 
+```
+
 Validación implementada:
 Verificar existencia del usuario antes de registrar credenciales
 
@@ -102,6 +110,7 @@ Verificar existencia del usuario antes de registrar credenciales
 # 🔐 Modelo de Seguridad Actual
 
 ## Actualmente el proyecto utiliza:
+
 * la simulacion de Hash de contraseñas para la version actual
 * Roles persistidos en PostgreSQL
 * Relaciones ManyToMany entre usuarios y roles
@@ -109,7 +118,8 @@ Verificar existencia del usuario antes de registrar credenciales
 ---
 
 # 📂 Estructura Principal
-``` text
+
+```text
 ms-autenticaciones/
 ├── client/
 ├── controller/
@@ -124,22 +134,29 @@ ms-autenticaciones/
 ---
 
 # 🚀 Ejecución
+
 Desde la raíz del proyecto:
-``` text
+
+```text
 run-autenticaciones.bat
 ```
+
 > para el correcto funcionamiento de este servicio primero se debe haber iniciado `ms-usuarios`
 
 
 ---
 
 # ⚙️ Configuración Importante
+
 Puerto:
-``` text
+
+```text
 9002
 ```
+
 Schema PostgreSQL
-``` text
+
+```text
 spring:
   jpa:
     properties:
@@ -150,18 +167,23 @@ spring:
 ---
 
 # 📌 Endpoints Principales
+
 Credenciales
-``` text
+
+```text
 /api/v1/autenticaciones/auth
 ```
+
 Roles
-``` text
+
+```text
 /api/v1/autenticaciones/roles
 ```
 
 ---
 
 # 📚 Dependencias Importantes
+
 * spring-boot-starter-web
 * spring-boot-starter-data-jpa
 * spring-cloud-starter-netflix-eureka-client
@@ -171,6 +193,7 @@ Roles
 * mapstruct
 
 # 👨‍💻 Autor
+
 Microservicio desarrollado por:
 
 **Ignacio Alvarez**

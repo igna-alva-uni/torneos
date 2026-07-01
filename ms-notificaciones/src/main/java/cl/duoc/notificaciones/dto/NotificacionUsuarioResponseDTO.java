@@ -1,9 +1,12 @@
 package cl.duoc.notificaciones.dto;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.springframework.hateoas.RepresentationModel;
 
 @Data
-public class NotificacionUsuarioResponseDTO {
+@EqualsAndHashCode(callSuper = true)
+public class NotificacionUsuarioResponseDTO extends RepresentationModel<NotificacionUsuarioResponseDTO> {
     private Integer idNotificacionUsuario;
     private Integer idUsuario;
     private Integer idNotificacion;

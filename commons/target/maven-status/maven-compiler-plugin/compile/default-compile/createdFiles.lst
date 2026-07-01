@@ -7,6 +7,7 @@ cl\duoc\commons\event\UsuarioEliminadoEvent.class
 cl\duoc\commons\security\TokenBlacklistService.class
 cl\duoc\commons\dto\RankingResponse.class
 cl\duoc\commons\exception\FeignErrorDecoder.class
+cl\duoc\commons\dto\UsuarioCreateDTO.class
 cl\duoc\commons\server\InstanceHeaderFilter.class
 cl\duoc\commons\dto\EstadisticaEquipoResponse$EstadisticaEquipoResponseBuilder.class
 cl\duoc\commons\dto\UsuarioDTO.class

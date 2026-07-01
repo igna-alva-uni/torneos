@@ -4,13 +4,16 @@ import cl.duoc.commons.dto.EstadisticaEquipoResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.hateoas.RepresentationModel;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class RegistroRankingResponse {
+@EqualsAndHashCode(callSuper = true)
+public class RegistroRankingResponse extends RepresentationModel<RegistroRankingResponse> {
     private Integer idRegistroRanking;
     private Integer idEquipo;
     private Integer puntos;
