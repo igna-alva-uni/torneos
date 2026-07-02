@@ -6,6 +6,11 @@ spring:
     name: api-gateway
   cloud:
     gateway:
+      default-filters:
+        - PreserveHostHeader
+      server:
+        webflux:
+          trusted-proxies: ".*"
       discovery:
         locator:
           enabled: true
@@ -14,43 +19,43 @@ spring:
         - id: ms-usuarios
           uri: lb://MS-USUARIOS
           predicates:
-            - Path=/api/v1/usuarios/**
+            - Path=/api/v1/usuarios/**,/usuarios/swager/**,/usuarios/swagger-ui/**,/usuarios/v3/api-docs/**
         - id: ms-autenticaciones
           uri: lb://MS-AUTENTICACIONES
           predicates:
-            - Path=/api/v1/autenticaciones/**
+            - Path=/api/v1/autenticaciones/**,/autenticaciones/swager/**,/autenticaciones/swagger-ui/**,/autenticaciones/v3/api-docs/**
         - id: ms-juegos
           uri: lb://MS-JUEGOS
           predicates:
-            - Path=/api/v1/juegos/**
+            - Path=/api/v1/juegos/**,/juegos/swager/**,/juegos/swagger-ui/**,/juegos/v3/api-docs/**
         - id: ms-torneos
           uri: lb://MS-TORNEOS
           predicates:
-            - Path=/api/v1/torneos/**
+            - Path=/api/v1/torneos/**,/torneos/swager/**,/torneos/swagger-ui/**,/torneos/v3/api-docs/**
         - id: ms-equipos
           uri: lb://MS-EQUIPOS
           predicates:
-            - Path=/api/v1/equipos/**
+            - Path=/api/v1/equipos/**,/equipos/swager/**,/equipos/swagger-ui/**,/equipos/v3/api-docs/**
         - id: ms-partidas
           uri: lb://MS-PARTIDAS
           predicates:
-            - Path=/api/v1/partidas/**
+            - Path=/api/v1/partidas/**,/partidas/swager/**,/partidas/swagger-ui/**,/partidas/v3/api-docs/**
         - id: ms-inscripciones
           uri: lb://MS-INSCRIPCIONES
           predicates:
-            - Path=/api/v1/inscripciones/**
+            - Path=/api/v1/inscripciones/**,/inscripciones/swager/**,/inscripciones/swagger-ui/**,/inscripciones/v3/api-docs/**
         - id: ms-ranking
           uri: lb://MS-RANKING
           predicates:
-            - Path=/api/v1/ranking/**
+            - Path=/api/v1/ranking/**,/ranking/swager/**,/ranking/swagger-ui/**,/ranking/v3/api-docs/**
         - id: ms-notificaciones
           uri: lb://MS-NOTIFICACIONES
           predicates:
-            - Path=/api/v1/notificaciones/**
+            - Path=/api/v1/notificaciones/**,/notificaciones/swager/**,/notificaciones/swagger-ui/**,/notificaciones/v3/api-docs/**
         - id: ms-estadisticas
           uri: lb://MS-ESTADISTICAS
           predicates:
-            - Path=/api/v1/estadisticas/**
+            - Path=/api/v1/estadisticas/**,/estadisticas/swager/**,/estadisticas/swagger-ui/**,/estadisticas/v3/api-docs/**
           filters:
             - RewritePath=/api/v1/estadisticas/(?<segment>.*), /api/v1/stats/${segment}
         - id: shared-auth
@@ -62,35 +67,35 @@ spring:
 
 springdoc:
   swagger-ui:
-    path: /swagger-ui/index.html
+    path: /ms/swagger
     urls:
       - name: Usuarios (ms-usuarios)
-        url: /api/v1/usuarios/v3/api-docs
+        url: /usuarios/v3/api-docs
       - name: Autenticaciones (ms-autenticaciones)
-        url: /api/v1/autenticaciones/v3/api-docs
+        url: /autenticaciones/v3/api-docs
       - name: Juegos (ms-juegos)
-        url: /api/v1/juegos/v3/api-docs
+        url: /juegos/v3/api-docs
       - name: Torneos (ms-torneos)
-        url: /api/v1/torneos/v3/api-docs
+        url: /torneos/v3/api-docs
       - name: Equipos (ms-equipos)
-        url: /api/v1/equipos/v3/api-docs
+        url: /equipos/v3/api-docs
       - name: Partidas (ms-partidas)
-        url: /api/v1/partidas/v3/api-docs
+        url: /partidas/v3/api-docs
       - name: Inscripciones (ms-inscripciones)
-        url: /api/v1/inscripciones/v3/api-docs
+        url: /inscripciones/v3/api-docs
       - name: Ranking (ms-ranking)
-        url: /api/v1/ranking/v3/api-docs
+        url: /ranking/v3/api-docs
       - name: Notificaciones (ms-notificaciones)
-        url: /api/v1/notificaciones/v3/api-docs
+        url: /notificaciones/v3/api-docs
       - name: Estadisticas (ms-estadisticas)
-        url: /api/v1/estadisticas/v3/api-docs
+        url: /estadisticas/v3/api-docs
 
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: ${EUREKA_SERV:http://localhost:8761/eureka}
   instance:
     prefer-ip-address: true
     instance-id: "${spring.application.name}:${random.value}"
