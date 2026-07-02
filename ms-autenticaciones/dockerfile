@@ -2,5 +2,12 @@ FROM eclipse-temurin:21-jre-alpine
 LABEL maintainer="igna-alva-uni"
 WORKDIR /app
 COPY target/*.jar app.jar
+
+ENV DB_URL=jdbc:postgresql://postgres-db:5432/torneos
+ENV DB_USER=postgres
+ENV DB_PASS=123
+ENV KAFKA_SERV=kafka_broker:29092
+ENV EUREKA_SERV=http://eureka-server:8761/eureka
+
 EXPOSE 9002
 ENTRYPOINT ["java", "-jar","app.jar"]

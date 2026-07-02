@@ -18,16 +18,16 @@ echo 2. ELIMINANDO VOLUMENES (DATOS DE KAFKA Y POSTGRES)...
 docker volume prune -f
 
 echo 3. INICIANDO INFRAESTRUCTURA (DB, KAFKA, UI)...
-docker compose up -d
+docker compose up -d --build
 
 echo 4. ESPERANDO A QUE LOS SERVICIOS ESTEN LISTOS...
 :: Kafka y Postgres necesitan unos segundos para inicializarse antes de recibir comandos
 timeout /t 5 /nobreak
 
-echo 5. COMPILANDO BASES DE DATOS ADICIONALES...
-:: Entramos a tu carpeta de utilidades de DB
-cd init-multi-db
-call docker_compile_dbs.bat
+@REM echo 5. COMPILANDO BASES DE DATOS ADICIONALES...
+@REM :: Entramos a tu carpeta de utilidades de DB
+@REM cd init-multi-db
+@REM call docker_compile_dbs.bat
 
 echo.
 echo ====================================================

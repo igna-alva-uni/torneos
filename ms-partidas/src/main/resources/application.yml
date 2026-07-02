@@ -1,5 +1,6 @@
 server:
   port: 9006
+  forward-headers-strategy: framework
   error:
     include-stacktrace: never
 
@@ -7,7 +8,7 @@ spring:
   application:
     name: ms-partidas
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${KAFKA_SERV:localhost:9092}
     consumer:
       group-id: ms-partidas
       auto-offset-reset: earliest
@@ -18,9 +19,9 @@ spring:
         "spring.json.use.type.headers": "true"
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/torneos
-    username: postgres
-    password: 123
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/torneos}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASS:123}
   jpa:
     hibernate:
       ddl-auto: update
@@ -34,9 +35,16 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: ${EUREKA_SERV:http://localhost:8761/eureka}
   instance:
     prefer-ip-address: true
     instance-id: "${spring.application.name}:${random.value}"
     lease-renewal-interval-in-seconds: 15
     lease-expiration-duration-in-seconds: 60
+
+springdoc:
+  api-docs:
+    path: /partidas/v3/api-docs
+  swagger-ui:
+    path: /partidas/swager
+    disable-redirect: true

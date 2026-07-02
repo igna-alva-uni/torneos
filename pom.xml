@@ -191,6 +191,16 @@
         </dependencies>
     </dependencyManagement>
 
+    <!-- Dependencias globales compartidas por todos los submodulos -->
+    <dependencies>
+        <!-- Dependencias de testing con JUnit, Mockito, etc. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
 

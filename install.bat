@@ -9,6 +9,7 @@ rmdir /s /q %USERPROFILE%\.m2
 
 REM Paso 2: Eliminar carpetas target de los proyectos
 echo Eliminando carpetas target ...
+rmdir /s /q "%~dp0api-gateway\target"
 rmdir /s /q "%~dp0commons\target"
 rmdir /s /q "%~dp0eureka\target"
 rmdir /s /q "%~dp0ms-usuarios\target"

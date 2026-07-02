@@ -1,5 +1,6 @@
 server:
   port: 9003
+  forward-headers-strategy: framework
   error:
     include-stacktrace: never
 
@@ -8,9 +9,9 @@ spring:
     name: ms-juegos
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/torneos
-    username: postgres
-    password: 123
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/torneos}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASS:123}
   jpa:
     hibernate:
       ddl-auto: update
@@ -24,9 +25,16 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: ${EUREKA_SERV:http://localhost:8761/eureka}
   instance:
     prefer-ip-address: true
     instance-id: "${spring.application.name}:${random.value}"
     lease-renewal-interval-in-seconds: 15
     lease-expiration-duration-in-seconds: 60
+
+springdoc:
+  api-docs:
+    path: /juegos/v3/api-docs
+  swagger-ui:
+    path: /juegos/swager
+    disable-redirect: true

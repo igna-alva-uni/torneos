@@ -3,7 +3,9 @@ version: '3.8'
 services:
 
   postgres-db:
-    image: postgres
+    build:
+      context: ./init-multi-db
+      dockerfile: Dockerfile
     container_name: postgres-db
     ports:
       - "5433:5432"
@@ -11,29 +13,26 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: "123"
       POSTGRES_DB: torneos
-    volumes:
-      - ./init-multi-db:/docker-entrypoint-initdb.d
-      # ↑ PostgreSQL ejecuta automáticamente en orden alfabético
-      #   todos los .sql que encuentre en esa carpeta al primer arranque.
-      #   Por eso los scripts están numerados 00, 01, 02...
+    networks:
+      - torneos-network
 
   kafka:
     image: confluentinc/cp-kafka:latest
     container_name: kafka_broker
-    ports:
-      - "9092:9092"
     environment:
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: broker,controller
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka_broker:9093
-      KAFKA_LISTENERS: INTERNAL://0.0.0.0:29092,EXTERNAL://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
-      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka_broker:29092,EXTERNAL://localhost:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_LISTENERS: INTERNAL://0.0.0.0:29092,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka_broker:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
       CLUSTER_ID: "MkU3OEVBNTcwNTJENDM2Qk"
+    networks:
+      - torneos-network
 
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
@@ -45,3 +44,211 @@ services:
     environment:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka_broker:29092
+    networks:
+      - torneos-network
+
+  eureka-server:
+    build:
+      context: ./eureka
+      dockerfile: Dockerfile
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - torneos-network
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    container_name: api-gateway
+    ports:
+      - "9000:9000"
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_SERV=http://eureka-server:8761/eureka
+    networks:
+      - torneos-network
+
+  ms-usuarios:
+    build:
+      context: ./ms-usuarios
+      dockerfile: Dockerfile
+    container_name: ms-usuarios
+    depends_on:
+      - postgres-db
+      - eureka-server
+    environment:
+      - DB_URL=jdbc:postgresql://postgres-db:5432/torneos
+      - DB_USER=postgres
+      - DB_PASS=123
+      - KAFKA_SERV=kafka_broker:29092
+      - EUREKA_SERV=http://eureka-server:8761/eureka
+    networks:
+      - torneos-network
+
+  ms-autenticaciones:
+    build:
+      context: ./ms-autenticaciones
+      dockerfile: Dockerfile
+    container_name: ms-autenticaciones
+    depends_on:
+      - postgres-db
+      - kafka
+      - eureka-server
+    environment:
+      - DB_URL=jdbc:postgresql://postgres-db:5432/torneos
+      - DB_USER=postgres
+      - DB_PASS=123
+      - KAFKA_SERV=kafka_broker:29092
+      - EUREKA_SERV=http://eureka-server:8761/eureka
+    networks:
+      - torneos-network
+
+  ms-juegos:
+    build:
+      context: ./ms-juegos
+      dockerfile: Dockerfile
+    container_name: ms-juegos
+    depends_on:
+      - postgres-db
+      - eureka-server
+    environment:
+      - DB_URL=jdbc:postgresql://postgres-db:5432/torneos
+      - DB_USER=postgres
+      - DB_PASS=123
+      - KAFKA_SERV=kafka_broker:29092
+      - EUREKA_SERV=http://eureka-server:8761/eureka
+    networks:
+      - torneos-network
+
+  ms-torneos:
+    build:
+      context: ./ms-torneos
+      dockerfile: Dockerfile
+    container_name: ms-torneos
+    depends_on:
+      - postgres-db
+      - kafka
+      - eureka-server
+    environment:
+      - DB_URL=jdbc:postgresql://postgres-db:5432/torneos
+      - DB_USER=postgres
+      - DB_PASS=123
+      - KAFKA_SERV=kafka_broker:29092
+      - EUREKA_SERV=http://eureka-server:8761/eureka
+    networks:
+      - torneos-network
+
+  ms-equipos:
+    build:
+      context: ./ms-equipos
+      dockerfile: Dockerfile
+    container_name: ms-equipos
+    depends_on:
+      - postgres-db
+      - kafka
+      - eureka-server
+    environment:
+      - DB_URL=jdbc:postgresql://postgres-db:5432/torneos
+      - DB_USER=postgres
+      - DB_PASS=123
+      - KAFKA_SERV=kafka_broker:29092
+      - EUREKA_SERV=http://eureka-server:8761/eureka
+    networks:
+      - torneos-network
+
+  ms-partidas:
+    build:
+      context: ./ms-partidas
+      dockerfile: Dockerfile
+    container_name: ms-partidas
+    depends_on:
+      - postgres-db
+      - kafka
+      - eureka-server
+    environment:
+      - DB_URL=jdbc:postgresql://postgres-db:5432/torneos
+      - DB_USER=postgres
+      - DB_PASS=123
+      - KAFKA_SERV=kafka_broker:29092
+      - EUREKA_SERV=http://eureka-server:8761/eureka
+    networks:
+      - torneos-network
+
+  ms-inscripciones:
+    build:
+      context: ./ms-inscripciones
+      dockerfile: Dockerfile
+    container_name: ms-inscripciones
+    depends_on:
+      - postgres-db
+      - kafka
+      - eureka-server
+    environment:
+      - DB_URL=jdbc:postgresql://postgres-db:5432/torneos
+      - DB_USER=postgres
+      - DB_PASS=123
+      - KAFKA_SERV=kafka_broker:29092
+      - EUREKA_SERV=http://eureka-server:8761/eureka
+    networks:
+      - torneos-network
+
+  ms-ranking:
+    build:
+      context: ./ms-ranking
+      dockerfile: Dockerfile
+    container_name: ms-ranking
+    depends_on:
+      - postgres-db
+      - kafka
+      - eureka-server
+    environment:
+      - DB_URL=jdbc:postgresql://postgres-db:5432/torneos
+      - DB_USER=postgres
+      - DB_PASS=123
+      - KAFKA_SERV=kafka_broker:29092
+      - EUREKA_SERV=http://eureka-server:8761/eureka
+    networks:
+      - torneos-network
+
+  ms-notificaciones:
+    build:
+      context: ./ms-notificaciones
+      dockerfile: Dockerfile
+    container_name: ms-notificaciones
+    depends_on:
+      - postgres-db
+      - kafka
+      - eureka-server
+    environment:
+      - DB_URL=jdbc:postgresql://postgres-db:5432/torneos
+      - DB_USER=postgres
+      - DB_PASS=123
+      - KAFKA_SERV=kafka_broker:29092
+      - EUREKA_SERV=http://eureka-server:8761/eureka
+    networks:
+      - torneos-network
+
+  ms-estadisticas:
+    build:
+      context: ./ms-estadisticas
+      dockerfile: Dockerfile
+    container_name: ms-estadisticas
+    depends_on:
+      - postgres-db
+      - kafka
+      - eureka-server
+    environment:
+      - DB_URL=jdbc:postgresql://postgres-db:5432/torneos
+      - DB_USER=postgres
+      - DB_PASS=123
+      - KAFKA_SERV=kafka_broker:29092
+      - EUREKA_SERV=http://eureka-server:8761/eureka
+    networks:
+      - torneos-network
+
+networks:
+  torneos-network:
+    driver: bridge
