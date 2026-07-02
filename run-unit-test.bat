@@ -1,0 +1,1 @@
+mvn clean test > ".\resultado_test_unitarios.txt"
