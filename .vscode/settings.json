@@ -3,5 +3,8 @@
   "java.configuration.updateBuildConfiguration": "interactive",
   "files.autoSave": "afterDelay",
   "editor.minimap.enabled": false,
-  "terminal.integrated.defaultProfile.windows": "PowerShell"
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "files.exclude": {
+    "**/target": true
+  }
 }
