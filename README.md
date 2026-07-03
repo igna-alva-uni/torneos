@@ -251,8 +251,8 @@ Este ecosistema de microservicios fue desarrollado colaborativamente. Responsabi
 
 * **Ignacio Alvarez** - `ms-usuarios`, `ms-autenticaciones`, `ms-equipos`, `README.md` principal y de los ms responsables, estructuración de base de datos e infraestructura Docker, swagger ui para todos los ms, pruebas unitarias de todos los ms, spring security y API Gateway.
 * **Fabian Cornejo** - `ms-estadisticas`, `ms-ranking`, apoyo en el desarollo de las pruebas unitarias de todos los ms y swagger ui.
-* **[ Nombre Compañero 2 ]** - `[Microservicios a su cargo]`
-* **[ Nombre Compañero 3 ]** - `[Microservicios a su cargo]`
+* **Esteban Martinez** - `ms-juegos`, `ms-torneos` y `ms-partidas`
+* **Luciano Diaz** - `ms-inscripciones` y `ms-notificaciones`
 
 Proyecto académico orientado al aprendizaje de:
 
