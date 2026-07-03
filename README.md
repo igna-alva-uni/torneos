@@ -249,10 +249,10 @@ Para facilitar la revisión del proyecto según la rúbrica, aquí se encuentran
 
 Este ecosistema de microservicios fue desarrollado colaborativamente. Responsabilidades de implementación específica en esta entrega:
 
-* **Ignacio Alvarez** - `ms-usuarios`, `ms-autenticaciones`, `ms-equipos`, `README.md` principal y de los ms responsables, estructuración de base de datos e infraestructura Docker, swagger ui para todos los ms, pruebas unitarias de todos los ms, spring security y API Gateway.
-* **Fabian Cornejo** - `ms-estadisticas`, `ms-ranking`, apoyo en el desarollo de las pruebas unitarias de todos los ms y swagger ui.
-* **Esteban Martinez** - `ms-juegos`, `ms-torneos` y `ms-partidas`
-* **Luciano Diaz** - `ms-inscripciones` y `ms-notificaciones`
+* <a href="https://github.com/igna-alva-uni"><img src="https://images.weserv.nl/?url=github.com/igna-alva-uni.png&mask=circle&w=80" width="35" align="middle"></a> **Ignacio Alvarez** - `ms-usuarios`, `ms-autenticaciones`, `ms-equipos`, `README.md` principal y de los ms responsables, estructuración de base de datos e infraestructura Docker, swagger ui para todos los ms, pruebas unitarias de todos los ms, spring security y API Gateway.
+* <a href="https://github.com/fabcornejom"><img src="https://images.weserv.nl/?url=github.com/fabcornejom.png&mask=circle&w=80" width="35" align="middle"></a> **Fabian Cornejo** - `ms-estadisticas`, `ms-ranking`, apoyo en el desarollo de las pruebas unitarias de todos los ms y swagger ui.
+* <a href="https://github.com/esmartineza-spec"><img src="https://images.weserv.nl/?url=github.com/esmartineza-spec.png&mask=circle&w=80" width="35" align="middle"></a> **Esteban Martinez** - `ms-juegos`, `ms-torneos` y `ms-partidas`
+* <a href="https://github.com/autistabakanconmetralleta"><img src="https://images.weserv.nl/?url=github.com/autistabakanconmetralleta.png&mask=circle&w=80" width="35" align="middle"></a> **Luciano Diaz** - `ms-inscripciones` y `ms-notificaciones`
 
 Proyecto académico orientado al aprendizaje de:
 
